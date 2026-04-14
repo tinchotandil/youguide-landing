@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouGuide — La historia en tus oídos | Audio-guía automática para Argentina</title>
+    <meta name="description"
+        content="YouGuide es la app de audio-guía automática por proximidad. Caminá, escuchá y descubrí la historia secreta de cada rincón de Argentina sin tocar tu celular." />
+    <meta name="keywords"
+        content="audioguia, turismo argentina, turismo accesible, guia de viaje automatica, app de turismo, tandil, bariloche, excursiones" />
+    <meta name="author" content="YouGuide Team" />
+    <meta name="robots" content="index, follow" />
+    <meta name="google-site-verification" content="I-uPJYZ8ZynE570TSe_pM4YSJK9VxhqobDb24QQtnXA" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎧</text></svg>" />
+
+    <!-- Open Graph / Meta / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tinchotandil-youguide.vercel.app/" />
+    <meta property="og:title" content="YouGuide — La historia en tus oídos" />
+    <meta property="og:description"
+        content="Caminá, escuchá y descubrí la historia secreta de cada rincón de Argentina sin tocar tu celular. Audio-guía inteligente." />
+    <meta property="og:image" content="https://tinchotandil-youguide.vercel.app/img/buenosaires.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://tinchotandil-youguide.vercel.app/" />
+    <meta property="twitter:title" content="YouGuide — La historia en tus oídos" />
+    <meta property="twitter:description"
+        content="Caminá, escuchá y descubrí la historia auto-guiada de Argentina sin tocar tu celular." />
+    <meta property="twitter:image" content="https://tinchotandil-youguide.vercel.app/img/buenosaires.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tinchotandil-youguide.vercel.app/" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deep: { 900: '#0b1120', 800: '#0f172a', 700: '#1e293b', 600: '#334155' },
+                        accent: { DEFAULT: '#00D1B2', light: '#34d9c3', dark: '#00b89c' },
+                        ocean: { DEFAULT: '#2563eb', light: '#3b82f6', dark: '#1d4ed8' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Outfit', 'Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                        'fade-up-delay': 'fadeUp 0.8s ease-out 0.2s forwards',
+                        'fade-up-delay2': 'fadeUp 0.8s ease-out 0.4s forwards',
+                        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideInRight: {
+                            '0%': { opacity: '0', transform: 'translateX(40px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0b1120;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00D1B2;
+            border-radius: 10px;
+        }
+
+        /* Glass morphism */
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-light {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #00D1B2 0%, #3b82f6 50%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glow effects */
+        .glow-accent {
+            box-shadow: 0 0 30px rgba(0, 209, 178, 0.3), 0 0 60px rgba(0, 209, 178, 0.1);
+        }
+
+        .glow-blue {
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Hero background overlay */
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(11, 17, 32, 0.4) 0%, rgba(11, 17, 32, 0.75) 50%, rgba(11, 17, 32, 1) 100%);
+        }
+
+        /* City card hover */
+        .city-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .city-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .city-card:hover .city-overlay {
+            opacity: 0.5;
+        }
+
+        .city-card .city-overlay {
+            transition: opacity 0.4s ease;
+        }
+
+        /* Button shine */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.15);
+            transform: rotate(25deg);
+            transition: left 0.6s ease;
+        }
+
+        .btn-shine:hover::after {
+            left: 120%;
+        }
+
+        /* Section reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Particle-like background dots */
+        .dots-pattern {
+            background-image: radial-gradient(rgba(0, 209, 178, 0.07) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Install step connector line */
+        .step-connector {
+            position: relative;
+        }
+
+        .step-connector::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(0, 209, 178, 0.3), transparent);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Nav shrink */
+        .nav-scrolled {
+            background: rgba(11, 17, 32, 0.95) !important;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="bg-deep-900 text-white font-sans antialiased overflow-x-hidden">
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="#hero" class="flex items-center gap-2 group" aria-label="YouGuide inicio">
+                    <span class="text-2xl group-hover:animate-float">🎧</span>
+                    <span class="font-display font-bold text-xl tracking-tight">You<span
+                            class="text-accent">Guide</span></span>
+                </a>
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#propuesta"
+                        class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Propuesta</a>
+                    <a href="#como-funciona"
+                        class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Cómo Funciona</a>
+                    <a href="#ciudades"
+                        class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Ciudades</a>
+                    <a href="#faq"
+                        class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">FAQ</a>
+                    <a href="#contacto"
+                        class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Contacto</a>
+                    <a href="https://github.com/tinchotandil/youguide-v3/releases/download/v1.0.0-beta/youguide.apk" download="youguide.apk"
+                        class="apk-link btn-shine bg-accent hover:bg-accent-light text-deep-900 font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-accent/20" target="_blank" rel="noopener noreferrer"
+                        aria-label="Descargar YouGuide APK Beta gratis">
+                        Descargar Beta
+                    </a>
+                </div>
+
+                <button id="menuBtn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Abrir menú de navegación"
+                    aria-expanded="false">
+                    <span class="block w-6 h-0.5 bg-white transition-all duration-300 origin-center" id="bar1"></span>
+                    <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="bar2"></span>
+                    <span class="block w-4 h-0.5 bg-white transition-all duration-300 origin-center" id="bar3"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu"
+            class="mobile-menu fixed top-0 right-0 w-72 h-full bg-deep-900/98 backdrop-blur-xl z-50 flex flex-col pt-20 px-8 gap-6 border-l border-white/5">
+            <button id="closeMenu" class="absolute top-5 right-5 text-gray-400 hover:text-white"
+                aria-label="Cerrar menú">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <a href="#propuesta"
+                class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Propuesta</a>
+            <a href="#como-funciona" class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Cómo
+                Funciona</a>
+            <a href="#ciudades"
+                class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Ciudades</a>
+            <a href="#faq" class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">FAQ</a>
+            <a href="#contacto"
+                class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Contacto</a>
+            <a href="https://github.com/tinchotandil/youguide-v3/releases/download/v1.0.0-beta/youguide.apk" download="youguide.apk"
+                class="apk-link btn-shine bg-accent text-deep-900 font-semibold text-center py-3 rounded-full mt-4 mobile-link" target="_blank" rel="noopener noreferrer"
+                aria-label="Descargar YouGuide APK Beta gratis">Descargar Beta</a>
+        </div>
+    </nav>
+
+    <div id="menuBackdrop" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="img/buenosaires.png" alt="Obelisco de Buenos Aires" class="w-full h-full object-cover"
+                loading="eager" />
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+        <div class="absolute inset-0 dots-pattern opacity-40"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6 py-32">
+            <div
+                class="animate-fade-up inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-8">
+                <span class="w-2 h-2 bg-accent rounded-full animate-pulse-slow"></span>
+                <span class="text-accent text-xs font-medium tracking-wider uppercase">Beta Abierta — Argentina</span>
+            </div>
+
+            <h1 class="animate-fade-up font-display text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                YouGuide: <br class="sm:hidden" />
+                <span class="gradient-text">La historia en tus oídos</span>
+            </h1>
+
+            <p
+                class="animate-fade-up-delay text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed opacity-0">
+                ¿Y si las ciudades pudieran hablarte al oído? 🎧✨<br />
+                Caminá. Escuchá. Descubrí. <span class="text-white font-semibold">Sin tocar tu celular.</span>
+            </p>
+
+            <div
+                class="animate-fade-up-delay2 flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 mb-3">
+                <a href="https://github.com/tinchotandil/youguide-v3/releases/download/v1.0.0-beta/youguide.apk" download="youguide.apk"
+                    class="apk-link btn-shine w-full sm:w-auto bg-accent hover:bg-accent-light text-deep-900 font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 glow-accent hover:scale-105 flex items-center justify-center gap-3" target="_blank" rel="noopener noreferrer"
+                    aria-label="Descargar YouGuide APK Beta gratis">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    DESCARGAR APK GRATIS (BETA)
+                </a>
+                <a href="#propuesta"
+                    class="w-full sm:w-auto border border-white/20 hover:border-accent/50 text-white font-medium text-lg px-8 py-4 rounded-2xl transition-all duration-300 hover:bg-white/5 flex items-center justify-center gap-2"
+                    aria-label="Conocer más sobre YouGuide">
+                    Conocer más
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
+                </a>
+            </div>
+
+            <p class="animate-fade-up-delay2 opacity-0 text-sm italic text-gray-400 mt-2 text-center w-full">
+                *Por el momento, disponible únicamente para dispositivos Android.
+            </p>
+
+            <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-400">
+                <div class="flex -space-x-2">
+                    <div
+                        class="w-8 h-8 rounded-full bg-gradient-to-br from-accent to-ocean ring-2 ring-deep-900 flex items-center justify-center text-xs font-bold text-white">
+                        M</div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 ring-2 ring-deep-900 flex items-center justify-center text-xs font-bold text-white">
+                        L</div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-teal-400 ring-2 ring-deep-900 flex items-center justify-center text-xs font-bold text-white">
+                        A</div>
+                    <div
+                        class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-rose-500 ring-2 ring-deep-900 flex items-center justify-center text-xs font-bold text-white">
+                        +</div>
+                </div>
+                <span>Testers activos explorando Argentina</span>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-accent/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </section>
+
+
+    <section id="propuesta" class="relative py-24 md:py-32">
+        <div class="absolute inset-0 dots-pattern opacity-20"></div>
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="reveal">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="h-px w-12 bg-accent/50"></div>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Nuestra Propuesta</span>
+                </div>
+
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-10 leading-tight">
+                    No es otra app de mapas.<br />
+                    Es tu <span class="gradient-text">nuevo sentido</span> para explorar.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                <div class="reveal glass rounded-3xl p-8 md:p-10">
+                    <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">🎧</span>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        YouGuide no es otra app de mapas; es tu nuevo sentido para explorar el mundo. Olvidate de
+                        caminar mirando una pantalla o de leer carteles aburridos bajo el sol. Nuestra <span
+                            class="text-white font-semibold">tecnología de audio automático por proximidad</span>
+                        detecta dónde estás y te narra la historia secreta, el dato curioso o la leyenda oculta del
+                        lugar justo cuando estás frente a él.
+                    </p>
+                </div>
+
+                <div class="reveal glass rounded-3xl p-8 md:p-10">
+                    <div class="w-14 h-14 bg-ocean/10 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="text-3xl">♿</span>
+                    </div>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Es una experiencia <span class="text-white font-semibold">100% manos libres</span>, diseñada
+                        bajo la filosofía <span class="text-accent font-semibold">"Accessibility First"</span>: tan
+                        intuitiva que es la herramienta definitiva para personas no videntes y tan fascinante que cambia
+                        la forma de viajar de cualquier curioso.
+                    </p>
+                </div>
+            </div>
+
+            <div class="reveal flex flex-wrap justify-center gap-3 mt-12">
+                <span class="glass-light rounded-full px-5 py-2 text-sm text-gray-300 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Audio Automático
+                </span>
+                <span class="glass-light rounded-full px-5 py-2 text-sm text-gray-300 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    100% Manos Libres
+                </span>
+                <span class="glass-light rounded-full px-5 py-2 text-sm text-gray-300 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Accessibility First
+                </span>
+                <span class="glass-light rounded-full px-5 py-2 text-sm text-gray-300 flex items-center gap-2">
+                    <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clip-rule="evenodd" />
+                    </svg>
+                    Historias Curadas
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="como-funciona" class="relative py-24 md:py-32 bg-deep-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-3 mb-6">
+                    <div class="h-px w-12 bg-accent/50"></div>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Tres Pasos</span>
+                    <div class="h-px w-12 bg-accent/50"></div>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                    Mágico y <span class="gradient-text">Sin Esfuerzo</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Solo 3 pasos para transformar tu próxima caminata y comenzar la exploración en cualquier rincón.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div
+                    class="reveal glass rounded-3xl p-8 relative hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-accent/10 rounded-full flex items-center justify-center border border-accent/20">
+                        <span class="text-4xl">📍</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-3 text-white">1. Llegá</h3>
+                    <p class="text-gray-400 leading-relaxed">Ubicate en el punto de inicio de cualquier ciudad
+                        disponible (una plaza, un monumento, el inicio de un sendero).</p>
+                </div>
+                <div
+                    class="reveal glass rounded-3xl p-8 relative hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-ocean/10 rounded-full flex items-center justify-center border border-ocean/20">
+                        <span class="text-4xl">🎧</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-3 text-white">2. Guardá tu celular</h3>
+                    <p class="text-gray-400 leading-relaxed">Conectá tus auriculares, bloqueá la pantalla y guardá el
+                        teléfono en el bolsillo. No vas a necesitar volver a mirarlo.</p>
+                </div>
+                <div
+                    class="reveal glass rounded-3xl p-8 relative hover:-translate-y-2 transition-transform duration-300">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-purple-500/10 rounded-full flex items-center justify-center border border-purple-500/20">
+                        <span class="text-4xl">✨</span>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-3 text-white">3. Escuchá</h3>
+                    <p class="text-gray-400 leading-relaxed">Vas a escuchar un "ding!" apenas camines cerca del sitio y
+                        la historia curada comenzará automáticamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="ciudades" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-deep-800 to-deep-900"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-3 mb-6">
+                    <div class="h-px w-12 bg-accent/50"></div>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Ciudades Piloto</span>
+                    <div class="h-px w-12 bg-accent/50"></div>
+                </div>
+
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                    🏙️ Uníte a la <span class="gradient-text">Revolución del Turismo</span><br /> en Argentina
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Ya estamos operativos en <span class="text-white font-semibold">43 ciudades de Argentina</span>,
+                    incluyendo los puntos más icónicos de:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/tandil.png" alt="Sierras de Tandil"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Tandil</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Dejá que la Piedra Movediza te cuente su
+                            secreto.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/azul.png" alt="Arquitectura Art Déco de Salamone en Azul"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Azul</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Descubrí la potencia del Art Déco de Salamone.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/buenosaires.png" alt="Obelisco de Buenos Aires"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Buenos Aires</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Sentí el pulso de la historia en cada esquina
+                            porteña.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/mardelplata.png" alt="Costa de Mar del Plata"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Mar del Plata</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Mucho más que mar y arena; historias que te van
+                            a sorprender.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/jujuy.png" alt="Cerro de los Siete Colores, Jujuy"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Jujuy</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">La Quebrada de Humahuaca y sus colores
+                            milenarios.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/cordoba.png" alt="Sierras de Córdoba"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Córdoba</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Sierras, historia jesuítica y la Docta en tu
+                            oído.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/rosario.png" alt="Monumento a la Bandera, Rosario"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Rosario</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Cuna de la Bandera y secretos a orillas del
+                            Paraná.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/bariloche.png" alt="Lagos y montañas de Bariloche"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Bariloche</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Lagos, bosques y leyendas patagónicas que te
+                            envuelven.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/catamarca.png" alt="Paisajes de Catamarca"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Catamarca</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Místicos paisajes andinos y relatos
+                            ancestrales.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/misiones.png" alt="Cataratas del Iguazú, Misiones"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Misiones</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Cataratas, selva y las ruinas jesuíticas que
+                            hablan.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/larioja.png" alt="Talampaya, La Rioja"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">La Rioja</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Caminá entre gigantes de piedra roja en
+                            Talampaya.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/ushuaia.png" alt="Faro del Fin del Mundo, Ushuaia"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Ushuaia</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Historias del fin del mundo y navegación por el
+                            Beagle.</p>
+                    </div>
+                </div>
+
+                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                    <img src="img/sierraventana.png" alt="Sierra de la Ventana"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy" />
+                    <div
+                        class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <div class="flex items-center gap-2 mb-1"><span
+                                class="w-2 h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1">Sierra de la Ventana</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed">Explorá los huecos de la historia en las
+                            sierras más antiguas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-gray-400 text-base mt-8 reveal">
+                <span class="text-accent font-semibold">...y otras 33 ciudades.</span> Desde Salta y El Calafate hasta
+                Mendoza, Iguazú y Rosario.
+            </p>
+        </div>
+    </section>
+
+    <!-- PROXIMAMENTE SECTION -->
+    <section id="proximamente" class="relative py-16 md:py-24 overflow-hidden border-t border-white/5 border-b">
+        <div class="absolute inset-0 bg-deep-900"></div>
+        <div class="absolute inset-0 dots-pattern opacity-10"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 reveal">
+                <div class="inline-flex items-center gap-3 mb-6">
+                    <div class="h-px w-12 bg-gray-500/50"></div>
+                    <span class="text-gray-400 text-sm font-medium tracking-widest uppercase">Expansión 2026</span>
+                    <div class="h-px w-12 bg-gray-500/50"></div>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6 text-gray-300">
+                    Próximamente en <span class="gradient-text">Sudamérica</span>
+                </h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                    Nuestra misión no tiene fronteras. Estamos mapeando el continente para llevar la historia a tus
+                    oídos vayas a donde vayas.
+                </p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-6 reveal">
+                <div
+                    class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors grayscale hover:grayscale-0">
+                    <span class="text-4xl mb-3">🇨🇱</span>
+                    <h3 class="font-semibold text-white">Chile</h3>
+                    <span class="text-xs text-gray-400">Valparaíso, Santiago</span>
+                </div>
+                <div
+                    class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors grayscale hover:grayscale-0">
+                    <span class="text-4xl mb-3">🇺🇾</span>
+                    <h3 class="font-semibold text-white">Uruguay</h3>
+                    <span class="text-xs text-gray-400">Montevideo, Colonia</span>
+                </div>
+                <div
+                    class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors grayscale hover:grayscale-0">
+                    <span class="text-4xl mb-3">🇧🇷</span>
+                    <h3 class="font-semibold text-white">Brasil</h3>
+                    <span class="text-xs text-gray-400">Río, São Paulo</span>
+                </div>
+                <div
+                    class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors grayscale hover:grayscale-0">
+                    <span class="text-4xl mb-3">🇵🇪</span>
+                    <h3 class="font-semibold text-white">Perú</h3>
+                    <span class="text-xs text-gray-400">Lima, Cusco</span>
+                </div>
+            </div>
+
+            <div class="text-center mt-20 mb-8 reveal">
+                <div class="inline-flex items-center gap-3 mb-6">
+                    <div class="h-px w-12 bg-accent/50"></div>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Evolución</span>
+                    <div class="h-px w-12 bg-accent/50"></div>
+                </div>
+                <h3 class="font-display text-2xl font-bold text-white">
+                    Lo que se viene... ¿Qué más te imaginás?
+                </h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 reveal">
+                <div
+                    class="glass-light rounded-2xl p-6 relative hover:-translate-y-1 transition-transform border border-white/5">
+                    <div class="text-3xl mb-3">📶</div>
+                    <h4 class="font-bold text-white mb-2">Modo Offline</h4>
+                    <p class="text-sm text-gray-400">Descargá las guías antes de salir. Ideal para senderismo en zonas
+                        como El Chaltén o cordillera sin señal.</p>
+                </div>
+                <div
+                    class="glass-light rounded-2xl p-6 relative hover:-translate-y-1 transition-transform border border-white/5">
+                    <div class="text-3xl mb-3">🤝</div>
+                    <h4 class="font-bold text-white mb-2">Guías Comunitarias</h4>
+                    <p class="text-sm text-gray-400">Pronto cualquier persona podrá grabar y subir las historias de su
+                        ciudad. El contenido será moderado por IA.</p>
+                </div>
+                <div
+                    class="glass-light rounded-2xl p-6 relative hover:-translate-y-1 transition-transform border border-white/5">
+                    <div class="text-3xl mb-3">🏆</div>
+                    <h4 class="font-bold text-white mb-2">Recompensas Físicas</h4>
+                    <p class="text-sm text-gray-400">Canjeá tus puntos de experiencia (XP) y niveles por cafés,
+                        descuentos y regalos en la red de comercios locales adheridos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="testimonios" class="relative py-24 md:py-32 bg-deep-800 border-t border-b border-white/5">
+        <div class="absolute inset-0 dots-pattern opacity-10"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-3 mb-6">
+                    <div class="h-px w-12 bg-accent/50"></div>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Feedback</span>
+                    <div class="h-px w-12 bg-accent/50"></div>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                    Lo que dice la <span class="gradient-text">Comunidad Beta</span>
+                </h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="reveal glass rounded-3xl p-8 relative hover:-translate-y-1 transition-transform">
+                    <div class="text-accent text-2xl mb-4 tracking-widest">★★★★★</div>
+                    <p class="text-gray-300 italic mb-8 relative z-10 text-lg">"Fui a la Sierra de Tandil y es una
+                        locura cómo te empieza a hablar la app justo cuando llegas a la Movediza. Por fin pude disfrutar
+                        el paisaje real y sacar fotos sin estar leyendo texto en la pantallita del celular."</p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-pink-500 to-orange-400 rounded-full flex items-center justify-center font-bold text-white shadow-lg">
+                            S</div>
+                        <div>
+                            <div class="font-semibold text-white">Sofía R.</div>
+                            <div class="text-accent text-sm">Tester en Tandil</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal glass rounded-3xl p-8 relative hover:-translate-y-1 transition-transform">
+                    <div class="text-accent text-2xl mb-4 tracking-widest">★★★★★</div>
+                    <p class="text-gray-300 italic mb-8 relative z-10 text-lg">"Me cambió la forma de pasear en mis
+                        findes libres. Vivo en Buenos Aires y paso por lugares con historia todos los días que ahora
+                        descubro de la nada y me asombro... ¡Es el futuro!"</p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-ocean to-blue-400 rounded-full flex items-center justify-center font-bold text-white shadow-lg">
+                            L</div>
+                        <div>
+                            <div class="font-semibold text-white">Leandro M.</div>
+                            <div class="text-accent text-sm">Tester en CABA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal glass rounded-3xl p-8 relative hover:-translate-y-1 transition-transform">
+                    <div class="text-accent text-2xl mb-4 tracking-widest">★★★★★</div>
+                    <p class="text-gray-300 italic mb-8 relative z-10 text-lg">"La precisión del GPS es fantástica
+                        (literal te avisa cuando estás a 50 metros). Soy estudiante de turismo y me encanta cómo está
+                        armada la narrativa de la historia. Es muy envolvente."</p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-full flex items-center justify-center font-bold text-white shadow-lg">
+                            C</div>
+                        <div>
+                            <div class="font-semibold text-white">Carla T.</div>
+                            <div class="text-accent text-sm">Tester en Azul</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="faq" class="relative py-24 md:py-32">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-3 mb-6">
+                    <div class="h-px w-12 bg-accent/50"></div>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Consultas</span>
+                    <div class="h-px w-12 bg-accent/50"></div>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                    Preguntas <span class="gradient-text">Frecuentes</span>
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="reveal glass rounded-2xl p-8 hover:bg-white/5 transition-colors group">
+                    <h3
+                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between">
+                        ¿Por qué todavía no la descargo del Play Store?
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-lg">YouGuide se encuentra actualmente en fase de Beta
+                        Exclusiva. Distribuimos el APK de prueba (sin costo) directamente a nuestra comunidad para
+                        optimizar y ajustar detalles antes de nuestro gran lanzamiento oficial. Al participar hoy, nos
+                        ayudás a moldear el futuro de la app.</p>
+                </div>
+
+                <div class="reveal glass rounded-2xl p-8 hover:bg-white/5 transition-colors group">
+                    <h3
+                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between">
+                        ¿Consume muchos datos o batería el audio automático?
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-lg">¡Al contrario! Como la pantalla permanece apagada
+                        en tu bolsillo y procesamos la geolocalización de modo ultra-eficiente en segundo plano, vas a
+                        gastar menos batería que usando apps tradicionales con mapas visibles.</p>
+                </div>
+
+                <div class="reveal glass rounded-2xl p-8 hover:bg-white/5 transition-colors group">
+                    <h3
+                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between">
+                        ¿Necesito auriculares para que funcione?
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-lg">No es obligatorio (la app puede sonar por el
+                        altavoz de tu teléfono si estás caminando por el campo), pero te recomendamos enfáticamente
+                        usarlos. El efecto de "susurro al oído" en medio de la ciudad genera esa inmersión histórica que
+                        nos hace únicos.</p>
+                </div>
+
+                <div class="reveal glass rounded-2xl p-8 hover:bg-white/5 transition-colors group">
+                    <h3
+                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between">
+                        ¿Tiene costo usar la App?
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-lg">Quienes instalan y participan de la Beta tienen los
+                        relatos gratuitos. El único "costo" es tu opinión: luego de que visites sitios usando la app, te
+                        pediremos que respondas una breve encuesta para entender qué te gustó y qué debemos mejorar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="comunidad" class="relative py-24 md:py-32">
+        <div class="absolute inset-0 dots-pattern opacity-15"></div>
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="reveal glass rounded-3xl p-8 md:p-14 text-center relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-60 h-60 bg-ocean/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2">
+                </div>
+
+                <div class="relative z-10">
+                    <span class="text-5xl mb-6 block">🚀</span>
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        Formá parte del <span class="gradient-text">Círculo Íntimo</span><br /> de YouGuide
+                    </h2>
+                    <p class="text-gray-300 text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
+                        Queremos que seas de los primeros <span class="text-white font-semibold">1.000 usuarios en
+                            Argentina</span> en probar esta tecnología antes del lanzamiento global.
+                    </p>
+
+                    <div class="h-px w-24 bg-accent/30 mx-auto mb-8"></div>
+
+                    <div class="max-w-3xl mx-auto">
+                        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-4 text-accent">¿Cómo funciona la
+                            magia?</h3>
+                        <p class="text-gray-300 text-lg leading-relaxed mb-10">
+                            Descargá el APK Beta, explorá tu ciudad con los auriculares puestos y ayudanos a
+                            evolucionar. Para mantener tu acceso activo y desbloquear nuevas rutas exclusivas en el
+                            corto plazo, te pediremos completar una <span class="text-white font-semibold">encuesta de
+                                solo 2 minutos</span> tras tu primera caminata. Tu feedback es el motor que nos permite
+                            mejorar tu experiencia.
+                        </p>
+                    </div>
+
+                    <a href="https://github.com/tinchotandil/youguide-v3/releases/download/v1.0.0-beta/youguide.apk" download="youguide.apk"
+                        class="apk-link btn-shine inline-flex items-center gap-3 bg-accent hover:bg-accent-light text-deep-900 font-bold text-lg px-10 py-4 rounded-2xl transition-all duration-300 glow-accent hover:scale-105" target="_blank" rel="noopener noreferrer"
+                        aria-label="Descargar YouGuide APK Beta gratis">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        DESCARGAR APK GRATIS (BETA)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="instalar" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-deep-900 via-deep-800 to-deep-900"></div>
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-flex items-center gap-3 mb-6">
+                    <div class="h-px w-12 bg-accent/50"></div>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Instalación</span>
+                    <div class="h-px w-12 bg-accent/50"></div>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    Listo en <span class="gradient-text">3 pasos</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Es rápido, seguro y 100% gratis.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div
+                    class="reveal glass rounded-3xl p-8 text-center group hover:border-accent/20 transition-all duration-500">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-accent/10 rounded-2xl flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-500">
+                        <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                    </div>
+                    <div
+                        class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent text-deep-900 font-bold text-sm mb-4">
+                        1</div>
+                    <h3 class="font-display text-xl font-bold mb-3">Descargá</h3>
+                    <p class="text-gray-400 leading-relaxed">Bajá el archivo APK desde el botón de descarga.</p>
+                </div>
+
+                <div
+                    class="reveal glass rounded-3xl p-8 text-center group hover:border-accent/20 transition-all duration-500">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-ocean/10 rounded-2xl flex items-center justify-center group-hover:bg-ocean/20 transition-colors duration-500">
+                        <svg class="w-10 h-10 text-ocean-light" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                        </svg>
+                    </div>
+                    <div
+                        class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-ocean text-white font-bold text-sm mb-4">
+                        2</div>
+                    <h3 class="font-display text-xl font-bold mb-3">Habilitá</h3>
+                    <p class="text-gray-400 leading-relaxed">Aceptá "Fuentes desconocidas" en los ajustes de Android.
+                    </p>
+                </div>
+
+                <div
+                    class="reveal glass rounded-3xl p-8 text-center group hover:border-accent/20 transition-all duration-500">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-emerald-500/10 rounded-2xl flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors duration-500">
+                        <svg class="w-10 h-10 text-emerald-400" fill="none" stroke="currentColor" stroke-width="1.5"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+                        </svg>
+                    </div>
+                    <div
+                        class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500 text-white font-bold text-sm mb-4">
+                        3</div>
+                    <h3 class="font-display text-xl font-bold mb-3">Explorá</h3>
+                    <p class="text-gray-400 leading-relaxed">Abrí la app, poné los auriculares y empezá a caminar.</p>
+                </div>
+            </div>
+
+            <p class="text-center text-gray-500 text-sm mt-10 reveal">
+                ⚠️ Disponible solo para Android. La beta no se encuentra en Google Play Store; se instala como APK
+                directo.
+            </p>
+        </div>
+    </section>
+
+
+    <section id="contacto" class="relative py-24 bg-deep-800 border-t border-white/5">
+        <div class="absolute inset-0 dots-pattern opacity-10"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
+            <div class="reveal">
+                <h2 class="font-display text-4xl sm:text-5xl font-bold mb-6">
+                    Hablemos de <span class="gradient-text">Turismo, Historia e IA</span>
+                </h2>
+                <p class="text-gray-400 text-xl mb-12 max-w-2xl mx-auto">
+                    ¿Tenés dudas, alianzas turísticas sugerencias o querés que YouGuide desembarque en tu ciudad?
+                    ¡Hablemos!
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <a href="mailto:martingarciayouguide@gmail.com"
+                        class="btn-shine w-full sm:w-auto bg-ocean hover:bg-ocean-light text-white font-bold px-10 py-5 rounded-2xl transition-all duration-300 glow-blue flex items-center justify-center gap-3 text-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                        </svg>
+                        Mandar Email
+                    </a>
+                    <a href="https://www.instagram.com/youguide.ar/" target="_blank" rel="noopener noreferrer"
+                        class="btn-shine w-full sm:w-auto bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:scale-105 text-white font-bold px-10 py-5 rounded-2xl transition-all duration-300 shadow-lg shadow-pink-500/30 flex items-center justify-center gap-3 text-lg">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                        @youguide.ar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="relative border-t border-white/5 py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="text-center md:text-left">
+                    <a href="#hero" class="flex items-center justify-center md:justify-start gap-2 mb-3"
+                        aria-label="YouGuide inicio">
+                        <span class="text-xl">🎧</span>
+                        <span class="font-display font-bold text-lg">You<span class="text-accent">Guide</span></span>
+                    </a>
+                    <p class="text-gray-500 text-sm">© 2026 YouGuide. Tu guía premium de Argentina.</p>
+                </div>
+
+                <div class="flex items-center gap-8">
+                    <a href="#como-funciona" class="text-gray-400 hover:text-accent text-sm transition-colors">Cómo
+                        Funciona</a>
+                    <a href="#ciudades" class="text-gray-400 hover:text-accent text-sm transition-colors">Ciudades</a>
+                    <a href="#faq" class="text-gray-400 hover:text-accent text-sm transition-colors">FAQ</a>
+                    <a href="#contacto" class="text-gray-400 hover:text-accent text-sm transition-colors">Contacto</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="https://www.instagram.com/youguide.ar/" target="_blank" rel="noopener noreferrer"
+                        class="w-10 h-10 rounded-full glass-light flex items-center justify-center text-gray-400 hover:text-accent hover:border-accent/30 transition-all duration-300"
+                        aria-label="Seguinos en Instagram">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-white/5 text-center">
+                <p class="text-gray-600 text-xs">
+                    YouGuide es una aplicación en fase Beta. El APK se distribuye directamente y no está disponible en
+                    Google Play Store.
+                    <br />Todas las marcas y nombres mencionados pertenecen a sus respectivos dueños.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // === EL LINK DE DESCARGA AHORA ESTÁ HARDCODEADO EN EL HTML PARA MÁXIMA COMPATIBILIDAD ===
+        // =========================================================
+
+        // ===== Navbar scroll effect =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // ===== Mobile menu =====
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuBackdrop = document.getElementById('menuBackdrop');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const bar1 = document.getElementById('bar1');
+        const bar2 = document.getElementById('bar2');
+        const bar3 = document.getElementById('bar3');
+
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            menuBackdrop.classList.remove('hidden');
+            menuBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            menuBackdrop.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        menuBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        menuBackdrop.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // ===== Scroll reveal animation =====
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+
+</body>
+
+</html>
