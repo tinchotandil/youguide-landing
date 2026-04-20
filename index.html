@@ -2,6 +2,24 @@
 <html lang="es" class="scroll-smooth">
 
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4W8HZYD53"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Z4W8HZYD53');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "weo85dlf3f");
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YouGuide — La historia en tus oídos | Audio-guía automática para Argentina</title>
@@ -248,8 +266,8 @@
                     <a href="#contacto"
                         class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Contacto</a>
                     <a href="https://github.com/tinchotandil/youguide-landing/releases/download/v1.0/youguide.apk"
-                        class="apk-link btn-shine bg-accent hover:bg-accent-light text-deep-900 font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-accent/20" target="_blank" rel="noopener noreferrer"
-                        aria-label="Descargar YouGuide APK Beta gratis">
+                        class="apk-link btn-shine bg-accent hover:bg-accent-light text-deep-900 font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-accent/20"
+                        target="_blank" rel="noopener noreferrer" aria-label="Descargar YouGuide APK Beta gratis">
                         Descargar Beta
                     </a>
                 </div>
@@ -281,8 +299,9 @@
             <a href="#contacto"
                 class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Contacto</a>
             <a href="https://github.com/tinchotandil/youguide-landing/releases/download/v1.0/youguide.apk"
-                class="apk-link btn-shine bg-accent text-deep-900 font-semibold text-center py-3 rounded-full mt-4 mobile-link" target="_blank" rel="noopener noreferrer"
-                aria-label="Descargar YouGuide APK Beta gratis">Descargar Beta</a>
+                class="apk-link btn-shine bg-accent text-deep-900 font-semibold text-center py-3 rounded-full mt-4 mobile-link"
+                target="_blank" rel="noopener noreferrer" aria-label="Descargar YouGuide APK Beta gratis">Descargar
+                Beta</a>
         </div>
     </nav>
 
@@ -317,8 +336,8 @@
             <div
                 class="animate-fade-up-delay2 flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 mb-3">
                 <a href="https://github.com/tinchotandil/youguide-landing/releases/download/v1.0/youguide.apk"
-                    class="apk-link btn-shine w-full sm:w-auto bg-accent hover:bg-accent-light text-deep-900 font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 glow-accent hover:scale-105 flex items-center justify-center gap-3" target="_blank" rel="noopener noreferrer"
-                    aria-label="Descargar YouGuide APK Beta gratis">
+                    class="apk-link btn-shine w-full sm:w-auto bg-accent hover:bg-accent-light text-deep-900 font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 glow-accent hover:scale-105 flex items-center justify-center gap-3"
+                    target="_blank" rel="noopener noreferrer" aria-label="Descargar YouGuide APK Beta gratis">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -995,8 +1014,8 @@
                     </div>
 
                     <a href="https://github.com/tinchotandil/youguide-landing/releases/download/v1.0/youguide.apk"
-                        class="apk-link btn-shine inline-flex items-center gap-3 bg-accent hover:bg-accent-light text-deep-900 font-bold text-lg px-10 py-4 rounded-2xl transition-all duration-300 glow-accent hover:scale-105" target="_blank" rel="noopener noreferrer"
-                        aria-label="Descargar YouGuide APK Beta gratis">
+                        class="apk-link btn-shine inline-flex items-center gap-3 bg-accent hover:bg-accent-light text-deep-900 font-bold text-lg px-10 py-4 rounded-2xl transition-all duration-300 glow-accent hover:scale-105"
+                        target="_blank" rel="noopener noreferrer" aria-label="Descargar YouGuide APK Beta gratis">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -1216,8 +1235,30 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
+        // ===== Tracking de eventos =====
+        const apkLinks = document.querySelectorAll('.apk-link');
+        apkLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const location = link.getAttribute('href').includes('releases') ? 'GitHub' : 'Local';
+                // GA4 event
+                if (typeof gtag === 'function') {
+                    gtag('event', 'download_apk', {
+                        'event_category': 'conversion',
+                        'event_label': location,
+                        'value': 1
+                    });
+                }
+                // Clarity custom event
+                if (typeof clarity === 'function') {
+                    clarity("set", "download_apk", location);
+                }
+                console.log('Evento de descarga registrado:', location);
+            });
+        });
+
         revealElements.forEach(el => revealObserver.observe(el));
     </script>
+
 
 </body>
 
