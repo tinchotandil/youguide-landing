@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth" id="html-root">
 
 <head>
     <!-- Google tag (gtag.js) -->
@@ -239,6 +239,40 @@
             backdrop-filter: blur(20px);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
         }
+
+        /* Language selector */
+        .lang-dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .lang-group:hover .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-item {
+            transition: all 0.2s ease;
+        }
+
+        .lang-item:hover {
+            background: rgba(0, 209, 178, 0.1);
+            color: #00D1B2;
+        }
+
+        .lang-item.active {
+            color: #00D1B2;
+            font-weight: 600;
+        }
+        .lang-btn.active {
+            background-color: rgba(0, 209, 178, 0.2);
+            border-color: rgba(0, 209, 178, 0.4);
+            color: #00D1B2;
+            box-shadow: 0 0 15px rgba(0, 209, 178, 0.1);
+        }
     </style>
     <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -255,17 +289,47 @@
                 </a>
 
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#propuesta"
+                    <a href="#propuesta" data-i18n="nav_propuesta"
                         class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Propuesta</a>
-                    <a href="#como-funciona"
+                    <a href="#como-funciona" data-i18n="nav_como_funciona"
                         class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Cómo Funciona</a>
-                    <a href="#ciudades"
+                    <a href="#ciudades" data-i18n="nav_ciudades"
                         class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Ciudades</a>
-                    <a href="#faq"
+                    <a href="#faq" data-i18n="nav_faq"
                         class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">FAQ</a>
-                    <a href="#contacto"
+                    <a href="#contacto" data-i18n="nav_contacto"
                         class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Contacto</a>
+
+                    <!-- Language Selector Desktop -->
+                    <div class="relative lang-group">
+                        <button class="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors py-2" id="currentLang">
+                            <span id="currentLangFlag">🇪🇸</span>
+                            <span id="currentLangText">ES</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div class="lang-dropdown absolute top-full right-0 mt-1 w-36 glass rounded-xl overflow-hidden py-1 z-50">
+                            <button onclick="changeLanguage('es')" class="lang-item w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300" data-lang="es">
+                                <span>🇪🇸</span> Español
+                            </button>
+                            <button onclick="changeLanguage('en')" class="lang-item w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300" data-lang="en">
+                                <span>🇺🇸</span> English
+                            </button>
+                            <button onclick="changeLanguage('pt')" class="lang-item w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300" data-lang="pt">
+                                <span>🇧🇷</span> Português
+                            </button>
+                            <button onclick="changeLanguage('fr')" class="lang-item w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300" data-lang="fr">
+                                <span>🇫🇷</span> Français
+                            </button>
+                            <button onclick="changeLanguage('de')" class="lang-item w-full flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300" data-lang="de">
+                                <span>🇩🇪</span> Deutsch
+                            </button>
+                        </div>
+                    </div>
+
                     <a href="https://github.com/tinchotandil/youguide-landing/releases/download/Beta-v1.0.2/YouGuide.1.2.apk"
+                        data-i18n="nav_download"
                         class="apk-link btn-shine bg-accent hover:bg-accent-light text-deep-900 font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-accent/20"
                         target="_blank" rel="noopener noreferrer" aria-label="Descargar YouGuide APK Beta gratis">
                         Descargar Beta
@@ -289,16 +353,27 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            <a href="#propuesta"
+            
+            <!-- Language Selector Mobile -->
+            <div class="flex flex-wrap gap-2 mb-4">
+                <button onclick="changeLanguage('es')" class="w-12 h-10 glass rounded-lg flex items-center justify-center text-xl" title="Español">🇪🇸</button>
+                <button onclick="changeLanguage('en')" class="w-12 h-10 glass rounded-lg flex items-center justify-center text-xl" title="English">🇺🇸</button>
+                <button onclick="changeLanguage('pt')" class="w-12 h-10 glass rounded-lg flex items-center justify-center text-xl" title="Português">🇧🇷</button>
+                <button onclick="changeLanguage('fr')" class="w-12 h-10 glass rounded-lg flex items-center justify-center text-xl" title="Français">🇫🇷</button>
+                <button onclick="changeLanguage('de')" class="w-12 h-10 glass rounded-lg flex items-center justify-center text-xl" title="Deutsch">🇩🇪</button>
+            </div>
+
+            <a href="#propuesta" data-i18n="nav_propuesta"
                 class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Propuesta</a>
-            <a href="#como-funciona" class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Cómo
+            <a href="#como-funciona" data-i18n="nav_como_funciona" class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Cómo
                 Funciona</a>
-            <a href="#ciudades"
+            <a href="#ciudades" data-i18n="nav_ciudades"
                 class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Ciudades</a>
-            <a href="#faq" class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">FAQ</a>
-            <a href="#contacto"
+            <a href="#faq" data-i18n="nav_faq" class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">FAQ</a>
+            <a href="#contacto" data-i18n="nav_contacto"
                 class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Contacto</a>
             <a href="https://github.com/tinchotandil/youguide-landing/releases/download/Beta-v1.0.2/YouGuide.1.2.apk"
+                data-i18n="nav_download"
                 class="apk-link btn-shine bg-accent text-deep-900 font-semibold text-center py-3 rounded-full mt-4 mobile-link"
                 target="_blank" rel="noopener noreferrer" aria-label="Descargar YouGuide APK Beta gratis">Descargar
                 Beta</a>
@@ -319,16 +394,16 @@
             <div
                 class="animate-fade-up inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-8">
                 <span class="w-2 h-2 bg-accent rounded-full animate-pulse-slow"></span>
-                <span class="text-accent text-xs font-medium tracking-wider uppercase">Beta Abierta — Argentina</span>
+                <span class="text-accent text-xs font-medium tracking-wider uppercase" data-i18n="hero_badge">Beta Abierta — Argentina</span>
             </div>
 
-            <h1 class="animate-fade-up font-display text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+            <h1 class="animate-fade-up font-display text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6" data-i18n="hero_title">
                 YouGuide: <br class="sm:hidden" />
                 <span class="gradient-text">La historia en tus oídos</span>
             </h1>
 
             <p
-                class="animate-fade-up-delay text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed opacity-0">
+                class="animate-fade-up-delay text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed opacity-0" data-i18n="hero_subtitle">
                 ¿Y si las ciudades pudieran hablarte al oído? 🎧✨<br />
                 Caminá. Escuchá. Descubrí. <span class="text-white font-semibold">Sin tocar tu celular.</span>
             </p>
@@ -336,6 +411,7 @@
             <div
                 class="animate-fade-up-delay2 flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0 mb-3">
                 <a href="https://github.com/tinchotandil/youguide-landing/releases/download/Beta-v1.0.2/YouGuide.1.2.apk"
+                    data-i18n="hero_download_btn"
                     class="apk-link btn-shine w-full sm:w-auto bg-accent hover:bg-accent-light text-deep-900 font-bold text-lg px-8 py-4 rounded-2xl transition-all duration-300 glow-accent hover:scale-105 flex items-center justify-center gap-3"
                     target="_blank" rel="noopener noreferrer" aria-label="Descargar YouGuide APK Beta gratis">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -345,6 +421,7 @@
                     DESCARGAR APK GRATIS (BETA)
                 </a>
                 <a href="#propuesta"
+                    data-i18n="hero_learn_more"
                     class="w-full sm:w-auto border border-white/20 hover:border-accent/50 text-white font-medium text-lg px-8 py-4 rounded-2xl transition-all duration-300 hover:bg-white/5 flex items-center justify-center gap-2"
                     aria-label="Conocer más sobre YouGuide">
                     Conocer más
@@ -354,7 +431,7 @@
                 </a>
             </div>
 
-            <p class="animate-fade-up-delay2 opacity-0 text-sm italic text-gray-400 mt-2 text-center w-full">
+            <p class="animate-fade-up-delay2 opacity-0 text-sm italic text-gray-400 mt-2 text-center w-full" data-i18n="hero_android_only">
                 *Por el momento, disponible únicamente para dispositivos Android.
             </p>
 
@@ -373,7 +450,7 @@
                         class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-rose-500 ring-2 ring-deep-900 flex items-center justify-center text-xs font-bold text-white">
                         +</div>
                 </div>
-                <span>Testers activos explorando Argentina</span>
+                <span data-i18n="hero_testers">Testers activos explorando Argentina</span>
             </div>
         </div>
 
@@ -391,10 +468,10 @@
             <div class="reveal">
                 <div class="flex items-center gap-3 mb-6">
                     <div class="h-px w-12 bg-accent/50"></div>
-                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Nuestra Propuesta</span>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase" data-i18n="propuesta_label">Nuestra Propuesta</span>
                 </div>
 
-                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-10 leading-tight">
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-10 leading-tight" data-i18n="propuesta_title">
                     No es otra app de mapas.<br />
                     Es tu <span class="gradient-text">nuevo sentido</span> para explorar.
                 </h2>
@@ -405,7 +482,7 @@
                     <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-6">
                         <span class="text-3xl">🎧</span>
                     </div>
-                    <p class="text-gray-300 text-lg leading-relaxed">
+                    <p class="text-gray-300 text-lg leading-relaxed" data-i18n="propuesta_card1_text">
                         YouGuide no es otra app de mapas; es tu nuevo sentido para explorar el mundo. Olvidate de
                         caminar mirando una pantalla o de leer carteles aburridos bajo el sol. Nuestra <span
                             class="text-white font-semibold">tecnología de audio automático por proximidad</span>
@@ -418,7 +495,7 @@
                     <div class="w-14 h-14 bg-ocean/10 rounded-2xl flex items-center justify-center mb-6">
                         <span class="text-3xl">♿</span>
                     </div>
-                    <p class="text-gray-300 text-lg leading-relaxed">
+                    <p class="text-gray-300 text-lg leading-relaxed" data-i18n="propuesta_card2_text">
                         Es una experiencia <span class="text-white font-semibold">100% manos libres</span>, diseñada
                         bajo la filosofía <span class="text-accent font-semibold">"Accessibility First"</span>: tan
                         intuitiva que es la herramienta definitiva para personas no videntes y tan fascinante que cambia
@@ -434,7 +511,7 @@
                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                             clip-rule="evenodd" />
                     </svg>
-                    Audio Automático
+                    <span data-i18n="pill_audio">Audio Automático</span>
                 </span>
                 <span class="glass-light rounded-full px-5 py-2 text-sm text-gray-300 flex items-center gap-2">
                     <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
@@ -442,7 +519,7 @@
                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                             clip-rule="evenodd" />
                     </svg>
-                    100% Manos Libres
+                    <span data-i18n="pill_handsfree">100% Manos Libres</span>
                 </span>
                 <span class="glass-light rounded-full px-5 py-2 text-sm text-gray-300 flex items-center gap-2">
                     <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
@@ -450,7 +527,7 @@
                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                             clip-rule="evenodd" />
                     </svg>
-                    Accessibility First
+                    <span data-i18n="pill_a11y">Accessibility First</span>
                 </span>
                 <span class="glass-light rounded-full px-5 py-2 text-sm text-gray-300 flex items-center gap-2">
                     <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
@@ -458,7 +535,7 @@
                             d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                             clip-rule="evenodd" />
                     </svg>
-                    Historias Curadas
+                    <span data-i18n="pill_stories">Historias Curadas</span>
                 </span>
             </div>
         </div>
@@ -470,13 +547,13 @@
             <div class="text-center mb-16 reveal">
                 <div class="inline-flex items-center gap-3 mb-6">
                     <div class="h-px w-12 bg-accent/50"></div>
-                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Tres Pasos</span>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase" data-i18n="steps_label">Tres Pasos</span>
                     <div class="h-px w-12 bg-accent/50"></div>
                 </div>
-                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6" data-i18n="steps_title">
                     Mágico y <span class="gradient-text">Sin Esfuerzo</span>
                 </h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-i18n="steps_desc">
                     Solo 3 pasos para transformar tu próxima caminata y comenzar la exploración en cualquier rincón.
                 </p>
             </div>
@@ -488,8 +565,8 @@
                         class="w-20 h-20 mx-auto mb-6 bg-accent/10 rounded-full flex items-center justify-center border border-accent/20">
                         <span class="text-4xl">📍</span>
                     </div>
-                    <h3 class="font-display text-2xl font-bold mb-3 text-white">1. Llegá</h3>
-                    <p class="text-gray-400 leading-relaxed">Ubicate en el punto de inicio de cualquier ciudad
+                    <h3 class="font-display text-2xl font-bold mb-3 text-white" data-i18n="step1_title">1. Llegá</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="step1_desc">Ubicate en el punto de inicio de cualquier ciudad
                         disponible (una plaza, un monumento, el inicio de un sendero).</p>
                 </div>
                 <div
@@ -498,8 +575,8 @@
                         class="w-20 h-20 mx-auto mb-6 bg-ocean/10 rounded-full flex items-center justify-center border border-ocean/20">
                         <span class="text-4xl">🎧</span>
                     </div>
-                    <h3 class="font-display text-2xl font-bold mb-3 text-white">2. Guardá tu celular</h3>
-                    <p class="text-gray-400 leading-relaxed">Conectá tus auriculares, bloqueá la pantalla y guardá el
+                    <h3 class="font-display text-2xl font-bold mb-3 text-white" data-i18n="step2_title">2. Guardá tu celular</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="step2_desc">Conectá tus auriculares, bloqueá la pantalla y guardá el
                         teléfono en el bolsillo. No vas a necesitar volver a mirarlo.</p>
                 </div>
                 <div
@@ -508,8 +585,8 @@
                         class="w-20 h-20 mx-auto mb-6 bg-purple-500/10 rounded-full flex items-center justify-center border border-purple-500/20">
                         <span class="text-4xl">✨</span>
                     </div>
-                    <h3 class="font-display text-2xl font-bold mb-3 text-white">3. Escuchá</h3>
-                    <p class="text-gray-400 leading-relaxed">Vas a escuchar un "ding!" apenas camines cerca del sitio y
+                    <h3 class="font-display text-2xl font-bold mb-3 text-white" data-i18n="step3_title">3. Escuchá</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="step3_desc">Vas a escuchar un "ding!" apenas camines cerca del sitio y
                         la historia curada comenzará automáticamente.</p>
                 </div>
             </div>
@@ -523,14 +600,14 @@
             <div class="text-center mb-16 reveal">
                 <div class="inline-flex items-center gap-3 mb-6">
                     <div class="h-px w-12 bg-accent/50"></div>
-                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Ciudades Piloto</span>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase" data-i18n="ciudades_label">Ciudades Piloto</span>
                     <div class="h-px w-12 bg-accent/50"></div>
                 </div>
 
-                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6" data-i18n="ciudades_title">
                     🏙️ Uníte a la <span class="gradient-text">Revolución del Turismo</span><br /> en Argentina
                 </h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-i18n="ciudades_desc">
                     Ya estamos operativos en <span class="text-white font-semibold">43 ciudades de Argentina</span>,
                     incluyendo los puntos más icónicos de:
                 </p>
@@ -548,9 +625,9 @@
                     <div class="absolute bottom-0 left-0 right-0 p-5">
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
-                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                                class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1">Tandil</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Dejá que la Piedra Movediza te cuente su
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_tandil_sub">Dejá que la Piedra Movediza te cuente su
                             secreto.</p>
                     </div>
                 </div>
@@ -565,9 +642,9 @@
                     <div class="absolute bottom-0 left-0 right-0 p-5">
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
-                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
+                                class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1">Azul</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Descubrí la potencia del Art Déco de Salamone.
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_azul_sub">Descubrí la potencia del Art Déco de Salamone.
                         </p>
                     </div>
                 </div>
@@ -582,9 +659,9 @@
                     <div class="absolute bottom-0 left-0 right-0 p-5">
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
-                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Buenos Aires</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Sentí el pulso de la historia en cada esquina
+                                class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_ba">Buenos Aires</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_ba_sub">Sentí el pulso de la historia en cada esquina
                             porteña.</p>
                     </div>
                 </div>
@@ -599,9 +676,9 @@
                     <div class="absolute bottom-0 left-0 right-0 p-5">
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
-                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Mar del Plata</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Mucho más que mar y arena; historias que te van
+                                class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_mdq">Mar del Plata</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_mdq_sub">Mucho más que mar y arena; historias que te van
                             a sorprender.</p>
                     </div>
                 </div>
@@ -616,9 +693,9 @@
                     <div class="absolute bottom-0 left-0 right-0 p-5">
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
-                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Jujuy</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">La Quebrada de Humahuaca y sus colores
+                                class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_jujuy">Jujuy</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_jujuy_sub">La Quebrada de Humahuaca y sus colores
                             milenarios.</p>
                     </div>
                 </div>
@@ -633,9 +710,9 @@
                     <div class="absolute bottom-0 left-0 right-0 p-5">
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
-                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Córdoba</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Sierras, historia jesuítica y la Docta en tu
+                                class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_cba">Córdoba</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_cba_sub">Sierras, historia jesuítica y la Docta en tu
                             oído.</p>
                     </div>
                 </div>
@@ -650,9 +727,9 @@
                     <div class="absolute bottom-0 left-0 right-0 p-5">
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
-                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Rosario</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Cuna de la Bandera y secretos a orillas del
+                                class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_rosario">Rosario</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_rosario_sub">Cuna de la Bandera y secretos a orillas del
                             Paraná.</p>
                     </div>
                 </div>
@@ -667,10 +744,10 @@
                     <div class="absolute bottom-0 left-0 right-0 p-5">
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
-                                class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Bariloche</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Lagos, bosques y leyendas patagónicas que te
-                            envuelven.</p>
+                                class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_bariloche">Bariloche</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_bariloche_sub">Lagos, bosques y leyendas patagónicas que
+                            te envuelven.</p>
                     </div>
                 </div>
 
@@ -685,8 +762,8 @@
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Catamarca</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Místicos paisajes andinos y relatos
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_catamarca">Catamarca</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_catamarca_sub">Místicos paisajes andinos y relatos
                             ancestrales.</p>
                     </div>
                 </div>
@@ -702,8 +779,8 @@
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Misiones</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Cataratas, selva y las ruinas jesuíticas que
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_misiones">Misiones</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_misiones_sub">Cataratas, selva y las ruinas jesuíticas que
                             hablan.</p>
                     </div>
                 </div>
@@ -719,8 +796,8 @@
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">La Rioja</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Caminá entre gigantes de piedra roja en
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_larioja">La Rioja</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_larioja_sub">Caminá entre gigantes de piedra roja en
                             Talampaya.</p>
                     </div>
                 </div>
@@ -736,8 +813,8 @@
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Ushuaia</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Historias del fin del mundo y navegación por el
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_ushuaia">Ushuaia</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_ushuaia_sub">Historias del fin del mundo y navegación por el
                             Beagle.</p>
                     </div>
                 </div>
@@ -753,14 +830,14 @@
                         <div class="flex items-center gap-2 mb-1"><span
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Sierra de la Ventana</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed">Explorá los huecos de la historia en las
+                        <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_sierra">Sierra de la Ventana</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_sierra_sub">Explorá los huecos de la historia en las
                             sierras más antiguas.</p>
                     </div>
                 </div>
             </div>
 
-            <p class="text-center text-gray-400 text-base mt-8 reveal">
+            <p class="text-center text-gray-400 text-base mt-8 reveal" data-i18n="ciudades_footer">
                 <span class="text-accent font-semibold">...y otras 33 ciudades.</span> Desde Salta y El Calafate hasta
                 Mendoza, Iguazú y Rosario.
             </p>
@@ -775,13 +852,13 @@
             <div class="text-center mb-12 reveal">
                 <div class="inline-flex items-center gap-3 mb-6">
                     <div class="h-px w-12 bg-gray-500/50"></div>
-                    <span class="text-gray-400 text-sm font-medium tracking-widest uppercase">Expansión 2026</span>
+                    <span class="text-gray-400 text-sm font-medium tracking-widest uppercase" data-i18n="expansion_label">Expansión 2026</span>
                     <div class="h-px w-12 bg-gray-500/50"></div>
                 </div>
-                <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6 text-gray-300">
+                <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6 text-gray-300" data-i18n="expansion_title">
                     Próximamente en <span class="gradient-text">Sudamérica</span>
                 </h2>
-                <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-i18n="expansion_desc">
                     Nuestra misión no tiene fronteras. Estamos mapeando el continente para llevar la historia a tus
                     oídos vayas a donde vayas.
                 </p>
@@ -791,36 +868,36 @@
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors grayscale hover:grayscale-0">
                     <span class="text-4xl mb-3">🇨🇱</span>
-                    <h3 class="font-semibold text-white">Chile</h3>
-                    <span class="text-xs text-gray-400">Valparaíso, Santiago</span>
+                    <h3 class="font-semibold text-white" data-i18n="prox_chile">Chile</h3>
+                    <span class="text-xs text-gray-400" data-i18n="prox_chile_cities">Valparaíso, Santiago</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors grayscale hover:grayscale-0">
                     <span class="text-4xl mb-3">🇺🇾</span>
-                    <h3 class="font-semibold text-white">Uruguay</h3>
-                    <span class="text-xs text-gray-400">Montevideo, Colonia</span>
+                    <h3 class="font-semibold text-white" data-i18n="prox_uruguay">Uruguay</h3>
+                    <span class="text-xs text-gray-400" data-i18n="prox_uruguay_cities">Montevideo, Colonia</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors grayscale hover:grayscale-0">
                     <span class="text-4xl mb-3">🇧🇷</span>
-                    <h3 class="font-semibold text-white">Brasil</h3>
-                    <span class="text-xs text-gray-400">Río, São Paulo</span>
+                    <h3 class="font-semibold text-white" data-i18n="prox_brasil">Brasil</h3>
+                    <span class="text-xs text-gray-400" data-i18n="prox_brasil_cities">Río, São Paulo</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors grayscale hover:grayscale-0">
                     <span class="text-4xl mb-3">🇵🇪</span>
-                    <h3 class="font-semibold text-white">Perú</h3>
-                    <span class="text-xs text-gray-400">Lima, Cusco</span>
+                    <h3 class="font-semibold text-white" data-i18n="prox_peru">Perú</h3>
+                    <span class="text-xs text-gray-400" data-i18n="prox_peru_cities">Lima, Cusco</span>
                 </div>
             </div>
 
             <div class="text-center mt-20 mb-8 reveal">
                 <div class="inline-flex items-center gap-3 mb-6">
                     <div class="h-px w-12 bg-accent/50"></div>
-                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Evolución</span>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase" data-i18n="evolucion_label">Evolución</span>
                     <div class="h-px w-12 bg-accent/50"></div>
                 </div>
-                <h3 class="font-display text-2xl font-bold text-white">
+                <h3 class="font-display text-2xl font-bold text-white" data-i18n="evolucion_title">
                     Lo que se viene... ¿Qué más te imaginás?
                 </h3>
             </div>
@@ -829,22 +906,22 @@
                 <div
                     class="glass-light rounded-2xl p-6 relative hover:-translate-y-1 transition-transform border border-white/5">
                     <div class="text-3xl mb-3">📶</div>
-                    <h4 class="font-bold text-white mb-2">Modo Offline</h4>
-                    <p class="text-sm text-gray-400">Descargá las guías antes de salir. Ideal para senderismo en zonas
+                    <h4 class="font-bold text-white mb-2" data-i18n="offline_title">Modo Offline</h4>
+                    <p class="text-sm text-gray-400" data-i18n="offline_desc">Descargá las guías antes de salir. Ideal para senderismo en zonas
                         como El Chaltén o cordillera sin señal.</p>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 relative hover:-translate-y-1 transition-transform border border-white/5">
                     <div class="text-3xl mb-3">🤝</div>
-                    <h4 class="font-bold text-white mb-2">Guías Comunitarias</h4>
-                    <p class="text-sm text-gray-400">Pronto cualquier persona podrá grabar y subir las historias de su
+                    <h4 class="font-bold text-white mb-2" data-i18n="community_guides_title">Guías Comunitarias</h4>
+                    <p class="text-sm text-gray-400" data-i18n="community_guides_desc">Pronto cualquier persona podrá grabar y subir las historias de su
                         ciudad. El contenido será moderado por IA.</p>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 relative hover:-translate-y-1 transition-transform border border-white/5">
                     <div class="text-3xl mb-3">🏆</div>
-                    <h4 class="font-bold text-white mb-2">Recompensas Físicas</h4>
-                    <p class="text-sm text-gray-400">Canjeá tus puntos de experiencia (XP) y niveles por cafés,
+                    <h4 class="font-bold text-white mb-2" data-i18n="rewards_title">Recompensas Físicas</h4>
+                    <p class="text-sm text-gray-400" data-i18n="rewards_desc">Canjeá tus puntos de experiencia (XP) y niveles por cafés,
                         descuentos y regalos en la red de comercios locales adheridos.</p>
                 </div>
             </div>
@@ -858,58 +935,58 @@
             <div class="text-center mb-16 reveal">
                 <div class="inline-flex items-center gap-3 mb-6">
                     <div class="h-px w-12 bg-accent/50"></div>
-                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Feedback</span>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase" data-i18n="feedback_label">Feedback</span>
                     <div class="h-px w-12 bg-accent/50"></div>
                 </div>
-                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6" data-i18n="feedback_title">
                     Lo que dice la <span class="gradient-text">Comunidad Beta</span>
                 </h2>
             </div>
             <div class="grid md:grid-cols-3 gap-6">
                 <div class="reveal glass rounded-3xl p-8 relative hover:-translate-y-1 transition-transform">
                     <div class="text-accent text-2xl mb-4 tracking-widest">★★★★★</div>
-                    <p class="text-gray-300 italic mb-8 relative z-10 text-lg">"Fui a la Sierra de Tandil y es una
+                    <p class="text-gray-300 italic mb-8 relative z-10 text-lg" data-i18n="testimonio1_text">"Fui a la Sierra de Tandil y es una
                         locura cómo te empieza a hablar la app justo cuando llegas a la Movediza. Por fin pude disfrutar
                         el paisaje real y sacar fotos sin estar leyendo texto en la pantallita del celular."</p>
                     <div class="flex items-center gap-4">
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-pink-500 to-orange-400 rounded-full flex items-center justify-center font-bold text-white shadow-lg">
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-accent-light flex items-center justify-center text-deep-900 font-bold">
                             S</div>
                         <div>
                             <div class="font-semibold text-white">Sofía R.</div>
-                            <div class="text-accent text-sm">Tester en Tandil</div>
+                            <div class="text-accent text-sm" data-i18n="testimonio1_sub">Tester en Tandil</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="reveal glass rounded-3xl p-8 relative hover:-translate-y-1 transition-transform">
                     <div class="text-accent text-2xl mb-4 tracking-widest">★★★★★</div>
-                    <p class="text-gray-300 italic mb-8 relative z-10 text-lg">"Me cambió la forma de pasear en mis
+                    <p class="text-gray-300 italic mb-8 relative z-10 text-lg" data-i18n="testimonio2_text">"Me cambió la forma de pasear en mis
                         findes libres. Vivo en Buenos Aires y paso por lugares con historia todos los días que ahora
                         descubro de la nada y me asombro... ¡Es el futuro!"</p>
                     <div class="flex items-center gap-4">
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-ocean to-blue-400 rounded-full flex items-center justify-center font-bold text-white shadow-lg">
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-ocean to-ocean-light flex items-center justify-center text-white font-bold">
                             L</div>
                         <div>
                             <div class="font-semibold text-white">Leandro M.</div>
-                            <div class="text-accent text-sm">Tester en CABA</div>
+                            <div class="text-accent text-sm" data-i18n="testimonio2_sub">Tester en CABA</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="reveal glass rounded-3xl p-8 relative hover:-translate-y-1 transition-transform">
                     <div class="text-accent text-2xl mb-4 tracking-widest">★★★★★</div>
-                    <p class="text-gray-300 italic mb-8 relative z-10 text-lg">"La precisión del GPS es fantástica
+                    <p class="text-gray-300 italic mb-8 relative z-10 text-lg" data-i18n="testimonio3_text">"La precisión del GPS es fantástica
                         (literal te avisa cuando estás a 50 metros). Soy estudiante de turismo y me encanta cómo está
                         armada la narrativa de la historia. Es muy envolvente."</p>
                     <div class="flex items-center gap-4">
                         <div
-                            class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-500 rounded-full flex items-center justify-center font-bold text-white shadow-lg">
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-purple-400 flex items-center justify-center text-white font-bold">
                             C</div>
                         <div>
                             <div class="font-semibold text-white">Carla T.</div>
-                            <div class="text-accent text-sm">Tester en Azul</div>
+                            <div class="text-accent text-sm" data-i18n="testimonio3_sub">Tester en Azul</div>
                         </div>
                     </div>
                 </div>
@@ -923,10 +1000,10 @@
             <div class="text-center mb-16 reveal">
                 <div class="inline-flex items-center gap-3 mb-6">
                     <div class="h-px w-12 bg-accent/50"></div>
-                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Consultas</span>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase" data-i18n="faq_label">Consultas</span>
                     <div class="h-px w-12 bg-accent/50"></div>
                 </div>
-                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6" data-i18n="faq_title">
                     Preguntas <span class="gradient-text">Frecuentes</span>
                 </h2>
             </div>
@@ -934,10 +1011,10 @@
             <div class="space-y-4">
                 <div class="reveal glass rounded-2xl p-8 hover:bg-white/5 transition-colors group">
                     <h3
-                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between">
+                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between" data-i18n="faq1_q">
                         ¿Por qué todavía no la descargo del Play Store?
                     </h3>
-                    <p class="text-gray-400 leading-relaxed text-lg">YouGuide se encuentra actualmente en fase de Beta
+                    <p class="text-gray-400 leading-relaxed text-lg" data-i18n="faq1_a">YouGuide se encuentra actualmente en fase de Beta
                         Exclusiva. Distribuimos el APK de prueba (sin costo) directamente a nuestra comunidad para
                         optimizar y ajustar detalles antes de nuestro gran lanzamiento oficial. Al participar hoy, nos
                         ayudás a moldear el futuro de la app.</p>
@@ -945,20 +1022,20 @@
 
                 <div class="reveal glass rounded-2xl p-8 hover:bg-white/5 transition-colors group">
                     <h3
-                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between">
+                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between" data-i18n="faq2_q">
                         ¿Consume muchos datos o batería el audio automático?
                     </h3>
-                    <p class="text-gray-400 leading-relaxed text-lg">¡Al contrario! Como la pantalla permanece apagada
+                    <p class="text-gray-400 leading-relaxed text-lg" data-i18n="faq2_a">¡Al contrario! Como la pantalla permanece apagada
                         en tu bolsillo y procesamos la geolocalización de modo ultra-eficiente en segundo plano, vas a
                         gastar menos batería que usando apps tradicionales con mapas visibles.</p>
                 </div>
 
                 <div class="reveal glass rounded-2xl p-8 hover:bg-white/5 transition-colors group">
                     <h3
-                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between">
+                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between" data-i18n="faq3_q">
                         ¿Necesito auriculares para que funcione?
                     </h3>
-                    <p class="text-gray-400 leading-relaxed text-lg">No es obligatorio (la app puede sonar por el
+                    <p class="text-gray-400 leading-relaxed text-lg" data-i18n="faq3_a">No es obligatorio (la app puede sonar por el
                         altavoz de tu teléfono si estás caminando por el campo), pero te recomendamos enfáticamente
                         usarlos. El efecto de "susurro al oído" en medio de la ciudad genera esa inmersión histórica que
                         nos hace únicos.</p>
@@ -966,10 +1043,10 @@
 
                 <div class="reveal glass rounded-2xl p-8 hover:bg-white/5 transition-colors group">
                     <h3
-                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between">
+                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between" data-i18n="faq4_q">
                         ¿Tiene costo usar la App?
                     </h3>
-                    <p class="text-gray-400 leading-relaxed text-lg">Quienes instalan y participan de la Beta tienen los
+                    <p class="text-gray-400 leading-relaxed text-lg" data-i18n="faq4_a">Quienes instalan y participan de la Beta tienen los
                         relatos gratuitos. El único "costo" es tu opinión: luego de que visites sitios usando la app, te
                         pediremos que respondas una breve encuesta para entender qué te gustó y qué debemos mejorar.</p>
                 </div>
@@ -991,10 +1068,10 @@
 
                 <div class="relative z-10">
                     <span class="text-5xl mb-6 block">🚀</span>
-                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight" data-i18n="circulo_title">
                         Formá parte del <span class="gradient-text">Círculo Íntimo</span><br /> de YouGuide
                     </h2>
-                    <p class="text-gray-300 text-lg max-w-3xl mx-auto mb-8 leading-relaxed">
+                    <p class="text-gray-300 text-lg max-w-3xl mx-auto mb-8 leading-relaxed" data-i18n="circulo_desc">
                         Queremos que seas de los primeros <span class="text-white font-semibold">1.000 usuarios en
                             Argentina</span> en probar esta tecnología antes del lanzamiento global.
                     </p>
@@ -1002,9 +1079,9 @@
                     <div class="h-px w-24 bg-accent/30 mx-auto mb-8"></div>
 
                     <div class="max-w-3xl mx-auto">
-                        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-4 text-accent">¿Cómo funciona la
+                        <h3 class="font-display text-xl sm:text-2xl font-semibold mb-4 text-accent" data-i18n="circulo_magia">¿Cómo funciona la
                             magia?</h3>
-                        <p class="text-gray-300 text-lg leading-relaxed mb-10">
+                        <p class="text-gray-300 text-lg leading-relaxed mb-10" data-i18n="circulo_magia_desc">
                             Descargá el APK Beta, explorá tu ciudad con los auriculares puestos y ayudanos a
                             evolucionar. Para mantener tu acceso activo y desbloquear nuevas rutas exclusivas en el
                             corto plazo, te pediremos completar una <span class="text-white font-semibold">encuesta de
@@ -1015,7 +1092,7 @@
 
                     <a href="https://github.com/tinchotandil/youguide-landing/releases/download/Beta-v1.0.2/YouGuide.1.2.apk"
                         class="apk-link btn-shine inline-flex items-center gap-3 bg-accent hover:bg-accent-light text-deep-900 font-bold text-lg px-10 py-4 rounded-2xl transition-all duration-300 glow-accent hover:scale-105"
-                        target="_blank" rel="noopener noreferrer" aria-label="Descargar YouGuide APK Beta gratis">
+                        target="_blank" rel="noopener noreferrer" aria-label="Descargar YouGuide APK Beta gratis" data-i18n="btn_download">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -1034,13 +1111,13 @@
             <div class="text-center mb-16 reveal">
                 <div class="inline-flex items-center gap-3 mb-6">
                     <div class="h-px w-12 bg-accent/50"></div>
-                    <span class="text-accent text-sm font-medium tracking-widest uppercase">Instalación</span>
+                    <span class="text-accent text-sm font-medium tracking-widest uppercase" data-i18n="instalacion_label">Instalación</span>
                     <div class="h-px w-12 bg-accent/50"></div>
                 </div>
-                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4" data-i18n="instalacion_title">
                     Listo en <span class="gradient-text">3 pasos</span>
                 </h2>
-                <p class="text-gray-400 text-lg">Es rápido, seguro y 100% gratis.</p>
+                <p class="text-gray-400 text-lg" data-i18n="instalacion_desc">Es rápido, seguro y 100% gratis.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1057,8 +1134,8 @@
                     <div
                         class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-accent text-deep-900 font-bold text-sm mb-4">
                         1</div>
-                    <h3 class="font-display text-xl font-bold mb-3">Descargá</h3>
-                    <p class="text-gray-400 leading-relaxed">Bajá el archivo APK desde el botón de descarga.</p>
+                    <h3 class="font-display text-xl font-bold mb-3" data-i18n="inst_step1_title">Descargá</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="inst_step1_desc">Bajá el archivo APK desde el botón de descarga.</p>
                 </div>
 
                 <div
@@ -1074,8 +1151,8 @@
                     <div
                         class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-ocean text-white font-bold text-sm mb-4">
                         2</div>
-                    <h3 class="font-display text-xl font-bold mb-3">Habilitá</h3>
-                    <p class="text-gray-400 leading-relaxed">Aceptá "Fuentes desconocidas" en los ajustes de Android.
+                    <h3 class="font-display text-xl font-bold mb-3" data-i18n="inst_step2_title">Habilitá</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="inst_step2_desc">Aceptá "Fuentes desconocidas" en los ajustes de Android.
                     </p>
                 </div>
 
@@ -1092,12 +1169,12 @@
                     <div
                         class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500 text-white font-bold text-sm mb-4">
                         3</div>
-                    <h3 class="font-display text-xl font-bold mb-3">Explorá</h3>
-                    <p class="text-gray-400 leading-relaxed">Abrí la app, poné los auriculares y empezá a caminar.</p>
+                    <h3 class="font-display text-xl font-bold mb-3" data-i18n="inst_step3_title">Explorá</h3>
+                    <p class="text-gray-400 leading-relaxed" data-i18n="inst_step3_desc">Abrí la app, poné los auriculares y empezá a caminar.</p>
                 </div>
             </div>
 
-            <p class="text-center text-gray-500 text-sm mt-10 reveal">
+            <p class="text-center text-gray-500 text-sm mt-10 reveal" data-i18n="inst_warning">
                 ⚠️ Disponible solo para Android. La beta no se encuentra en Google Play Store; se instala como APK
                 directo.
             </p>
@@ -1109,17 +1186,17 @@
         <div class="absolute inset-0 dots-pattern opacity-10"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
             <div class="reveal">
-                <h2 class="font-display text-4xl sm:text-5xl font-bold mb-6">
+                <h2 class="font-display text-4xl sm:text-5xl font-bold mb-6" data-i18n="contacto_title">
                     Hablemos de <span class="gradient-text">Turismo, Historia e IA</span>
                 </h2>
-                <p class="text-gray-400 text-xl mb-12 max-w-2xl mx-auto">
+                <p class="text-gray-400 text-xl mb-12 max-w-2xl mx-auto" data-i18n="contacto_desc">
                     ¿Tenés dudas, alianzas turísticas sugerencias o querés que YouGuide desembarque en tu ciudad?
                     ¡Hablemos!
                 </p>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
                     <a href="mailto:martingarciayouguide@gmail.com"
-                        class="btn-shine w-full sm:w-auto bg-ocean hover:bg-ocean-light text-white font-bold px-10 py-5 rounded-2xl transition-all duration-300 glow-blue flex items-center justify-center gap-3 text-lg">
+                        class="btn-shine w-full sm:w-auto bg-ocean hover:bg-ocean-light text-white font-bold px-10 py-5 rounded-2xl transition-all duration-300 glow-blue flex items-center justify-center gap-3 text-lg" data-i18n="contacto_email_btn">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
@@ -1127,7 +1204,7 @@
                         Mandar Email
                     </a>
                     <a href="https://www.instagram.com/youguide.ar/" target="_blank" rel="noopener noreferrer"
-                        class="btn-shine w-full sm:w-auto bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:scale-105 text-white font-bold px-10 py-5 rounded-2xl transition-all duration-300 shadow-lg shadow-pink-500/30 flex items-center justify-center gap-3 text-lg">
+                        class="btn-shine w-full sm:w-auto bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:scale-105 text-white font-bold px-10 py-5 rounded-2xl transition-all duration-300 shadow-lg shadow-pink-500/30 flex items-center justify-center gap-3 text-lg" data-i18n="btn_instagram">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
@@ -1149,15 +1226,14 @@
                         <span class="text-xl">🎧</span>
                         <span class="font-display font-bold text-lg">You<span class="text-accent">Guide</span></span>
                     </a>
-                    <p class="text-gray-500 text-sm">© 2026 YouGuide. Tu guía premium de Argentina.</p>
+                    <p class="text-gray-500 text-sm" data-i18n="footer_copy">© 2026 YouGuide. Tu guía premium de Argentina.</p>
                 </div>
 
                 <div class="flex items-center gap-8">
-                    <a href="#como-funciona" class="text-gray-400 hover:text-accent text-sm transition-colors">Cómo
-                        Funciona</a>
-                    <a href="#ciudades" class="text-gray-400 hover:text-accent text-sm transition-colors">Ciudades</a>
-                    <a href="#faq" class="text-gray-400 hover:text-accent text-sm transition-colors">FAQ</a>
-                    <a href="#contacto" class="text-gray-400 hover:text-accent text-sm transition-colors">Contacto</a>
+                    <a href="#como-funciona" class="text-gray-400 hover:text-accent text-sm transition-colors" data-i18n="nav_como_funciona">Cómo Funciona</a>
+                    <a href="#ciudades" class="text-gray-400 hover:text-accent text-sm transition-colors" data-i18n="nav_ciudades">Ciudades</a>
+                    <a href="#faq" class="text-gray-400 hover:text-accent text-sm transition-colors" data-i18n="nav_faq">FAQ</a>
+                    <a href="#contacto" class="text-gray-400 hover:text-accent text-sm transition-colors" data-i18n="nav_contacto">Contacto</a>
                 </div>
 
                 <div class="flex items-center gap-4">
@@ -1173,7 +1249,7 @@
             </div>
 
             <div class="mt-10 pt-6 border-t border-white/5 text-center">
-                <p class="text-gray-600 text-xs">
+                <p class="text-gray-600 text-xs" data-i18n="footer_warning">
                     YouGuide es una aplicación en fase Beta. El APK se distribuye directamente y no está disponible en
                     Google Play Store.
                     <br />Todas las marcas y nombres mencionados pertenecen a sus respectivos dueños.
@@ -1184,6 +1260,544 @@
 
 
     <script>
+        // === Internationalization (i18n) ===
+        const translations = {
+            es: {
+                nav_propuesta: "Propuesta",
+                nav_como_funciona: "Cómo Funciona",
+                nav_ciudades: "Ciudades",
+                nav_faq: "FAQ",
+                nav_contacto: "Contacto",
+                nav_download: "Descargar Beta",
+                hero_badge: "Beta Abierta — Argentina",
+                hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>La historia en tus oídos</span>",
+                hero_subtitle: "¿Y si las ciudades pudieran hablarte al oído? 🎧✨<br /> Caminá. Escuchá. Descubrí. <span class='text-white font-semibold'>Sin tocar tu celular.</span>",
+                hero_download_btn: "DESCARGAR APK GRATIS (BETA)",
+                hero_learn_more: "Conocer más",
+                hero_android_only: "*Por el momento, disponible únicamente para dispositivos Android.",
+                hero_testers: "Testers activos explorando Argentina",
+                propuesta_label: "Nuestra Propuesta",
+                propuesta_title: "No es otra app de mapas.<br /> Es tu <span class='gradient-text'>nuevo sentido</span> para explorar.",
+                propuesta_card1_text: "YouGuide no es otra app de mapas; es tu nuevo sentido para explorar el mundo. Olvidate de caminar mirando una pantalla o de leer carteles aburridos bajo el sol. Nuestra <span class='text-white font-semibold'>tecnología de audio automático por proximidad</span> detecta dónde estás y te narra la historia secreta, el dato curioso o la leyenda oculta del lugar justo cuando estás frente a él.",
+                propuesta_card2_text: "Es una experiencia <span class='text-white font-semibold'>100% manos libres</span>, diseñada bajo la filosofía <span class='text-accent font-semibold'>\"Accessibility First\"</span>: tan intuitiva que es la herramienta definitiva para personas no videntes y tan fascinante que cambia la forma de viajar de cualquier curioso.",
+                pill_audio: "Audio Automático",
+                pill_handsfree: "100% Manos Libres",
+                pill_a11y: "Accessibility First",
+                pill_stories: "Historias Curadas",
+                steps_label: "Tres Pasos",
+                steps_title: "Mágico y <span class='gradient-text'>Sin Esfuerzo</span>",
+                steps_desc: "Solo 3 pasos para transformar tu próxima caminata y comenzar la exploración en cualquier rincón.",
+                step1_title: "1. Llegá",
+                step1_desc: "Ubicate en el punto de inicio de cualquier ciudad disponible (una plaza, un monumento, el inicio de un sendero).",
+                step2_title: "2. Guardá tu celular",
+                step2_desc: "Conectá tus auriculares, bloqueá la pantalla y guardá el teléfono en el bolsillo. No vas a necesitar volver a mirarlo.",
+                step3_title: "3. Escuchá",
+                step3_desc: "Vas a escuchar un \"ding!\" apenas camines cerca del sitio y la historia curada comenzará automáticamente.",
+                ciudades_label: "Ciudades Piloto",
+                ciudades_title: "🏙️ Uníte a la <span class='gradient-text'>Revolución del Turismo</span><br /> en Argentina",
+                ciudades_desc: "Ya estamos operativos en <span class='text-white font-semibold'>43 ciudades de Argentina</span>, incluyendo los puntos más icónicos de:",
+                city_active: "Activa",
+                city_tandil_sub: "Dejá que la Piedra Movediza te cuente su secreto.",
+                city_azul_sub: "Descubrí la potencia del Art Déco de Salamone.",
+                city_ba_sub: "Sentí el pulso de la historia en cada esquina porteña.",
+                city_mdq_sub: "Mucho más que mar y arena; historias que te van a sorprender.",
+                city_jujuy_sub: "La Quebrada de Humahuaca y sus colores milenarios.",
+                city_cba_sub: "Sierras, historia jesuítica y la Docta en tu oído.",
+                city_rosario_sub: "Cuna de la Bandera y secretos a orillas del Paraná.",
+                city_bariloche_sub: "Lagos, bosques y leyendas patagónicas que te envuelven.",
+                city_catamarca_sub: "Místicos paisajes andinos y relatos ancestrales.",
+                city_misiones_sub: "Cataratas, selva y las ruinas jesuíticas que hablan.",
+                city_larioja_sub: "Caminá entre gigantes de piedra roja en Talampaya.",
+                city_ushuaia_sub: "Historias del fin del mundo y navegación por el Beagle.",
+                city_sierra_sub: "Explorá los huecos de la historia en las sierras más antiguas.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...y otras 33 ciudades.</span> Desde Salta y El Calafate hasta Mendoza, Iguazú y Rosario.",
+                expansion_label: "Expansión 2026",
+                expansion_title: "Próximamente en <span class='gradient-text'>Sudamérica</span>",
+                expansion_desc: "Nuestra misión no tiene fronteras. Estamos mapeando el continente para llevar la historia a tus oídos vayas a donde vayas.",
+                evolucion_label: "Evolución",
+                evolucion_title: "Lo que se viene... ¿Qué más te imaginás?",
+                offline_title: "Modo Offline",
+                offline_desc: "Descargá las guías antes de salir. Ideal para senderismo en zonas como El Chaltén o cordillera sin señal.",
+                community_guides_title: "Guías Comunitarias",
+                community_guides_desc: "Pronto cualquier persona podrá grabar y subir las historias de su ciudad. El contenido será moderado por IA.",
+                rewards_title: "Recompensas Físicas",
+                rewards_desc: "Canjeá tus puntos de experiencia (XP) y niveles por cafés, descuentos y regalos en la red de comercios locales adheridos.",
+                feedback_label: "Feedback",
+                feedback_title: "Lo que dice la <span class='gradient-text'>Comunidad Beta</span>",
+                testimonio1_text: "\"Fui a la Sierra de Tandil y es una locura cómo te empieza a hablar la app justo cuando llegas a la Movediza. Por fin pude disfrutar el paisaje real y sacar fotos sin estar leyendo texto en la pantallita del celular.\"",
+                testimonio1_sub: "Tester en Tandil",
+                testimonio2_text: "\"Me cambió la forma de pasear en mis findes libres. Vivo en Buenos Aires y paso por lugares con historia todos los días que ahora descubro de la nada y me asombro... ¡Es el futuro!\"",
+                testimonio2_sub: "Tester en CABA",
+                testimonio3_text: "\"La precisión del GPS es fantástica (literal te avisa cuando estás a 50 metros). Soy estudiante de turismo y me encanta cómo está armada la narrativa de la historia. Es muy envolvente.\"",
+                testimonio3_sub: "Tester en Azul",
+                faq_label: "Consultas",
+                faq_title: "Preguntas <span class='gradient-text'>Frecuentes</span>",
+                faq1_q: "¿Por qué todavía no la descargo del Play Store?",
+                faq1_a: "YouGuide se encuentra actualmente en fase de Beta Exclusiva. Distribuimos el APK de prueba (sin costo) directamente a nuestra comunidad para optimizar y ajustar detalles antes de nuestro gran lanzamiento oficial. Al participar hoy, nos ayudás a moldear el futuro de la app.",
+                faq2_q: "¿Consume muchos datos o batería el audio automático?",
+                faq2_a: "¡Al contrario! Como la pantalla permanece apagada en tu bolsillo y procesamos la geolocalización de modo ultra-efficiente en segundo plano, vas a gastar menos batería que usando apps tradicionales con mapas visibles.",
+                faq3_q: "¿Necesito auriculares para que funcione?",
+                faq3_a: "No es obligatorio (la app puede sonar por el altavoz de tu teléfono si estás caminando por el campo), pero te recomendamos enfáticamente usarlos. El efecto de \"susurro al oído\" en medio de la ciudad genera esa inmersión histórica que nos hace únicos.",
+                faq4_q: "¿Tiene costo usar la App?",
+                faq4_a: "Quienes instalan y participan de la Beta tienen los relatos gratuitos. El único \"costo\" es tu opinión: luego de que visites sitios usando la app, te pediremos que respondas una breve encuesta para entender qué te gustó y qué debemos mejorar.",
+                circulo_title: "Formá parte del <span class='gradient-text'>Círculo Íntimo</span><br /> de YouGuide",
+                circulo_desc: "Queremos que seas de los primeros <span class='text-white font-semibold'>1.000 usuarios en Argentina</span> en probar esta tecnología antes del lanzamiento global.",
+                circulo_magia: "¿Cómo funciona la magia?",
+                circulo_magia_desc: "Descargá el APK Beta, explorá tu ciudad con los auriculares puestos y ayudanos a evolucionar. Para mantener tu acceso activo y desbloquear nuevas rutas exclusivas en el corto plazo, te pediremos completar una <span class='text-white font-semibold'>encuesta de solo 2 minutos</span> tras tu primera caminata. Tu feedback es el motor que nos permite mejorar tu experiencia.",
+                instalacion_label: "Instalación",
+                instalacion_title: "Listo en <span class='gradient-text'>3 pasos</span>",
+                instalacion_desc: "Es rápido, seguro y 100% gratis.",
+                inst_step1_title: "Descargá",
+                inst_step1_desc: "Bajá el archivo APK desde el botón de descarga.",
+                inst_step2_title: "Habilitá",
+                inst_step2_desc: "Aceptá \"Fuentes desconocidas\" en los ajustes de Android.",
+                inst_step3_title: "Explorá",
+                inst_step3_desc: "Abrí la app, poné los auriculares y empezá a caminar.",
+                inst_warning: "⚠️ Disponible solo para Android. La beta no se encuentra en Google Play Store; se instala como APK directo.",
+                contacto_title: "Hablemos de <span class='gradient-text'>Turismo, Historia e IA</span>",
+                contacto_desc: "¿Tenés dudas, alianzas turísticas sugerencias o querés que YouGuide desembarque en tu ciudad? ¡Hablemos!",
+                contacto_email_btn: "Mandar Email",
+                footer_copy: "© 2026 YouGuide. Tu guía premium de Argentina.",
+                footer_warning: "YouGuide es una aplicación en fase Beta. El APK se distribuye directamente y no está disponible en Google Play Store. <br />Todas las marcas y nombres mencionados pertenecen a sus respectivos dueños."
+            },
+            en: {
+                nav_propuesta: "Proposal",
+                nav_como_funciona: "How it Works",
+                nav_ciudades: "Cities",
+                nav_faq: "FAQ",
+                nav_contacto: "Contact",
+                nav_download: "Download Beta",
+                hero_badge: "Open Beta — Argentina",
+                hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>The history in your ears</span>",
+                hero_subtitle: "What if cities could whisper in your ear? 🎧✨<br /> Walk. Listen. Discover. <span class='text-white font-semibold'>Without touching your phone.</span>",
+                hero_download_btn: "DOWNLOAD FREE APK (BETA)",
+                hero_learn_more: "Learn more",
+                hero_android_only: "*Currently only available for Android devices.",
+                hero_testers: "Active testers exploring Argentina",
+                propuesta_label: "Our Proposal",
+                propuesta_title: "Not just another map app.<br /> It's your <span class='gradient-text'>new sense</span> for exploration.",
+                propuesta_card1_text: "YouGuide is not just another map app; it's your new sense for exploring the world. Forget about walking while looking at a screen or reading boring signs under the sun. Our <span class='text-white font-semibold'>proximity-based automatic audio technology</span> detects where you are and narrates the secret history, the curious fact, or the hidden legend of the place exactly when you are in front of it.",
+                propuesta_card2_text: "It's a <span class='text-white font-semibold'>100% hands-free</span> experience, designed under the <span class='text-accent font-semibold'>\"Accessibility First\"</span> philosophy: so intuitive it's the ultimate tool for blind people and so fascinating it changes the way any curious person travels.",
+                pill_audio: "Automatic Audio",
+                pill_handsfree: "100% Hands-Free",
+                pill_a11y: "Accessibility First",
+                pill_stories: "Curated Stories",
+                steps_label: "Three Steps",
+                steps_title: "Magical and <span class='gradient-text'>Effortless</span>",
+                steps_desc: "Just 3 steps to transform your next walk and start exploring any corner.",
+                step1_title: "1. Arrive",
+                step1_desc: "Locate yourself at the starting point of any available city (a square, a monument, the beginning of a trail).",
+                step2_title: "2. Put your phone away",
+                step2_desc: "Connect your headphones, lock the screen, and put the phone in your pocket. You won't need to look at it again.",
+                step3_title: "3. Listen",
+                step3_desc: "You will hear a \"ding!\" as soon as you walk near the site, and the curated story will start automatically.",
+                ciudades_label: "Pilot Cities",
+                ciudades_title: "🏙️ Join the <span class='gradient-text'>Tourism Revolution</span><br /> in Argentina",
+                ciudades_desc: "We are already operational in <span class='text-white font-semibold'>43 cities in Argentina</span>, including the most iconic spots in:",
+                city_active: "Active",
+                city_tandil_sub: "Let the Moving Stone tell you its secret.",
+                city_azul_sub: "Discover the power of Salamone's Art Deco.",
+                city_ba_sub: "Feel the pulse of history in every corner of Buenos Aires.",
+                city_mdq_sub: "Much more than sea and sand; stories that will surprise you.",
+                city_jujuy_sub: "The Humahuaca Ravine and its millennial colors.",
+                city_cba_sub: "Mountains, Jesuit history, and the \"Docta\" in your ear.",
+                city_rosario_sub: "Cradle of the Flag and secrets on the banks of the Paraná.",
+                city_bariloche_sub: "Lakes, forests, and Patagonian legends that surround you.",
+                city_catamarca_sub: "Mystical Andean landscapes and ancestral tales.",
+                city_misiones_sub: "Falls, jungle, and the Jesuit ruins that speak.",
+                city_larioja_sub: "Walk among red stone giants in Talampaya.",
+                city_ushuaia_sub: "Stories from the end of the world and sailing the Beagle.",
+                city_sierra_sub: "Explore the gaps in history in the oldest mountains.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...and 33 other cities.</span> From Salta and El Calafate to Mendoza, Iguazú, and Rosario.",
+                expansion_label: "2026 Expansion",
+                expansion_title: "Coming soon to <span class='gradient-text'>South America</span>",
+                expansion_desc: "Our mission has no borders. We are mapping the continent to bring history to your ears wherever you go.",
+                evolucion_label: "Evolution",
+                evolucion_title: "What's coming next... What else do you imagine?",
+                offline_title: "Offline Mode",
+                offline_desc: "Download the guides before leaving. Ideal for hiking in areas like El Chaltén or mountain ranges without signal.",
+                community_guides_title: "Community Guides",
+                community_guides_desc: "Soon anyone will be able to record and upload stories from their city. Content will be moderated by AI.",
+                rewards_title: "Physical Rewards",
+                rewards_desc: "Redeem your experience points (XP) and levels for coffee, discounts, and gifts in our network of local partner shops.",
+                feedback_label: "Feedback",
+                feedback_title: "What the <span class='gradient-text'>Beta Community</span> says",
+                testimonio1_text: "\"I went to the Sierra de Tandil and it's crazy how the app starts talking to you just when you get to the Movediza. I could finally enjoy the real landscape and take photos without reading text on the phone screen.\"",
+                testimonio1_sub: "Tester in Tandil",
+                testimonio2_text: "\"It changed the way I wander on my free weekends. I live in Buenos Aires and I pass by historical places every day that I now discover out of nowhere and I'm amazed... It's the future!\"",
+                testimonio2_sub: "Tester in CABA",
+                testimonio3_text: "\"The GPS precision is fantastic (literally warns you when you are 50 meters away). I am a tourism student and I love how the history narrative is put together. It's very immersive.\"",
+                testimonio3_sub: "Tester in Azul",
+                faq_label: "Queries",
+                faq_title: "Frequently Asked <span class='gradient-text'>Questions</span>",
+                faq1_q: "Why can't I download it from the Play Store yet?",
+                faq1_a: "YouGuide is currently in an Exclusive Beta phase. We distribute the test APK (free of charge) directly to our community to optimize and adjust details before our grand official launch. By participating today, you help us shape the future of the app.",
+                faq2_q: "Does automatic audio consume a lot of data or battery?",
+                faq2_a: "On the contrary! Since the screen remains off in your pocket and we process geolocation ultra-efficiently in the background, you'll use less battery than using traditional apps with visible maps.",
+                faq3_q: "Do I need headphones for it to work?",
+                faq3_a: "It's not mandatory (the app can sound through your phone's speaker if you're walking in the countryside), but we strongly recommend using them. The \"whisper in the ear\" effect in the middle of the city creates that historical immersion that makes us unique.",
+                faq4_q: "Is there a cost to use the App?",
+                faq4_a: "Those who install and participate in the Beta get the stories for free. The only \"cost\" is your opinion: after you visit sites using the app, we'll ask you to answer a brief survey to understand what you liked and what we should improve.",
+                circulo_title: "Be part of the YouGuide <span class='gradient-text'>Inner Circle</span>",
+                circulo_desc: "We want you to be among the first <span class='text-white font-semibold'>1,000 users in Argentina</span> to test this technology before the global launch.",
+                circulo_magia: "How does the magic work?",
+                circulo_magia_desc: "Download the Beta APK, explore your city with headphones on, and help us evolve. To keep your access active and unlock new exclusive routes in the short term, we'll ask you to complete a <span class='text-white font-semibold'>2-minute survey</span> after your first walk. Your feedback is the engine that allows us to improve your experience.",
+                instalacion_label: "Installation",
+                instalacion_title: "Ready in <span class='gradient-text'>3 steps</span>",
+                instalacion_desc: "It's fast, safe, and 100% free.",
+                inst_step1_title: "Download",
+                inst_step1_desc: "Download the APK file from the download button.",
+                inst_step2_title: "Enable",
+                inst_step2_desc: "Accept \"Unknown sources\" in your Android settings.",
+                inst_step3_title: "Explore",
+                inst_step3_desc: "Open the app, put on your headphones and start walking.",
+                inst_warning: "⚠️ Only available for Android. The beta is not on Google Play Store; it is installed as a direct APK.",
+                contacto_title: "Let's talk about <span class='gradient-text'>Tourism, History, and AI</span>",
+                contacto_desc: "Have questions, tourism partnerships, suggestions, or want YouGuide to land in your city? Let's talk!",
+                contacto_email_btn: "Send Email",
+                footer_copy: "© 2026 YouGuide. Your premium guide to Argentina.",
+                footer_warning: "YouGuide is a Beta phase application. The APK is distributed directly and is not available on the Google Play Store. <br />All mentioned brands and names belong to their respective owners."
+            },
+            pt: {
+                nav_propuesta: "Proposta",
+                nav_como_funciona: "Como Funciona",
+                nav_ciudades: "Cidades",
+                nav_faq: "FAQ",
+                nav_contacto: "Contato",
+                nav_download: "Baixar Beta",
+                hero_badge: "Beta Aberto — Argentina",
+                hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>A história em seus ouvidos</span>",
+                hero_subtitle: "E se as cidades pudessem falar ao seu ouvido? 🎧✨<br /> Caminhe. Ouça. Descubra. <span class='text-white font-semibold'>Sem tocar no seu celular.</span>",
+                hero_download_btn: "BAIXAR APK GRATUITO (BETA)",
+                hero_learn_more: "Saiba mais",
+                hero_android_only: "*No momento, disponível apenas para dispositivos Android.",
+                hero_testers: "Testers ativos explorando a Argentina",
+                propuesta_label: "Nossa Proposta",
+                propuesta_title: "Não é apenas mais um app de mapas.<br /> É o seu <span class='gradient-text'>novo sentido</span> para explorar.",
+                propuesta_card1_text: "YouGuide não é apenas mais um app de mapas; é o seu novo sentido para explorar o mundo. Esqueça caminhar olhando para uma tela ou ler cartazes chatos sob o sol. Nossa <span class='text-white font-semibold'>tecnologia de áudio automático por proximidade</span> detecta onde você está e narra a história secreta, o fato curioso ou a lenda oculta do lugar exatamente quando você está diante dele.",
+                propuesta_card2_text: "É uma experiência <span class='text-white font-semibold'>100% mãos livres</span>, projetada sob a filosofia <span class='text-accent font-semibold'>\"Accessibility First\"</span>: tão intuitiva que é a ferramenta definitiva para pessoas com deficiência visual e tão fascinante que muda a forma de viajar de qualquer curioso.",
+                pill_audio: "Áudio Automático",
+                pill_handsfree: "100% Mãos Livres",
+                pill_a11y: "Accessibility First",
+                pill_stories: "Histórias Curadas",
+                steps_label: "Três Passos",
+                steps_title: "Mágico e <span class='gradient-text'>Sem Esforço</span>",
+                steps_desc: "Apenas 3 passos para transformar sua próxima caminhada e começar a exploração em qualquer lugar.",
+                step1_title: "1. Chegue",
+                step1_desc: "Posicione-se no ponto inicial de qualquer cidade disponível (uma praça, um monumento, o início de uma trilha).",
+                step2_title: "2. Guarde seu celular",
+                step2_desc: "Conecte seus fones de ouvido, bloqueie a tela e guarde o telefone no bolso. Você não precisará olhar para ele novamente.",
+                step3_title: "3. Ouça",
+                step3_desc: "Você ouvirá um \"ding!\" assim que caminhar perto do local e a história curada começará automaticamente.",
+                ciudades_label: "Cidades Piloto",
+                ciudades_title: "🏙️ Junte-se à <span class='gradient-text'>Revolução do Turismo</span><br /> na Argentina",
+                ciudades_desc: "Já estamos operacionais em <span class='text-white font-semibold'>43 cidades da Argentina</span>, incluindo os pontos mais icônicos de:",
+                city_active: "Ativa",
+                city_tandil_sub: "Deixe a Pedra Movediza contar seu segredo.",
+                city_azul_sub: "Descubra a potência do Art Déco de Salamone.",
+                city_ba_sub: "Sinta o pulso da história em cada esquina de Buenos Aires.",
+                city_mdq_sub: "Muito mais que mar e areia; histórias que vão te surpreender.",
+                city_jujuy_sub: "A Quebrada de Humahuaca e suas cores milenares.",
+                city_cba_sub: "Serras, história jesuítica e a \"Docta\" no seu ouvido.",
+                city_rosario_sub: "Berço da Bandeira e segredos às margens do Paraná.",
+                city_bariloche_sub: "Lagos, florestas e lendas patagônicas que te cercam.",
+                city_catamarca_sub: "Místicos cenários andinos e relatos ancestrais.",
+                city_misiones_sub: "Cataratas, selva e as ruínas jesuíticas que falam.",
+                city_larioja_sub: "Caminhe entre gigantes de pedra vermelha em Talampaya.",
+                city_ushuaia_sub: "Histórias do fim do mundo e navegação pelo Beagle.",
+                city_sierra_sub: "Explore os vãos da história nas serras mais antigas.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...e outras 33 cidades.</span> De Salta e El Calafate a Mendoza, Iguazú e Rosario.",
+                expansion_label: "Expansão 2026",
+                expansion_title: "Em breve na <span class='gradient-text'>América do Sul</span>",
+                expansion_desc: "Nossa missão não tem fronteiras. Estamos mapeando o continente para levar a história aos seus ouvidos onde quer que você vá.",
+                evolucion_label: "Evolução",
+                evolucion_title: "O que vem por aí... O que mais você imagina?",
+                offline_title: "Modo Offline",
+                offline_desc: "Baixe os guias antes de sair. Ideal para trilhas em áreas como El Chaltén ou cordilheiras sem sinal.",
+                community_guides_title: "Guias Comunitários",
+                community_guides_desc: "Em breve qualquer pessoa poderá gravar e enviar histórias de sua cidade. O conteúdo será moderado por IA.",
+                rewards_title: "Recompensas Físicas",
+                rewards_desc: "Troque seus pontos de experiência (XP) e níveis por cafés, descontos e presentes na rede de comércios locais parceiros.",
+                feedback_label: "Feedback",
+                feedback_title: "O que diz a <span class='gradient-text'>Comunidade Beta</span>",
+                testimonio1_text: "\"Fui à Serra de Tandil e é loucura como o app começa a falar com você assim que chega à Movediza. Finalmente pude aproveitar a paisagem real e tirar fotos sem ficar lendo texto na tela do celular.\"",
+                testimonio1_sub: "Tester em Tandil",
+                testimonio2_text: "\"Mudou minha forma de passear nos meus fins de semana livres. Moro em Buenos Aires e passo por lugares históricos todos os dias que agora descubro do nada e fico maravilhado... É o futuro!\"",
+                testimonio2_sub: "Tester em CABA",
+                testimonio3_text: "\"A precisão do GPS es fantástica (literalmente avisa quando você está a 50 metros). Sou estudante de turismo e adoro como a narrativa da história é montada. É muito envolvente.\"",
+                testimonio3_sub: "Tester em Azul",
+                faq_label: "Dúvidas",
+                faq_title: "Perguntas <span class='gradient-text'>Frequentes</span>",
+                faq1_q: "Por que ainda não posso baixar na Play Store?",
+                faq1_a: "YouGuide está atualmente em fase de Beta Exclusivo. Distribuímos o APK de teste (sem custo) diretamente para nossa comunidade para otimizar e ajustar detalhes antes do nosso grande lançamento oficial. Participando hoje, você nos ajuda a moldar o futuro do app.",
+                faq2_q: "O áudio automático consome muitos dados ou bateria?",
+                faq2_a: "Pelo contrário! Como a tela permanece desligada no seu bolso e processamos a geolocalização de modo ultra-eficiente em segundo plano, você gastará menos bateria do que usando apps tradicionais com mapas visíveis.",
+                faq3_q: "Preciso de fones de ouvido para funcionar?",
+                faq3_a: "Não é obrigatório (o app pode soar pelo alto-falante do telefone se estiver caminhando no campo), mas recomendamos enfaticamente usá-los. O efeito de \"sussurro ao ouvido\" no meio da cidade gera aquela imersão histórica que nos torna únicos.",
+                faq4_q: "Tem custo para usar o App?",
+                faq4_a: "Quem instala e participa do Beta tem as histórias gratuitas. O único \"custo\" é sua opinião: após visitar locais usando o app, pediremos que responda a uma breve pesquisa para entender o que gostou e o que devemos melhorar.",
+                circulo_title: "Faça parte do <span class='gradient-text'>Círculo Íntimo</span> da YouGuide",
+                circulo_desc: "Queremos que você seja um dos primeiros <span class='text-white font-semibold'>1.000 usuários na Argentina</span> a testar esta tecnologia antes do lançamento global.",
+                circulo_magia: "Como funciona a magia?",
+                circulo_magia_desc: "Baixe o APK Beta, explore sua cidade com fones de ouvido e nos ajude a evoluir. Para manter seu acesso ativo e desbloquear novas rotas exclusivas em breve, pediremos que complete uma <span class='text-white font-semibold'>pesquisa de apenas 2 minutos</span> após sua primeira caminhada. Seu feedback é o motor que nos permite melhorar sua experiência.",
+                instalacion_label: "Instalação",
+                instalacion_title: "Pronto em <span class='gradient-text'>3 passos</span>",
+                instalacion_desc: "É rápido, seguro e 100% grátis.",
+                inst_step1_title: "Baixe",
+                inst_step1_desc: "Baixe o arquivo APK pelo botão de download.",
+                inst_step2_title: "Habilite",
+                inst_step2_desc: "Aceite \"Fontes desconhecidas\" nos ajustes do Android.",
+                inst_step3_title: "Explore",
+                inst_step3_desc: "Abra o app, coloque os fones e comece a caminhar.",
+                inst_warning: "⚠️ Disponível apenas para Android. O beta não está na Google Play Store; é instalado como APK direto.",
+                contacto_title: "Falemos de <span class='gradient-text'>Turismo, História e IA</span>",
+                contacto_desc: "Tem dúvidas, parcerias turísticas, sugestões ou quer que a YouGuide chegue à sua cidade? Falemos!",
+                contacto_email_btn: "Enviar Email",
+                footer_copy: "© 2026 YouGuide. Seu guia premium da Argentina.",
+                footer_warning: "YouGuide é um aplicativo em fase Beta. O APK é distribuído diretamente e não está disponível na Google Play Store. <br />Todas as marcas e nomes mencionados pertencentem aos seus respectivos donos."
+            },
+            fr: {
+                nav_propuesta: "Proposition",
+                nav_como_funciona: "Comment ça marche",
+                nav_ciudades: "Villes",
+                nav_faq: "FAQ",
+                nav_contacto: "Contact",
+                nav_download: "Télécharger Beta",
+                hero_badge: "Bêta Ouverte — Argentine",
+                hero_title: "YouGuide : <br class='sm:hidden' /> <span class='gradient-text'>L'histoire dans vos oreilles</span>",
+                hero_subtitle: "Et si les villes pouvaient vous chuchoter à l'oreille ? 🎧✨<br /> Marchez. Écoutez. Découvrez. <span class='text-white font-semibold'>Sans toucher votre téléphone.</span>",
+                hero_download_btn: "TÉLÉCHARGER L'APK GRATUIT (BETA)",
+                hero_learn_more: "En savoir plus",
+                hero_android_only: "*Pour le moment, disponible uniquement pour les appareils Android.",
+                hero_testers: "Testeurs actifs explorant l'Argentine",
+                propuesta_label: "Notre Proposition",
+                propuesta_title: "Ce n'est pas une autre application de cartes.<br /> C'est votre <span class='gradient-text'>nouveau sens</span> pour explorer.",
+                propuesta_card1_text: "YouGuide n'est pas une autre application de cartes ; c'est votre nouveau sens pour explorer le monde. Oubliez de marcher en regardant un écran ou de lire des panneaux ennuyeux sous le soleil. Notre <span class='text-white font-semibold'>technologie audio automatique de proximité</span> détecte où vous êtes et vous raconte l'histoire secrète, le fait curieux ou la légende cachée du lieu juste au moment où vous êtes devant lui.",
+                propuesta_card2_text: "C'est une expérience <span class='text-white font-semibold'>100% mains libres</span>, conçue selon la philosophie <span class='text-accent font-semibold'>\"Accessibility First\"</span> : si intuitive qu'elle est l'outil ultime pour les non-voyants et si fascinante qu'elle change la façon de voyager de tout curieux.",
+                pill_audio: "Audio Automatique",
+                pill_handsfree: "100% Mains Libres",
+                pill_a11y: "Accessibilité d'abord",
+                pill_stories: "Histoires Sélectionnées",
+                steps_label: "Trois Étapes",
+                steps_title: "Magique et <span class='gradient-text'>Sans Effort</span>",
+                steps_desc: "Seulement 3 étapes pour transformer votre prochaine marche et commencer l'exploration n'importe où.",
+                step1_title: "1. Arrivez",
+                step1_desc: "Placez-vous au point de départ de n'importe quelle ville disponible (une place, un monument, le début d'un sentier).",
+                step2_title: "2. Rangez votre téléphone",
+                step2_desc: "Connectez vos écouteurs, verrouillez l'écran et mettez le téléphone dans votre poche. Vous n'aurez plus besoin de le regarder.",
+                step3_title: "3. Écoutez",
+                step3_desc: "Vous entendrez un \"ding !\" dès que vous marcherez près du site et l'histoire sélectionnée commencera automatiquement.",
+                ciudades_label: "Villes Pilotes",
+                ciudades_title: "🏙️ Rejoignez la <span class='gradient-text'>Révolution du Tourisme</span><br /> en Argentine",
+                ciudades_desc: "Nous sommes déjà opérationnels dans <span class='text-white font-semibold'>43 villes d'Argentine</span>, y compris les points les plus emblématiques de :",
+                city_active: "Active",
+                city_tandil_sub: "Laissez la Pierre Mouvante vous raconter son secret.",
+                city_azul_sub: "Découvrez la puissance de l'Art Déco de Salamone.",
+                city_ba_sub: "Ressentez le pouls de l'histoire à chaque coin de rue de Buenos Aires.",
+                city_mdq_sub: "Bien plus que la mer et le sable ; des histoires qui vous surprendront.",
+                city_jujuy_sub: "La gorge de Humahuaca et ses couleurs millénaires.",
+                city_cba_sub: "Montagnes, histoire jésuite et la \"Docta\" dans votre oreille.",
+                city_rosario_sub: "Berceau du Drapeau et secrets sur les rives du Paraná.",
+                city_bariloche_sub: "Lacs, forêts et légendes patagoniennes qui vous entourent.",
+                city_catamarca_sub: "Paysages andins mystiques et récits ancestraux.",
+                city_misiones_sub: "Chutes, jungle et ruines jésuites qui parlent.",
+                city_larioja_sub: "Marchez parmi les géants de pierre rouge à Talampaya.",
+                city_ushuaia_sub: "Histoires du bout du monde et navigation sur le Beagle.",
+                city_sierra_sub: "Explorez les lacunes de l'histoire dans les montagnes les plus anciennes.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...et 33 autres villes.</span> De Salta et El Calafate à Mendoza, Iguazú et Rosario.",
+                expansion_label: "Expansion 2026",
+                expansion_title: "Bientôt en <span class='gradient-text'>Amérique du Sud</span>",
+                expansion_desc: "Notre mission n'a pas de frontières. Nous cartographions le continent pour porter l'histoire à vos oreilles où que vous alliez.",
+                evolucion_label: "Évolution",
+                evolucion_title: "Ce qui arrive... Qu'imaginez-vous d'autre ?",
+                offline_title: "Mode Hors-ligne",
+                offline_desc: "Téléchargez les guides avant de partir. Idéal pour la randonnée dans des zones comme El Chaltén ou les montagnes sans signal.",
+                community_guides_title: "Guides Communautaires",
+                community_guides_desc: "Bientôt n'importe qui pourra enregistrer et télécharger les histoires de sa ville. Le contenu sera modéré par l'IA.",
+                rewards_title: "Récompenses Physiques",
+                rewards_desc: "Échangez vos points d'expérience (XP) et vos niveaux contre des cafés, des réductions et des cadeaux dans notre réseau de commerces locaux partenaires.",
+                feedback_label: "Feedback",
+                feedback_title: "Ce que dit la <span class='gradient-text'>Communauté Bêta</span>",
+                testimonio1_text: "\"Je suis allée à la Sierra de Tandil et c'est fou comment l'appli commence à vous parler juste quand vous arrivez à la Movediza. J'ai enfin pu profiter du vrai paysage et prendre des photos sans lire de texte sur l'écran du téléphone.\"",
+                testimonio1_sub: "Testeuse à Tandil",
+                testimonio2_text: "\"Ça a changé ma façon de me promener pendant mes week-ends libres. J'habite à Buenos Aires et je passe devant des lieux historiques tous les jours que je découvre maintenant de nulle part et je suis émerveillée... C'est le futur !\"",
+                testimonio2_sub: "Testeur à CABA",
+                testimonio3_text: "\"La précision du GPS est fantastique (il vous prévient littéralement quand vous êtes à 50 mètres). Je suis étudiante en tourisme et j'adore la façon dont le récit de l'histoire est construit. C'est très immersif.\"",
+                testimonio3_sub: "Testeuse à Azul",
+                faq_label: "Questions",
+                faq_title: "Questions <span class='gradient-text'>Fréquentes</span>",
+                faq1_q: "Pourquoi je ne peux pas encore la télécharger sur le Play Store ?",
+                faq1_a: "YouGuide est actuellement en phase de Bêta Exclusive. Nous distribuons l'APK de test (gratuitement) directement à notre communauté pour optimiser et ajuster les détails avant notre grand lancement officiel. En participant aujourd'hui, vous nous aidez à façonner l'avenir de l'appli.",
+                faq2_q: "L'audio automatique consomme-t-il beaucoup de données ou de batterie ?",
+                faq2_a: "Au contraire ! Comme l'écran reste éteint dans votre poche et que nous traitons la géolocalisation de manière ultra-efficace en arrière-plan, vous dépenserez moins de batterie qu'en utilisant des applis traditionnelles avec des cartes visibles.",
+                faq3_q: "Ai-je besoin d'écouteurs pour que ça fonctionne ?",
+                faq3_a: "Ce n'est pas obligatoire (l'appli peut sonner par le haut-parleur de votre téléphone si vous marchez à la campagne), mais nous vous recommandons vivement de les utiliser. L'effet de \"chuchotement à l'oreille\" en pleine ville crée cette immersion historique qui nous rend uniques.",
+                faq4_q: "L'utilisation de l'appli est-elle payante ?",
+                faq4_a: "Ceux qui installent et participent à la Bêta ont accès aux récits gratuitement. Le seul \"coût\" est votre avis : après avoir visité des sites avec l'appli, nous vous demanderons de répondre à un court sondage pour comprendre ce qui vous a plu et ce que nous devons améliorer.",
+                circulo_title: "Faites partie du <span class='gradient-text'>Cercle Intime</span> de YouGuide",
+                circulo_desc: "Nous voulons que vous soyez parmi les <span class='text-white font-semibold'>1 000 premiers utilisateurs en Argentine</span> à tester cette technologie avant le lancement mondial.",
+                circulo_magia: "Comment fonctionne la magie ?",
+                circulo_magia_desc: "Téléchargez l'APK Bêta, explorez votre ville avec des écouteurs et aidez-nous à évoluer. Pour maintenir votre accès actif et débloquer de nouveaux parcours exclusifs à court terme, nous vous demanderons de remplir un <span class='text-white font-semibold'>sondage de seulement 2 minutes</span> après votre première marche. Votre feedback est le moteur qui nous permet d'améliorer votre expérience.",
+                instalacion_label: "Installation",
+                instalacion_title: "Prêt en <span class='gradient-text'>3 étapes</span>",
+                instalacion_desc: "C'est rapide, sûr et 100% gratuit.",
+                inst_step1_title: "Téléchargez",
+                inst_step1_desc: "Téléchargez le fichier APK via le bouton de téléchargement.",
+                inst_step2_title: "Activez",
+                inst_step2_desc: "Acceptez les \"Sources inconnues\" dans les paramètres Android.",
+                inst_step3_title: "Explorez",
+                inst_step3_desc: "Ouvrez l'appli, mettez vos écouteurs et commencez à marcher.",
+                inst_warning: "⚠️ Disponible uniquement pour Android. La bêta n'est pas sur le Google Play Store ; elle s'installe en tant qu'APK direct.",
+                contacto_title: "Parlons de <span class='gradient-text'>Tourisme, d'Histoire et d'IA</span>",
+                contacto_desc: "Vous avez des questions, des partenariats touristiques, des suggestions ou vous voulez que YouGuide débarque dans votre ville ? Parlons-en !",
+                contacto_email_btn: "Envoyer un Email",
+                footer_copy: "© 2026 YouGuide. Votre guide premium de l'Argentine.",
+                footer_warning: "YouGuide est une application en phase Bêta. L'APK est distribué directement et n'est pas disponible sur le Google Play Store. <br />Toutes les marques et noms mentionnés appartiennent à leurs propriétaires respectifs."
+            },
+            de: {
+                nav_propuesta: "Vorschlag",
+                nav_como_funciona: "Wie es funktioniert",
+                nav_ciudades: "Städte",
+                nav_faq: "FAQ",
+                nav_contacto: "Kontakt",
+                nav_download: "Beta herunterladen",
+                hero_badge: "Offene Beta — Argentinien",
+                hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>Die Geschichte in deinen Ohren</span>",
+                hero_subtitle: "Was wäre, wenn Städte dir ins Ohr flüstern könnten? 🎧✨<br /> Gehen. Hören. Entdecken. <span class='text-white font-semibold'>Ohne dein Handy zu berühren.</span>",
+                hero_download_btn: "KOSTENLOSE APK HERUNTERLADEN (BETA)",
+                hero_learn_more: "Mehr erfahren",
+                hero_android_only: "*Derzeit nur für Android-Geräte verfügbar.",
+                hero_testers: "Aktive Tester erkunden Argentinien",
+                propuesta_label: "Unser Vorschlag",
+                propuesta_title: "Nicht nur eine weitere Karten-App.<br /> Es ist dein <span class='gradient-text'>neuer Sinn</span> zum Erkunden.",
+                propuesta_card1_text: "YouGuide ist nicht nur eine weitere Karten-App; es ist dein neuer Sinn für die Erkundung der Welt. Vergiss das Gehen, während du auf einen Bildschirm starrst oder langweilige Schilder in der Sonne liest. Unsere <span class='text-white font-semibold'>proximitätsbasierte automatische Audiotechnologie</span> erkennt, wo du bist, und erzählt dir die geheime Geschichte, die kuriose Tatsache oder die verborgene Legende des Ortes genau dann, wenn du davor stehst.",
+                propuesta_card2_text: "Es ist ein <span class='text-white font-semibold'>100% freihändiges</span> Erlebnis, das nach der Philosophie <span class='text-accent font-semibold'>\"Accessibility First\"</span> entwickelt wurde: so intuitiv, dass es das ultimative Werkzeug für blinde Menschen ist, und so faszinierend, dass es die Art des Reisens für jeden Neugierigen verändert.",
+                pill_audio: "Automatisches Audio",
+                pill_handsfree: "100% Freihändig",
+                pill_a11y: "Barrierefreiheit zuerst",
+                pill_stories: "Kuratierte Geschichten",
+                steps_label: "Drei Schritte",
+                steps_title: "Magisch und <span class='gradient-text'>Mühelos</span>",
+                steps_desc: "Nur 3 Schritte, um deinen nächsten Spaziergang zu verwandeln und die Erkundung an jeder Ecke zu beginnen.",
+                step1_title: "1. Ankommen",
+                step1_desc: "Finde dich am Startpunkt einer beliebigen verfügbaren Stadt ein (ein Platz, ein Monument, der Beginn eines Wanderwegs).",
+                step2_title: "2. Handy wegstecken",
+                step2_desc: "Schließe deine Kopfhörer an, sperre den Bildschirm und stecke das Telefon in deine Tasche. Du musst nicht mehr darauf schauen.",
+                step3_title: "3. Hören",
+                step3_desc: "Du hörst ein \"Ding!\", sobald du in der Nähe des Ortes gehst, und die kuratierte Geschichte beginnt automatisch.",
+                ciudades_label: "Pilotstädte",
+                ciudades_title: "🏙️ Tritt der <span class='gradient-text'>Tourismus-Revolution</span><br /> in Argentinien bei",
+                ciudades_desc: "Wir sind bereits in <span class='text-white font-semibold'>43 Städten in Argentinien</span> tätig, einschließlich der ikonischsten Punkte in:",
+                city_active: "Aktiv",
+                city_tandil_sub: "Lass den Beweglichen Stein dir sein Geheimnis erzählen.",
+                city_azul_sub: "Entdecke die Kraft des Art Déco von Salamone.",
+                city_ba_sub: "Spüre den Puls der Geschichte in jeder Ecke von Buenos Aires.",
+                city_mdq_sub: "Viel mehr als Meer und Sand; Geschichten, die dich überraschen werden.",
+                city_jujuy_sub: "Die Humahuaca-Schlucht und ihre jahrtausendealten Farben.",
+                city_cba_sub: "Berge, jesuitische Geschichte und die \"Docta\" in deinem Ohr.",
+                city_rosario_sub: "Wiege der Flagge und Geheimnisse am Ufer des Paraná.",
+                city_bariloche_sub: "Seen, Wälder und patagonische Legenden, die dich umgeben.",
+                city_catamarca_sub: "Mystische Andenlandschaften und uralte Erzählungen.",
+                city_misiones_sub: "Wasserfälle, Dschungel und die jesuitischen Ruinen, die sprechen.",
+                city_larioja_sub: "Gehe zwischen roten Steingiganten in Talampaya.",
+                city_ushuaia_sub: "Geschichten vom Ende der Welt und Schifffahrt auf dem Beagle.",
+                city_sierra_sub: "Erkunde die Lücken der Geschichte in den ältesten Bergen.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...und 33 weitere Städte.</span> Von Salta und El Calafate bis Mendoza, Iguazú und Rosario.",
+                expansion_label: "2026 Expansion",
+                expansion_title: "Demnächst in <span class='gradient-text'>Südamerika</span>",
+                expansion_desc: "Unsere Mission kennt keine Grenzen. Wir kartieren den Kontinent, um Geschichte in deine Ohren zu bringen, wohin du auch gehst.",
+                evolucion_label: "Entwicklung",
+                evolucion_title: "Was als nächstes kommt... Was stellst du dir noch vor?",
+                offline_title: "Offline-Modus",
+                offline_desc: "Lade die Guides vor dem Aufbruch herunter. Ideal für Wanderungen in Gebieten wie El Chaltén oder Gebirgsketten ohne Signal.",
+                community_guides_title: "Community-Guides",
+                community_guides_desc: "Bald kann jeder Geschichten aus seiner Stadt aufnehmen und hochladen. Der Inhalt wird von KI moderiert.",
+                rewards_title: "Physische Belohnungen",
+                rewards_desc: "Löse deine Erfahrungspunkte (XP) und Levels gegen Kaffee, Rabatte und Geschenke in unserem Netzwerk lokaler Partnergeschäfte ein.",
+                feedback_label: "Feedback",
+                feedback_title: "Was die <span class='gradient-text'>Beta-Community</span> sagt",
+                testimonio1_text: "\"Ich war in der Sierra de Tandil und es ist wahnsinnig, wie die App anfängt mit dir zu sprechen, sobald du bei der Movediza ankommst. Endlich konnte ich die echte Landschaft genießen und Fotos machen, ohne Text auf dem Handy-Bildschirm zu lesen.\"",
+                testimonio1_sub: "Tester in Tandil",
+                testimonio2_text: "\"Es hat die Art und Weise verändert, wie ich an meinen freien Wochenenden umherstreife. Ich wohne in Buenos Aires und komme jeden Tag an historischen Orten vorbei, die ich jetzt aus dem Nichts entdecke und ich bin begeistert... Es ist die Zukunft!\"",
+                testimonio2_sub: "Tester in CABA",
+                testimonio3_text: "\"Die GPS-Präzision ist fantastisch (warnt dich buchstäblich, wenn du 50 Meter entfernt bist). Ich bin Tourismusstudentin und liebe es, wie die Geschichtserzählung aufgebaut ist. Es ist sehr fesselnd.\"",
+                testimonio3_sub: "Tester in Azul",
+                faq_label: "Anfragen",
+                faq_title: "Häufig gestellte <span class='gradient-text'>Fragen</span>",
+                faq1_q: "Warum kann ich sie noch nicht im Play Store herunterladen?",
+                faq1_a: "YouGuide befindet sich derzeit in einer exklusiven Beta-Phase. Wir verteilen die Test-APK (kostenlos) direkt an unsere Community, um Details vor unserem großen offiziellen Start zu optimieren und anzupassen. Durch deine Teilnahme heute hilfst du uns, die Zukunft der App zu gestalten.",
+                faq2_q: "Verbraucht automatisches Audio viele Daten oder Akku?",
+                faq2_a: "Im Gegenteil! Da der Bildschirm in deiner Tasche ausgeschaltet bleibt und wir die Geolokalisierung ultra-effizient im Hintergrund verarbeiten, verbrauchst du weniger Akku als bei herkömmlichen Apps mit sichtbaren Karten.",
+                faq3_q: "Benötige ich Kopfhörer, damit es funktioniert?",
+                faq3_a: "Es ist nicht zwingend erforderlich (die App kann über den Lautsprecher deines Telefons klingen, wenn du auf dem Land spazieren gehst), aber wir empfehlen dringend, sie zu verwenden. Der \"Flüstern-ins-Ohr\"-Effekt mitten in der Stadt erzeugt jenes historische Eintauchen, das uns einzigartig macht.",
+                faq4_q: "Ist die Nutzung der App kostenpflichtig?",
+                faq4_a: "Diejenigen, die die Beta installieren und daran teilnehmen, erhalten die Geschichten kostenlos. Die einzigen \"Kosten\" sind deine Meinung: Nachdem du Orte mit der App besucht hast, bitten wir dich, eine kurze Umfrage zu beantworten, um zu verstehen, was dir gefallen hat und was wir verbessern sollten.",
+                circulo_title: "Werde Teil des YouGuide <span class='gradient-text'>Inneren Zirkels</span>",
+                circulo_desc: "Wir möchten, dass du zu den ersten <span class='text-white font-semibold'>1.000 Nutzern in Argentinien</span> gehörst, die diese Technologie vor dem weltweiten Start testen.",
+                circulo_magia: "Wie funktioniert die Magie?",
+                circulo_magia_desc: "Lade die Beta-APK herunter, erkunde deine Stadt mit Kopfhörern und hilf uns bei der Weiterentwicklung. Um deinen Zugang aktiv zu halten und kurzfristig neue exklusive Routen freizuschalten, bitten wir dich, nach deinem ersten Spaziergang eine <span class='text-white font-semibold'>2-minütige Umfrage</span> auszufüllen. Dein Feedback ist der Motor, der es uns ermöglicht, dein Erlebnis zu verbessern.",
+                instalacion_label: "Installation",
+                instalacion_title: "Fertig in <span class='gradient-text'>3 Schritten</span>",
+                instalacion_desc: "Es ist schnell, sicher und 100% kostenlos.",
+                inst_step1_title: "Herunterladen",
+                inst_step1_desc: "Lade die APK-Datei über die Download-Schaltfläche herunter.",
+                inst_step2_title: "Aktivieren",
+                inst_step2_desc: "Akzeptiere \"Unbekannte Quellen\" in deinen Android-Einstellungen.",
+                inst_step3_title: "Erkunden",
+                inst_step3_desc: "Öffne die App, setze deine Kopfhörer auf und fang an zu gehen.",
+                inst_warning: "⚠️ Nur für Android verfügbar. Die Beta ist nicht im Google Play Store; sie wird als direkte APK installiert.",
+                contacto_title: "Lass uns über <span class='gradient-text'>Tourismus, Geschichte und KI</span> sprechen",
+                contacto_desc: "Hast du Fragen, Tourismus-Partnerschaften, Vorschläge oder möchtest du, dass YouGuide in deiner Stadt landet? Lass uns reden!",
+                contacto_email_btn: "E-Mail senden",
+                footer_copy: "© 2026 YouGuide. Dein Premium-Reiseführer für Argentinien.",
+                footer_warning: "YouGuide ist eine Anwendung in der Beta-Phase. Die APK wird direkt verteilt und ist nicht im Google Play Store verfügbar. <br />Alle genannten Marken und Namen gehören ihren jeweiligen Eigentümern."
+            }
+        };
+
+        function changeLanguage(lang) {
+            const dict = translations[lang];
+            if (!dict) return;
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    if (dict[key].includes('<')) {
+                        el.innerHTML = dict[key];
+                    } else {
+                        el.textContent = dict[key];
+                    }
+                }
+            });
+
+            // Update active state in all selectors (desktop and mobile)
+            document.querySelectorAll('.lang-btn, .lang-item').forEach(btn => {
+                const onclickAttr = btn.getAttribute('onclick') || '';
+                if (onclickAttr.includes(`'${lang}'`)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            localStorage.setItem('preferredLanguage', lang);
+            document.documentElement.lang = lang;
+            
+            // Update active flag in desktop selector
+            const activeFlag = document.getElementById('activeFlag');
+            const activeLang = document.getElementById('activeLang');
+            const flags = { es: '🇦🇷', en: '🇺🇸', pt: '🇧🇷', fr: '🇫🇷', de: '🇩🇪' };
+            if (activeFlag) activeFlag.textContent = flags[lang] || '🌐';
+            if (activeLang) activeLang.textContent = lang.toUpperCase();
+        }
+
+        // Initialize Language
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            const browserLang = navigator.language.split('-')[0];
+            const defaultLang = translations[savedLang] ? savedLang : (translations[browserLang] ? browserLang : 'es');
+            changeLanguage(defaultLang);
+        });
+
         // === EL LINK DE DESCARGA AHORA ESTÁ HARDCODEADO EN EL HTML PARA MÁXIMA COMPATIBILIDAD ===
         // =========================================================
 
