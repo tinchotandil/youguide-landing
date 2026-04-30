@@ -1832,6 +1832,11 @@
             const flags = { es: '🇦🇷', en: '🇺🇸', pt: '🇧🇷', fr: '🇫🇷', de: '🇩🇪' };
             if (activeFlag) activeFlag.textContent = flags[lang] || '🌐';
             if (activeLang) activeLang.textContent = lang.toUpperCase();
+
+            // PostHog event
+            if (typeof posthog !== 'undefined') {
+                posthog.capture('idioma_web_cambiado', { idioma: lang });
+            }
         }
 
         // Initialize Language
@@ -1910,6 +1915,12 @@
                 if (typeof clarity === 'function') {
                     clarity("set", "download_apk", location);
                 }
+
+                // PostHog event
+                if (typeof posthog !== 'undefined') {
+                    posthog.capture('descarga_apk_click', { origen: location });
+                }
+
                 console.log('Evento de descarga registrado:', location);
             });
         });
