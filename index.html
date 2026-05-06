@@ -115,6 +115,15 @@
             border-radius: 10px;
         }
 
+        /* Hide scrollbar for carousel */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         /* Glass morphism */
         .glass {
             background: rgba(15, 23, 42, 0.6);
@@ -629,47 +638,47 @@
                     🏙️ Uníte a la <span class="gradient-text">Revolución del Turismo</span><br /> en Argentina
                 </h2>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-i18n="ciudades_desc">
-                    Ya estamos operativos con <span class="text-white font-semibold">566 sitios y 84 ciudades</span> de <span class="text-white font-semibold">todas las provincias argentinas</span>, incluyendo los puntos más icónicos de:
+                    Ya estamos operativos con <span class="text-white font-semibold">603 sitios y 89 ciudades</span> de <span class="text-white font-semibold">todas las provincias argentinas</span>, incluyendo los puntos más icónicos de:
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+            <div id="cities-grid" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-5">
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/tandil.png" alt="Sierras de Tandil"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
                         class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
                     </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5">
-                        <div class="flex items-center gap-2 mb-1"><span
-                                class="w-2 h-2 bg-accent rounded-full"></span><span
-                                class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Tandil</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_tandil_sub">Dejá que la Piedra Movediza te cuente su
+                    <div class="absolute bottom-0 left-0 right-0 p-3 md:p-5">
+                        <div class="flex items-center gap-2 mb-0.5 md:mb-1"><span
+                                class="w-1.5 h-1.5 md:w-2 md:h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-[10px] md:text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
+                        <h3 class="font-display text-base md:text-xl font-bold mb-0.5 md:mb-1">Tandil</h3>
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_tandil_sub">Dejá que la Piedra Movediza te cuente su
                             secreto.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/azul.png" alt="Arquitectura Art Déco de Salamone en Azul"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
                         class="city-overlay absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-70">
                     </div>
-                    <div class="absolute bottom-0 left-0 right-0 p-5">
-                        <div class="flex items-center gap-2 mb-1"><span
-                                class="w-2 h-2 bg-accent rounded-full"></span><span
-                                class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
-                        <h3 class="font-display text-xl font-bold mb-1">Azul</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_azul_sub">Descubrí la potencia del Art Déco de Salamone.
+                    <div class="absolute bottom-0 left-0 right-0 p-3 md:p-5">
+                        <div class="flex items-center gap-2 mb-0.5 md:mb-1"><span
+                                class="w-1.5 h-1.5 md:w-2 md:h-2 bg-accent rounded-full"></span><span
+                                class="text-accent text-[10px] md:text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
+                        <h3 class="font-display text-base md:text-xl font-bold mb-0.5 md:mb-1">Azul</h3>
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_azul_sub">Descubrí la potencia del Art Déco de Salamone.
                         </p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/buenosaires.png" alt="Obelisco de Buenos Aires"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -681,12 +690,12 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_ba">Buenos Aires</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_ba_sub">Sentí el pulso de la historia en cada esquina
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_ba_sub">Sentí el pulso de la historia en cada esquina
                             porteña.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/mardelplata.png" alt="Costa de Mar del Plata"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -698,12 +707,12 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_mdq">Mar del Plata</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_mdq_sub">Mucho más que mar y arena; historias que te van
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_mdq_sub">Mucho más que mar y arena; historias que te van
                             a sorprender.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/jujuy.png" alt="Cerro de los Siete Colores, Jujuy"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -715,12 +724,12 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_jujuy">Jujuy</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_jujuy_sub">La Quebrada de Humahuaca y sus colores
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_jujuy_sub">La Quebrada de Humahuaca y sus colores
                             milenarios.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/cordoba.png" alt="Sierras de Córdoba"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -732,12 +741,12 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_cba">Córdoba</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_cba_sub">Sierras, historia jesuítica y la Docta en tu
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_cba_sub">Sierras, historia jesuítica y la Docta en tu
                             oído.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/rosario.png" alt="Monumento a la Bandera, Rosario"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -749,12 +758,12 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_rosario">Rosario</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_rosario_sub">Cuna de la Bandera y secretos a orillas del
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_rosario_sub">Cuna de la Bandera y secretos a orillas del
                             Paraná.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/bariloche.png" alt="Lagos y montañas de Bariloche"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -766,12 +775,12 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_bariloche">Bariloche</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_bariloche_sub">Lagos, bosques y leyendas patagónicas que
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_bariloche_sub">Lagos, bosques y leyendas patagónicas que
                             te envuelven.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/catamarca.png" alt="Paisajes de Catamarca"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -783,12 +792,12 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_catamarca">Catamarca</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_catamarca_sub">Místicos paisajes andinos y relatos
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_catamarca_sub">Místicos paisajes andinos y relatos
                             ancestrales.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/misiones.png" alt="Cataratas del Iguazú, Misiones"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -800,12 +809,12 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_misiones">Misiones</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_misiones_sub">Cataratas, selva y las ruinas jesuíticas que
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_misiones_sub">Cataratas, selva y las ruinas jesuíticas que
                             hablan.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/larioja.png" alt="Talampaya, La Rioja"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -817,12 +826,12 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_larioja">La Rioja</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_larioja_sub">Caminá entre gigantes de piedra roja en
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_larioja_sub">Caminá entre gigantes de piedra roja en
                             Talampaya.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/ushuaia.png" alt="Faro del Fin del Mundo, Ushuaia"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -834,12 +843,12 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_ushuaia">Ushuaia</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_ushuaia_sub">Historias del fin del mundo y navegación por el
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_ushuaia_sub">Historias del fin del mundo y navegación por el
                             Beagle.</p>
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/sierraventana.png" alt="Sierra de la Ventana"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -851,11 +860,11 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_sierra">Sierra de la Ventana</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_sierra_sub">Explorá los huecos de la historia en las
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_sierra_sub">Explorá los huecos de la historia en las
                             sierras más antiguas.</p>
                     </div>
                 </div>
-                <div class="city-card reveal group rounded-3xl overflow-hidden relative h-72 sm:h-80">
+                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/malvinas.png" alt="Paisaje de las Islas Malvinas"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -867,9 +876,19 @@
                                 class="w-2 h-2 bg-accent rounded-full"></span><span
                                 class="text-accent text-xs font-semibold tracking-widest uppercase" data-i18n="city_active">Activa</span></div>
                         <h3 class="font-display text-xl font-bold mb-1" data-i18n="city_malvinas">Islas Malvinas</h3>
-                        <p class="text-gray-300 text-xs leading-relaxed" data-i18n="city_malvinas_sub">Memoria, soberanía y paisajes que emocionan en el Atlántico Sur.</p>
+                        <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_malvinas_sub">Memoria, soberanía y paisajes que emocionan en el Atlántico Sur.</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- Botón Ver Todas (Solo Mobile) -->
+            <div class="flex justify-center mt-8 md:hidden">
+                <button id="showAllCities" class="group flex items-center gap-2 bg-white/5 border border-white/10 px-6 py-3 rounded-full hover:bg-white/10 transition-all duration-300">
+                    <span class="text-white font-medium text-sm" data-i18n="btn_ver_todas">Ver todas las ciudades</span>
+                    <svg id="showAllIcon" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-accent transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="9 5l7 7-7 7" />
+                    </svg>
+                </button>
             </div>
 
             <p class="text-center text-gray-400 text-base mt-8 reveal" data-i18n="ciudades_footer">
@@ -1329,7 +1348,7 @@
                 step3_desc: "Vas a escuchar un \"ding!\" apenas camines cerca del sitio y la historia curada comenzará automáticamente.",
                 ciudades_label: "Ciudades Piloto",
                 ciudades_title: "🏙️ Uníte a la <span class='gradient-text'>Revolución del Turismo</span><br /> en Argentina",
-                ciudades_desc: "Ya estamos operativos con <span class='text-white font-semibold'>566 sitios y 84 ciudades</span> de <span class='text-white font-semibold'>todas las provincias argentinas</span>, incluyendo los puntos más icónicos de:",
+                ciudades_desc: "Ya estamos operativos con <span class='text-white font-semibold'>603 sitios y 89 ciudades</span> de <span class='text-white font-semibold'>todas las provincias argentinas</span>, incluyendo los puntos más icónicos de:",
                 city_active: "Activa",
                 city_tandil_sub: "Dejá que la Piedra Movediza te cuente su secreto.",
                 city_azul_sub: "Descubrí la potencia del Art Déco de Salamone.",
@@ -1394,7 +1413,9 @@
                 contacto_desc: "¿Tenés dudas, alianzas turísticas sugerencias o querés que YouGuide desembarque en tu ciudad? ¡Hablemos!",
                 contacto_email_btn: "Mandar Email",
                 footer_copy: "© 2026 YouGuide. Tu guía premium de Argentina.",
-                footer_warning: "YouGuide es una aplicación en fase Beta. El APK se distribuye directamente y no está disponible en Google Play Store. <br />Todas las marcas y nombres mencionados pertenecen a sus respectivos dueños."
+                footer_warning: "YouGuide es una aplicación en fase Beta. El APK se distribuye directamente y no está disponible en Google Play Store. <br />Todas las marcas y nombres mencionados pertenecen a sus respectivos dueños.",
+                btn_ver_todas: "Ver todas las ciudades",
+                btn_ver_menos: "Ver menos"
             },
             en: {
                 nav_propuesta: "Proposal",
@@ -1429,7 +1450,7 @@
                 step3_desc: "You will hear a \"ding!\" as soon as you walk near the site, and the curated story will start automatically.",
                 ciudades_label: "Pilot Cities",
                 ciudades_title: "🏙️ Join the <span class='gradient-text'>Tourism Revolution</span><br /> in Argentina",
-                ciudades_desc: "We are already operational with <span class='text-white font-semibold'>566 sites and 84 cities</span> across <span class='text-white font-semibold'>all Argentine provinces</span>, including the most iconic spots in:",
+                ciudades_desc: "We are already operational with <span class='text-white font-semibold'>603 sites and 89 cities</span> across <span class='text-white font-semibold'>all Argentine provinces</span>, including the most iconic spots in:",
                 city_active: "Active",
                 city_tandil_sub: "Let the Moving Stone tell you its secret.",
                 city_azul_sub: "Discover the power of Salamone's Art Deco.",
@@ -1494,7 +1515,9 @@
                 contacto_desc: "Have questions, tourism partnerships, suggestions, or want YouGuide to land in your city? Let's talk!",
                 contacto_email_btn: "Send Email",
                 footer_copy: "© 2026 YouGuide. Your premium guide to Argentina.",
-                footer_warning: "YouGuide is a Beta phase application. The APK is distributed directly and is not available on the Google Play Store. <br />All mentioned brands and names belong to their respective owners."
+                footer_warning: "YouGuide is a Beta phase application. The APK is distributed directly and is not available on the Google Play Store. <br />All mentioned brands and names belong to their respective owners.",
+                btn_ver_todas: "View all cities",
+                btn_ver_menos: "Show less"
             },
             pt: {
                 nav_propuesta: "Proposta",
@@ -1529,7 +1552,7 @@
                 step3_desc: "Você ouvirá um \"ding!\" assim que caminhar perto do local e a história curada começará automaticamente.",
                 ciudades_label: "Cidades Piloto",
                 ciudades_title: "🏙️ Junte-se à <span class='gradient-text'>Revolução do Turismo</span><br /> na Argentina",
-                ciudades_desc: "Já estamos operacionais com <span class='text-white font-semibold'>566 sítios e 84 cidades</span> em <span class='text-white font-semibold'>todas as províncias argentinas</span>, incluindo os pontos mais icônicos de:",
+                ciudades_desc: "Já estamos operacionais com <span class='text-white font-semibold'>603 sítios e 89 cidades</span> em <span class='text-white font-semibold'>todas as províncias argentinas</span>, incluindo os pontos mais icônicos de:",
                 city_active: "Ativa",
                 city_tandil_sub: "Deixe a Pedra Movediza contar seu segredo.",
                 city_azul_sub: "Descubra a potência do Art Déco de Salamone.",
@@ -1594,7 +1617,9 @@
                 contacto_desc: "Tem dúvidas, parcerias turísticas, sugestões ou quer que a YouGuide chegue à sua cidade? Falemos!",
                 contacto_email_btn: "Enviar Email",
                 footer_copy: "© 2026 YouGuide. Seu guia premium da Argentina.",
-                footer_warning: "YouGuide é um aplicativo em fase Beta. O APK é distribuído diretamente e não está disponível na Google Play Store. <br />Todas as marcas e nomes mencionados pertencentem aos seus respectivos donos."
+                footer_warning: "YouGuide é um aplicativo em fase Beta. O APK é distribuído diretamente e não está disponível na Google Play Store. <br />Todas as marcas e nomes mencionados pertencentem aos seus respectivos donos.",
+                btn_ver_todas: "Ver todas as cidades",
+                btn_ver_menos: "Ver menos"
             },
             fr: {
                 nav_propuesta: "Proposition",
@@ -1629,7 +1654,7 @@
                 step3_desc: "Vous entendrez un \"ding !\" dès que vous marcherez près du site et l'histoire sélectionnée commencera automatiquement.",
                 ciudades_label: "Villes Pilotes",
                 ciudades_title: "🏙️ Rejoignez la <span class='gradient-text'>Révolution du Tourisme</span><br /> en Argentine",
-                ciudades_desc: "Nous sommes déjà opérationnels avec <span class='text-white font-semibold'>566 sites et 84 villes</span> dans <span class='text-white font-semibold'>toutes les provinces argentines</span>, y compris les points les plus emblématiques de :",
+                ciudades_desc: "Nous sommes déjà opérationnels avec <span class='text-white font-semibold'>603 sites et 89 villes</span> dans <span class='text-white font-semibold'>toutes les provinces argentines</span>, y compris les points les plus emblématiques de :",
                 city_active: "Active",
                 city_tandil_sub: "Laissez la Pierre Mouvante vous raconter son secret.",
                 city_azul_sub: "Découvrez la puissance de l'Art Déco de Salamone.",
@@ -1694,7 +1719,9 @@
                 contacto_desc: "Vous avez des questions, des partenariats touristiques, des suggestions ou vous voulez que YouGuide débarque dans votre ville ? Parlons-en !",
                 contacto_email_btn: "Envoyer un Email",
                 footer_copy: "© 2026 YouGuide. Votre guide premium de l'Argentine.",
-                footer_warning: "YouGuide est une application en phase Bêta. L'APK est distribué directement et n'est pas disponible sur le Google Play Store. <br />Toutes les marques et noms mentionnés appartiennent à leurs propriétaires respectifs."
+                footer_warning: "YouGuide est une application en phase Bêta. L'APK est distribué directement et n'est pas disponible sur le Google Play Store. <br />Toutes les marques et noms mentionnés appartiennent à leurs propriétaires respectifs.",
+                btn_ver_todas: "Voir toutes les villes",
+                btn_ver_menos: "Voir moins"
             },
             de: {
                 nav_propuesta: "Vorschlag",
@@ -1729,7 +1756,7 @@
                 step3_desc: "Du hörst ein \"Ding!\", sobald du in der Nähe des Ortes gehst, und die kuratierte Geschichte beginnt automatisch.",
                 ciudades_label: "Pilotstädte",
                 ciudades_title: "🏙️ Tritt der <span class='gradient-text'>Tourismus-Revolution</span><br /> in Argentinien bei",
-                ciudades_desc: "Wir sind bereits mit <span class='text-white font-semibold'>566 Standorten und 84 Städten</span> in <span class='text-white font-semibold'>allen argentinischen Provinzen</span> tätig, einschließlich der ikonischsten Punkte in:",
+                ciudades_desc: "Wir sind bereits mit <span class='text-white font-semibold'>603 Standorten und 89 Städten</span> in <span class='text-white font-semibold'>allen argentinischen Provinzen</span> tätig, einschließlich der ikonischsten Punkte in:",
                 city_active: "Aktiv",
                 city_tandil_sub: "Lass den Beweglichen Stein dir sein Geheimnis erzählen.",
                 city_azul_sub: "Entdecke die Kraft des Art Déco von Salamone.",
@@ -1794,7 +1821,9 @@
                 contacto_desc: "Hast du Fragen, Tourismus-Partnerschaften, Vorschläge oder möchtest du, dass YouGuide in deiner Stadt landet? Lass uns reden!",
                 contacto_email_btn: "E-Mail senden",
                 footer_copy: "© 2026 YouGuide. Dein Premium-Reiseführer für Argentinien.",
-                footer_warning: "YouGuide ist eine Anwendung in der Beta-Phase. Die APK wird direkt verteilt und ist nicht im Google Play Store verfügbar. <br />Alle genannten Marken und Namen gehören ihren jeweiligen Eigentümern."
+                footer_warning: "YouGuide ist eine Anwendung in der Beta-Phase. Die APK wird direkt verteilt und ist nicht im Google Play Store verfügbar. <br />Alle genannten Marken und Namen gehören ihren jeweiligen Eigentümern.",
+                btn_ver_todas: "Alle Städte anzeigen",
+                btn_ver_menos: "Weniger anzeigen"
             }
         };
 
@@ -1926,6 +1955,52 @@
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== Lógica para Ver Todas las ciudades en Mobile =====
+        const showAllBtn = document.getElementById('showAllCities');
+        const citiesGrid = document.getElementById('cities-grid');
+        const showAllIcon = document.getElementById('showAllIcon');
+        let isExpanded = false;
+
+        function updateCitiesVisibility() {
+            const isMobile = window.innerWidth < 768;
+            const cityCards = citiesGrid.querySelectorAll('.city-card');
+            
+            cityCards.forEach((card, index) => {
+                if (isMobile && !isExpanded && index >= 6) {
+                    card.style.display = 'none';
+                } else {
+                    card.style.display = 'block';
+                    // Re-activar animación si es visible
+                    if (card.classList.contains('reveal')) {
+                        revealObserver.observe(card);
+                    }
+                }
+            });
+        }
+
+        showAllBtn.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+            updateCitiesVisibility();
+            
+            // Cambiar texto y rotar icono
+            const currentLang = localStorage.getItem('preferredLanguage') || 'es';
+            const btnText = showAllBtn.querySelector('[data-i18n]');
+            
+            if (isExpanded) {
+                btnText.textContent = translations[currentLang].btn_ver_menos;
+                showAllIcon.style.transform = 'rotate(180deg)';
+            } else {
+                btnText.textContent = translations[currentLang].btn_ver_todas;
+                showAllIcon.style.transform = 'rotate(0deg)';
+                // Scroll suave arriba de la sección
+                document.getElementById('ciudades').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+
+        // Inicializar y escuchar cambios de tamaño
+        window.addEventListener('resize', updateCitiesVisibility);
+        updateCitiesVisibility();
     </script>
 
 
