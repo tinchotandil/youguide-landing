@@ -1,17 +1,51 @@
 // api/ruta.js
+import fs from 'fs';
+import path from 'path';
 
 export default function handler(req, res) {
   // Capturamos el ID de la ruta desde la URL (/ruta/xyz123)
   const { id } = req.query;
+  
+  // Título por defecto (atractivo y genérico)
+  let routeName = "¡Mira esta ruta turística en YouGuide!";
+  let siteFound = false;
 
-  // Generamos datos dinámicos basados en el ID para probar.
-  const routeName = `Ruta Compartida ${id ? id.toUpperCase() : ''}`;
+  try {
+    // 1. Importación de Datos: Leemos el archivo destinos.json
+    const dataPath = path.join(process.cwd(), 'data', 'destinos.json');
+    const fileContent = fs.readFileSync(dataPath, 'utf8');
+    const destinos = JSON.parse(fileContent);
+
+    // 2. Mapeo de ID a Nombre: Buscamos el ID en los destinos (o sitios si aplica)
+    // Buscamos coincidencia con el ID del destino (ciudad/región)
+    const destinoMatch = destinos.find(d => d.id === id);
+    
+    if (destinoMatch) {
+      routeName = `Ruta Compartida: ${destinoMatch.nombre}`;
+      siteFound = true;
+    } else {
+      // Búsqueda exhaustiva en la lista de sitios de cada destino por si el ID coincide con un nombre
+      for (const d of destinos) {
+        if (d.sitios && d.sitios.includes(id)) {
+          routeName = `Ruta Compartida: ${id}`;
+          siteFound = true;
+          break;
+        }
+      }
+    }
+  } catch (error) {
+    console.error("[Metadata] Error reading destinos.json:", error);
+  }
+
+  // Si no se encontró el sitio (o es un ID técnico/prueba), routeName mantiene el valor genérico.
+  // El ID técnico (xyz123) ya no se mostrará en el título visual si no tiene mapeo.
+  
   const routeDescription = "Descubre esta increíble ruta guiada en YouGuide. Abre la app o descárgala para comenzar la aventura.";
   
   // URL de imagen real del proyecto para Open Graph y UI
   const logoUrl = "https://youguide.vercel.app/logo.png";
   
-  // Identificador seguro para el clipboard/referrer
+  // Identificador seguro para el clipboard/referrer (Lógica interna)
   const deferredPayload = `route_${id}`;
 
   const html = `
