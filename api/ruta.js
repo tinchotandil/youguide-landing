@@ -9,7 +9,7 @@ export default function handler(req, res) {
   const routeDescription = "Descubre esta increíble ruta guiada en YouGuide. Abre la app o descárgala para comenzar la aventura.";
   
   // URL de imagen real del proyecto para Open Graph y UI
-  const logoUrl = "https://tinchotandil-youguide.vercel.app/img/buenosaires.png";
+  const logoUrl = "https://youguide.vercel.app/logo.png";
   
   // Identificador seguro para el clipboard/referrer
   const deferredPayload = `route_${id}`;
@@ -127,9 +127,9 @@ export default function handler(req, res) {
           const userAgent = navigator.userAgent || navigator.vendor || window.opera;
           
           if (/android/i.test(userAgent)) {
-            // ANDROID: Redirigir a Play Store inyectando el referrer (package ID: com.martintandil.youguide)
-            const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.martintandil.youguide&referrer=' + encodeURIComponent(payload);
-            window.location.href = playStoreUrl;
+            // ANDROID: Alert Beta and redirect to landing page
+            alert('YouGuide se encuentra en fase Beta cerrada. Te redirigiremos a nuestra web principal.');
+            window.location.href = 'https://youguide.vercel.app/';
           } 
           else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
             // IOS: Fallback de Deferred -> Escribir en el portapapeles
@@ -145,8 +145,9 @@ export default function handler(req, res) {
               document.body.removeChild(textArea);
             }
             
-            // Redirigir a App Store
-            window.location.href = 'https://apps.apple.com/app/idYOUR_APP_ID';
+            // IOS: Alert Beta and redirect to landing page
+            alert('YouGuide se encuentra en fase Beta cerrada. Te redirigiremos a nuestra web principal.');
+            window.location.href = 'https://youguide.vercel.app/';
           } 
           else {
             alert('Abre este enlace desde tu móvil para ver la ruta.\\nID: ' + payload);
