@@ -7,7 +7,9 @@ export default function handler(req, res) {
   // Generamos datos dinámicos basados en el ID para probar.
   const routeName = `Ruta Compartida ${id ? id.toUpperCase() : ''}`;
   const routeDescription = "Descubre esta increíble ruta guiada en YouGuide. Abre la app o descárgala para comenzar la aventura.";
-  const logoUrl = "https://youguide.vercel.app/logo.png";
+  
+  // URL del logo corregida según instrucción del usuario
+  const logoUrl = "https://youguide.vercel.app/#hero";
   
   // Identificador seguro para el clipboard/referrer
   const deferredPayload = `route_${id}`;
@@ -125,8 +127,8 @@ export default function handler(req, res) {
           const userAgent = navigator.userAgent || navigator.vendor || window.opera;
           
           if (/android/i.test(userAgent)) {
-            // ANDROID: Redirigir a Play Store inyectando el referrer
-            const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.tinchotandil.youguide&referrer=' + encodeURIComponent(payload);
+            // ANDROID: Redirigir a Play Store inyectando el referrer (package ID: com.martintandil.youguide)
+            const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.martintandil.youguide&referrer=' + encodeURIComponent(payload);
             window.location.href = playStoreUrl;
           } 
           else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
@@ -134,7 +136,6 @@ export default function handler(req, res) {
             try {
               await navigator.clipboard.writeText(payload);
             } catch (err) {
-              // Fallback para Safari antiguo
               const textArea = document.createElement("textarea");
               textArea.value = payload;
               document.body.appendChild(textArea);
@@ -144,11 +145,10 @@ export default function handler(req, res) {
               document.body.removeChild(textArea);
             }
             
-            // Redirigir a App Store (PLACEHOLDER URL)
+            // Redirigir a App Store
             window.location.href = 'https://apps.apple.com/app/idYOUR_APP_ID';
           } 
           else {
-            // DESKTOP: Fallback básico
             alert('Abre este enlace desde tu móvil para ver la ruta.\\nID: ' + payload);
             actionBtn.style.display = 'block';
             loader.style.display = 'none';
