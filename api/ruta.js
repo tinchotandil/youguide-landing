@@ -129,7 +129,7 @@ export default function handler(req, res) {
           if (/android/i.test(userAgent)) {
             // ANDROID: Alert Beta and redirect to landing page
             alert('YouGuide se encuentra en fase Beta cerrada. Te redirigiremos a nuestra web principal.');
-            window.location.href = 'https://youguide.vercel.app/';
+            window.location.href = '/';
           } 
           else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
             // IOS: Fallback de Deferred -> Escribir en el portapapeles
@@ -147,7 +147,7 @@ export default function handler(req, res) {
             
             // IOS: Alert Beta and redirect to landing page
             alert('YouGuide se encuentra en fase Beta cerrada. Te redirigiremos a nuestra web principal.');
-            window.location.href = 'https://youguide.vercel.app/';
+            window.location.href = '/';
           } 
           else {
             alert('Abre este enlace desde tu móvil para ver la ruta.\\nID: ' + payload);
