@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Política de Privacidad | YouGuide</title>
+    <meta name="description" content="Política de Privacidad de YouGuide. Información sobre cómo protegemos tus datos y geolocalización." />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deep: { 900: '#0b1120', 800: '#0f172a', 700: '#1e293b', 600: '#334155' },
+                        accent: { DEFAULT: '#00D1B2', light: '#34d9c3', dark: '#00b89c' },
+                        ocean: { DEFAULT: '#2563eb', light: '#3b82f6', dark: '#1d4ed8' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Outfit', 'Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <style>
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #00D1B2 0%, #3b82f6 50%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .dots-pattern {
+            background-image: radial-gradient(rgba(0, 209, 178, 0.07) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+
+<body class="bg-deep-900 text-white font-sans antialiased overflow-x-hidden dots-pattern">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-deep-900/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <a href="/" class="flex items-center gap-2 group">
+                    <span class="text-2xl">🎧</span>
+                    <span class="font-display font-bold text-xl tracking-tight">You<span class="text-accent">Guide</span></span>
+                </a>
+                <a href="/" class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Volver al inicio</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative pt-32 pb-24">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <header class="mb-12">
+                <h1 class="font-display text-4xl sm:text-5xl font-bold mb-4">Política de <span class="gradient-text">Privacidad</span></h1>
+                <p class="text-gray-400">Última actualización: Mayo 2024</p>
+            </header>
+
+            <div class="glass rounded-3xl p-8 md:p-12 space-y-8 text-gray-300 leading-relaxed">
+                <p>
+                    La presente Política de Privacidad describe cómo YouGuide ("nosotros", "la Plataforma") recopila, utiliza y protege la información de los usuarios en cumplimiento con la Ley de Protección de Datos Personales N° 25.326 de la República Argentina y los estándares internacionales de seguridad de la información.
+                </p>
+
+                <section>
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="text-accent">1.</span> Información que Recolectamos
+                    </h2>
+                    <p class="mb-4">Para el funcionamiento óptimo de nuestra tecnología de audio inmersivo y geolocalización, recopilamos:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong class="text-white">Identidad Digital:</strong> Nombre, dirección de correo electrónico y foto de perfil proporcionados a través de Google Login (OAuth 2.0).</li>
+                        <li><strong class="text-white">Geolocalización precisa:</strong> Coordenadas GPS en tiempo real para activar el audio a menos de 50 metros de los sitios culturales.</li>
+                        <li><strong class="text-white">Datos de Uso:</strong> Interacciones con la plataforma, duración de escucha y rutas recorridas (procesados vía PostHog).</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="text-accent">2.</span> Finalidad del Tratamiento de Datos
+                    </h2>
+                    <p class="mb-4">Los datos se utilizan exclusivamente para:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Proporcionar el servicio de audioguía geolocalizada.</li>
+                        <li>Personalizar la experiencia del usuario mediante nuestro framework Antigravity.</li>
+                        <li>Generar reportes y dashboards de inteligencia turística para municipios (B2G), garantizando siempre la anonimización total de los datos individuales.</li>
+                        <li>Mejorar la infraestructura técnica y el soporte al usuario.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="text-accent">3.</span> Transferencia y Terceros
+                    </h2>
+                    <p class="mb-4">YouGuide utiliza infraestructura de clase mundial para garantizar la seguridad:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong class="text-white">Google Cloud Platform (GCP):</strong> Para el procesamiento de datos y autenticación.</li>
+                        <li><strong class="text-white">PostHog:</strong> Para la analítica de comportamiento y detección de cuellos de botella técnicos.</li>
+                    </ul>
+                    <p class="mt-4">No vendemos ni alquilamos datos personales a terceros con fines comerciales.</p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="text-accent">4.</span> Seguridad y Derechos del Usuario
+                    </h2>
+                    <p class="mb-4">Implementamos medidas técnicas para proteger sus datos contra acceso no autorizado. Conforme a la Ley 25.326, el usuario tiene derecho a:</p>
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li><strong class="text-white">Acceso:</strong> Solicitar información sobre sus datos almacenados.</li>
+                        <li><strong class="text-white">Rectificación:</strong> Corregir datos inexactos.</li>
+                        <li><strong class="text-white">Supresión:</strong> Solicitar la eliminación definitiva de su cuenta y datos asociados.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="text-accent">5.</span> Consentimiento
+                    </h2>
+                    <p>
+                        Al utilizar YouGuide y registrarse mediante Google Login, el usuario otorga su consentimiento expreso para el tratamiento de sus datos bajo los términos aquí descritos.
+                    </p>
+                </section>
+
+                <footer class="pt-8 border-t border-white/10 text-sm">
+                    <p class="font-semibold text-white">YouGuide Startup TravelTech/GovTech - Argentina</p>
+                    <p>Contacto Legal: <a href="mailto:martingarciayouguide@gmail.com" class="text-accent hover:underline">martingarciayouguide@gmail.com</a></p>
+                </footer>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-white/5 bg-deep-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500 text-sm">&copy; 2024 YouGuide. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
