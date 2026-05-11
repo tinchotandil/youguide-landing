@@ -195,7 +195,7 @@ export default function handler(req, res) {
         <div class="cta-section">
           <h2>Explorá ${nombre} a tu propio ritmo</h2>
           <p style="color: #cbd5e1; margin-bottom: 24px;">Descargá la aplicación gratuita y dejá que YouGuide te cuente las historias de estos lugares mágicos de manera automática.</p>
-          <a href="https://github.com/tinchotandil/youguide-landing/releases/download/v1.7.3/YouGuide.1.7.3.apk" class="btn">Descargar YouGuide Beta</a>
+          <a href="https://github.com/tinchotandil/youguide-landing/releases/download/v1.7.4/YouGuide.1.7.4.apk" class="btn">Descargar YouGuide Beta</a>
         </div>
       </main>
 
