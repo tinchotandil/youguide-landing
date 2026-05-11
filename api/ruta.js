@@ -8,8 +8,8 @@ export default function handler(req, res) {
   const routeName = `Ruta Compartida ${id ? id.toUpperCase() : ''}`;
   const routeDescription = "Descubre esta increíble ruta guiada en YouGuide. Abre la app o descárgala para comenzar la aventura.";
   
-  // URL del logo corregida según instrucción del usuario
-  const logoUrl = "https://youguide.vercel.app/#hero";
+  // URL de imagen real del proyecto para Open Graph y UI
+  const logoUrl = "https://tinchotandil-youguide.vercel.app/img/buenosaires.png";
   
   // Identificador seguro para el clipboard/referrer
   const deferredPayload = `route_${id}`;
