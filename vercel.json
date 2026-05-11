@@ -1,5 +1,11 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/ruta/:id",
+      "destination": "/api/ruta"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
