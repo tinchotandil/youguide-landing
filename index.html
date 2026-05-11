@@ -22,11 +22,11 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YouGuide — La historia en tus oídos | Audio-guía automática para Argentina</title>
+    <title>YouGuide | Audioguías Turísticas en todo Argentina</title>
     <meta name="description"
-        content="YouGuide es la app de audio-guía automática por proximidad. Caminá, escuchá y descubrí la historia secreta de cada rincón de Argentina sin tocar tu celular." />
+        content="Llevá un guía turístico en tu bolsillo. Más de 600 puntos de interés y audioguías geolocalizadas en 89 ciudades de Argentina, incluyendo Buenos Aires, Bariloche, Mendoza y Tandil." />
     <meta name="keywords"
-        content="audioguia, turismo argentina, turismo accesible, guia de viaje automatica, app de turismo, tandil, bariloche, excursiones" />
+        content="turismo argentina, audioguía argentina, app de viajes, rutas turísticas, turismo regional, qué hacer en tandil, escapadas provincia de buenos aires, guía interactiva" />
     <meta name="author" content="YouGuide Team" />
     <meta name="robots" content="index, follow" />
     <meta name="google-site-verification" content="I-uPJYZ8ZynE570TSe_pM4YSJK9VxhqobDb24QQtnXA" />
@@ -36,22 +36,22 @@
 
     <!-- Open Graph / Meta / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tinchotandil-youguide.vercel.app/" />
-    <meta property="og:title" content="YouGuide — La historia en tus oídos" />
+    <meta property="og:url" content="https://youguide.vercel.app/" />
+    <meta property="og:title" content="YouGuide | Audioguías Turísticas en todo Argentina" />
     <meta property="og:description"
-        content="Caminá, escuchá y descubrí la historia secreta de cada rincón de Argentina sin tocar tu celular. Audio-guía inteligente." />
-    <meta property="og:image" content="https://tinchotandil-youguide.vercel.app/img/buenosaires.png" />
+        content="Llevá un guía turístico en tu bolsillo. Más de 600 puntos de interés y audioguías geolocalizadas en 89 ciudades de Argentina, incluyendo Buenos Aires, Bariloche, Mendoza y Tandil." />
+    <meta property="og:image" content="https://youguide.vercel.app/img/logo.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://tinchotandil-youguide.vercel.app/" />
-    <meta property="twitter:title" content="YouGuide — La historia en tus oídos" />
+    <meta property="twitter:url" content="https://youguide.vercel.app/" />
+    <meta property="twitter:title" content="YouGuide | Audioguías Turísticas en todo Argentina" />
     <meta property="twitter:description"
-        content="Caminá, escuchá y descubrí la historia auto-guiada de Argentina sin tocar tu celular." />
-    <meta property="twitter:image" content="https://tinchotandil-youguide.vercel.app/img/buenosaires.png" />
+        content="Llevá un guía turístico en tu bolsillo. Más de 600 puntos de interés y audioguías geolocalizadas en 89 ciudades de Argentina, incluyendo Buenos Aires, Bariloche, Mendoza y Tandil." />
+    <meta property="twitter:image" content="https://youguide.vercel.app/img/logo.png" />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://tinchotandil-youguide.vercel.app/" />
+    <link rel="canonical" href="https://youguide.vercel.app/" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -305,6 +305,24 @@
             person_profiles: 'identified_only',
         })
     </script>
+
+    <!-- Schema Markup para SEO Local/Nacional -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "YouGuide",
+      "applicationCategory": "TravelApplication",
+      "operatingSystem": "Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0"
+      },
+      "description": "Audioguías geolocalizadas y rutas culturales para descubrir Tandil, Buenos Aires y toda la Argentina.",
+      "areaServed": "AR",
+      "url": "https://youguide.vercel.app/"
+    }
+    </script>
 </head>
 
 <body class="bg-deep-900 text-white font-sans antialiased overflow-x-hidden">
@@ -323,6 +341,21 @@
                         class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Propuesta</a>
                     <a href="#como-funciona" data-i18n="nav_como_funciona"
                         class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Cómo Funciona</a>
+                    
+                    <div class="relative group">
+                        <button class="text-sm text-gray-300 hover:text-accent transition-colors duration-300 flex items-center gap-1">
+                            Destinos <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-48 glass rounded-xl overflow-hidden py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0">
+                            <a href="/destinos/buenos-aires" class="block px-4 py-2 text-sm text-gray-300 hover:text-accent hover:bg-white/5">Buenos Aires</a>
+                            <a href="/destinos/bariloche" class="block px-4 py-2 text-sm text-gray-300 hover:text-accent hover:bg-white/5">Bariloche</a>
+                            <a href="/destinos/mendoza" class="block px-4 py-2 text-sm text-gray-300 hover:text-accent hover:bg-white/5">Mendoza</a>
+                            <a href="/destinos/tandil" class="block px-4 py-2 text-sm text-gray-300 hover:text-accent hover:bg-white/5">Tandil</a>
+                            <a href="/destinos/mar-del-plata" class="block px-4 py-2 text-sm text-gray-300 hover:text-accent hover:bg-white/5">Mar del Plata</a>
+                            <a href="/destinos/cordoba" class="block px-4 py-2 text-sm text-gray-300 hover:text-accent hover:bg-white/5">Córdoba</a>
+                        </div>
+                    </div>
+
                     <a href="#ciudades" data-i18n="nav_ciudades"
                         class="text-sm text-gray-300 hover:text-accent transition-colors duration-300">Ciudades</a>
                     <a href="#faq" data-i18n="nav_faq"
@@ -397,6 +430,15 @@
                 class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Propuesta</a>
             <a href="#como-funciona" data-i18n="nav_como_funciona" class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Cómo
                 Funciona</a>
+            <div class="flex flex-col gap-2">
+                <span class="text-lg text-white font-medium">Destinos Top</span>
+                <div class="flex flex-wrap gap-2 pl-4">
+                    <a href="/destinos/buenos-aires" class="text-sm text-gray-400 hover:text-accent transition-colors">Buenos Aires</a>
+                    <a href="/destinos/bariloche" class="text-sm text-gray-400 hover:text-accent transition-colors">Bariloche</a>
+                    <a href="/destinos/mendoza" class="text-sm text-gray-400 hover:text-accent transition-colors">Mendoza</a>
+                    <a href="/destinos/tandil" class="text-sm text-gray-400 hover:text-accent transition-colors">Tandil</a>
+                </div>
+            </div>
             <a href="#ciudades" data-i18n="nav_ciudades"
                 class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">Ciudades</a>
             <a href="#faq" data-i18n="nav_faq" class="text-lg text-gray-300 hover:text-accent transition-colors mobile-link">FAQ</a>
@@ -429,7 +471,7 @@
 
             <h1 class="animate-fade-up font-display text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6" data-i18n="hero_title">
                 YouGuide: <br class="sm:hidden" />
-                <span class="gradient-text">La historia en tus oídos</span>
+                <span class="gradient-text">Tu Audioguía Personal para descubrir Argentina</span>
             </h1>
 
             <p

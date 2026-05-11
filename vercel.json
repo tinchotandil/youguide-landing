@@ -4,6 +4,14 @@
     {
       "source": "/ruta/:id",
       "destination": "/api/ruta"
+    },
+    {
+      "source": "/destinos/:ciudad",
+      "destination": "/api/destino"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
     }
   ],
   "headers": [
