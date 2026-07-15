@@ -1,0 +1,21 @@
+# YouGuide
+
+> YouGuide es una app de audioguías turísticas geolocalizadas (Android) que narra automáticamente, por GPS, la historia y los datos curiosos de un lugar apenas el usuario llega a él — sin necesidad de tocar el celular ni buscar nada manualmente.
+
+YouGuide cubre actualmente más de 1.045 sitios turísticos en 256 ciudades de 6 países: Argentina, Chile, Uruguay, Brasil, Perú e Italia. La app es gratuita, está en fase Beta abierta y se distribuye como APK directo (todavía no está en Google Play Store).
+
+## Datos clave
+- Países cubiertos: Argentina, Chile, Uruguay, Brasil, Perú, Italia (6 países)
+- Sitios turísticos: +1.045
+- Ciudades: 256
+- Plataforma: Android (APK directo, Beta gratuita)
+- Tecnología: audio automático por geolocalización (GPS), 100% manos libres
+- Próxima funcionalidad: Menú Cultural con Agenda de eventos
+
+## Páginas
+- [Landing principal](https://youguide.vercel.app/): propuesta de valor, cobertura por país/ciudad, cómo funciona, descarga del APK
+- [Política de Privacidad](https://youguide.vercel.app/privacy.html)
+- [Términos y Condiciones](https://youguide.vercel.app/terms.html)
+
+## Contacto
+Para alianzas turísticas, prensa o sugerencias, contactar a través del formulario de la landing.
