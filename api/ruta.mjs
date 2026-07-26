@@ -55,7 +55,8 @@ export default function handler(req, res) {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>${routeName} | YouGuide</title>
-      
+      <meta name="robots" content="noindex, follow">
+
       <!-- Open Graph / WhatsApp Meta Tags -->
       <meta property="og:title" content="${routeName}">
       <meta property="og:description" content="${routeDescription}">

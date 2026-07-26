@@ -22,11 +22,11 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YouGuide | Audioguía Turística GPS en 6 Países – App Gratis</title>
+    <title>YouGuide | Audioguía Turística GPS en Argentina – App Gratis</title>
     <meta name="description"
-        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +1.045 sitios en 256 ciudades de Argentina, Chile, Uruguay, Brasil, Perú e Italia." />
+        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +600 sitios en 89 ciudades de toda Argentina." />
     <meta name="keywords"
-        content="audioguía turística, app de audioguías, guía turística argentina, guía turística chile, guía turística uruguay, guía turística brasil, guía turística perú, guía turística italia, turismo gps, rutas turísticas, guía de viaje app, turismo cultural, audioguía gratis, qué hacer en" />
+        content="audioguía turística, app de audioguías, guía turística argentina, turismo gps, rutas turísticas, guía de viaje app, turismo cultural, audioguía gratis, qué hacer en Buenos Aires, qué hacer en Bariloche" />
     <meta name="author" content="YouGuide Team" />
     <meta name="robots" content="index, follow" />
     <meta name="google-site-verification" content="I-uPJYZ8ZynE570TSe_pM4YSJK9VxhqobDb24QQtnXA" />
@@ -37,18 +37,18 @@
     <!-- Open Graph / Meta / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://youguide.vercel.app/" />
-    <meta property="og:title" content="YouGuide | Audioguía Turística GPS en 6 Países – App Gratis" />
+    <meta property="og:title" content="YouGuide | Audioguía Turística GPS en Argentina – App Gratis" />
     <meta property="og:description"
-        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +1.045 sitios en 256 ciudades de Argentina, Chile, Uruguay, Brasil, Perú e Italia." />
-    <meta property="og:image" content="https://youguide.vercel.app/img/logo.png" />
+        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +600 sitios en 89 ciudades de toda Argentina." />
+    <meta property="og:image" content="https://youguide.vercel.app/logo.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://youguide.vercel.app/" />
-    <meta property="twitter:title" content="YouGuide | Audioguía Turística GPS en 6 Países – App Gratis" />
+    <meta property="twitter:title" content="YouGuide | Audioguía Turística GPS en Argentina – App Gratis" />
     <meta property="twitter:description"
-        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +1.045 sitios en 256 ciudades de Argentina, Chile, Uruguay, Brasil, Perú e Italia." />
-    <meta property="twitter:image" content="https://youguide.vercel.app/img/logo.png" />
+        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +600 sitios en 89 ciudades de toda Argentina." />
+    <meta property="twitter:image" content="https://youguide.vercel.app/logo.png" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://youguide.vercel.app/" />
@@ -310,18 +310,71 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "YouGuide",
-      "applicationCategory": "TravelApplication",
-      "operatingSystem": "Android",
-      "offers": {
-        "@type": "Offer",
-        "price": "0"
-      },
-      "description": "Audioguías geolocalizadas y rutas culturales para descubrir Argentina, Chile, Uruguay, Brasil, Perú e Italia: más de 1.045 sitios turísticos en 256 ciudades.",
-      "areaServed": ["AR", "CL", "UY", "BR", "PE", "IT"],
-      "featureList": ["1.045 sitios turísticos", "256 ciudades", "6 países", "Audio automático por geolocalización", "Modo offline"],
-      "url": "https://youguide.vercel.app/"
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://youguide.vercel.app/#app",
+          "name": "YouGuide",
+          "applicationCategory": "TravelApplication",
+          "operatingSystem": "Android",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "ARS"
+          },
+          "description": "Audioguías geolocalizadas y rutas culturales para descubrir Argentina: más de 600 sitios turísticos en 89 ciudades.",
+          "areaServed": ["AR"],
+          "featureList": ["600 sitios turísticos", "89 ciudades", "Cobertura en toda Argentina", "Audio automático por geolocalización", "Modo offline"],
+          "url": "https://youguide.vercel.app/",
+          "publisher": { "@id": "https://youguide.vercel.app/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://youguide.vercel.app/#organization",
+          "name": "YouGuide",
+          "url": "https://youguide.vercel.app/",
+          "logo": "https://youguide.vercel.app/logo.png",
+          "email": "martingarciayouguide@gmail.com"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://youguide.vercel.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Por qué todavía no la descargo del Play Store?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "YouGuide se encuentra actualmente en fase de Beta Exclusiva. Distribuimos el APK de prueba (sin costo) directamente a nuestra comunidad para optimizar y ajustar detalles antes de nuestro gran lanzamiento oficial. Al participar hoy, nos ayudás a moldear el futuro de la app."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Consume muchos datos o batería el audio automático?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "¡Al contrario! Como la pantalla permanece apagada en tu bolsillo y procesamos la geolocalización de modo ultra-eficiente en segundo plano, vas a gastar menos batería que usando apps tradicionales con mapas visibles."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Necesito auriculares para que funcione?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No es obligatorio (la app puede sonar por el altavoz de tu teléfono si estás caminando por el campo), pero te recomendamos enfáticamente usarlos. El efecto de \"susurro al oído\" en medio de la ciudad genera esa inmersión histórica que nos hace únicos."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Tiene costo usar la App?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Quienes instalan y participan de la Beta tienen los relatos gratuitos. El único \"costo\" es tu opinión: luego de que visites sitios usando la app, te pediremos que respondas una breve encuesta para entender qué te gustó y qué debemos mejorar."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 </head>
@@ -410,7 +463,7 @@
         </div>
 
         <div id="mobileMenu"
-            class="mobile-menu fixed top-0 right-0 w-72 h-full bg-deep-900/98 backdrop-blur-xl z-50 flex flex-col pt-20 px-8 gap-6 border-l border-white/5">
+            class="mobile-menu fixed top-0 right-0 w-72 h-full bg-[rgba(11,17,32,0.98)] backdrop-blur-xl z-50 flex flex-col pt-20 px-8 gap-6 border-l border-white/5">
             <button id="closeMenu" class="absolute top-5 right-5 text-gray-400 hover:text-white"
                 aria-label="Cerrar menú">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -467,7 +520,7 @@
             <div
                 class="animate-fade-up inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-8">
                 <span class="w-2 h-2 bg-accent rounded-full animate-pulse-slow"></span>
-                <span class="text-accent text-xs font-medium tracking-wider uppercase" data-i18n="hero_badge">Beta Abierta — 6 Países</span>
+                <span class="text-accent text-xs font-medium tracking-wider uppercase" data-i18n="hero_badge">Beta Abierta — Argentina</span>
             </div>
 
             <h1 class="animate-fade-up font-display text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6" data-i18n="hero_title">
@@ -482,7 +535,7 @@
             </p>
 
             <p class="animate-fade-up-delay text-sm sm:text-base text-accent font-semibold max-w-2xl mx-auto mb-10 opacity-0" data-i18n="hero_differentiator">
-                🌎 La única app de audioguías automáticas en Argentina, Chile, Uruguay, Brasil, Perú e Italia.
+                🌎 La app de audioguías automáticas con más cobertura en Argentina: 608 sitios en 89 ciudades.
             </p>
 
             <div
@@ -527,7 +580,7 @@
                         class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-rose-500 ring-2 ring-deep-900 flex items-center justify-center text-xs font-bold text-white">
                         +</div>
                 </div>
-                <span data-i18n="hero_testers">Testers activos explorando 6 países</span>
+                <span data-i18n="hero_testers">Testers activos explorando toda Argentina</span>
             </div>
         </div>
 
@@ -682,16 +735,16 @@
                 </div>
 
                 <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6" data-i18n="ciudades_title">
-                    🏙️ Uníte a la <span class="gradient-text">Revolución del Turismo</span><br /> en 6 Países
+                    🏙️ Uníte a la <span class="gradient-text">Revolución del Turismo</span><br /> en Argentina
                 </h2>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-i18n="ciudades_desc">
-                    Ya estamos operativos con <span class="text-white font-semibold">1.045 sitios y 256 ciudades</span> en <span class="text-white font-semibold">Argentina, Chile, Uruguay, Brasil, Perú e Italia</span>, incluyendo los puntos más icónicos de:
+                    Ya estamos operativos con <span class="text-white font-semibold">608 sitios y 89 ciudades</span> en <span class="text-white font-semibold">toda Argentina</span>, incluyendo los puntos más icónicos de:
                 </p>
             </div>
 
             <div id="cities-grid" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-5">
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/tandil">
                     <img src="img/tandil.png" alt="Sierras de Tandil"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -706,9 +759,9 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_tandil_sub">Dejá que la Piedra Movediza te cuente su
                             secreto.</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/azul">
                     <img src="img/azul.png" alt="Arquitectura Art Déco de Salamone en Azul"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -723,9 +776,9 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_azul_sub">Descubrí la potencia del Art Déco de Salamone.
                         </p>
                     </div>
-                </div>
+                </a>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/buenos-aires">
                     <img src="img/buenosaires.png" alt="Obelisco de Buenos Aires"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -740,9 +793,9 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_ba_sub">Sentí el pulso de la historia en cada esquina
                             porteña.</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/mar-del-plata">
                     <img src="img/mardelplata.png" alt="Costa de Mar del Plata"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -757,9 +810,9 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_mdq_sub">Mucho más que mar y arena; historias que te van
                             a sorprender.</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/jujuy">
                     <img src="img/jujuy.png" alt="Cerro de los Siete Colores, Jujuy"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -774,9 +827,9 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_jujuy_sub">La Quebrada de Humahuaca y sus colores
                             milenarios.</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/cordoba">
                     <img src="img/cordoba.png" alt="Sierras de Córdoba"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -791,9 +844,9 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_cba_sub">Sierras, historia jesuítica y la Docta en tu
                             oído.</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/rosario">
                     <img src="img/rosario.png" alt="Monumento a la Bandera, Rosario"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -808,9 +861,9 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_rosario_sub">Cuna de la Bandera y secretos a orillas del
                             Paraná.</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/bariloche">
                     <img src="img/bariloche.png" alt="Lagos y montañas de Bariloche"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -825,9 +878,9 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_bariloche_sub">Lagos, bosques y leyendas patagónicas que
                             te envuelven.</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/catamarca">
                     <img src="img/catamarca.png" alt="Paisajes de Catamarca"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -842,7 +895,7 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_catamarca_sub">Místicos paisajes andinos y relatos
                             ancestrales.</p>
                     </div>
-                </div>
+                </a>
 
                 <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/misiones.png" alt="Cataratas del Iguazú, Misiones"
@@ -861,7 +914,7 @@
                     </div>
                 </div>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/la-rioja">
                     <img src="img/larioja.png" alt="Talampaya, La Rioja"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -876,9 +929,9 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_larioja_sub">Caminá entre gigantes de piedra roja en
                             Talampaya.</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/ushuaia">
                     <img src="img/ushuaia.png" alt="Faro del Fin del Mundo, Ushuaia"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -893,9 +946,9 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_ushuaia_sub">Historias del fin del mundo y navegación por el
                             Beagle.</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
+                <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/sierra-de-la-ventana">
                     <img src="img/sierraventana.png" alt="Sierra de la Ventana"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
@@ -910,7 +963,7 @@
                         <p class="text-gray-300 text-[10px] md:text-xs leading-relaxed" data-i18n="city_sierra_sub">Explorá los huecos de la historia en las
                             sierras más antiguas.</p>
                     </div>
-                </div>
+                </a>
                 <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
                     <img src="img/malvinas.png" alt="Paisaje de las Islas Malvinas"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -939,7 +992,7 @@
             </div>
 
             <p class="text-center text-gray-400 text-base mt-8 reveal" data-i18n="ciudades_footer">
-                <span class="text-accent font-semibold">...y otras 242 ciudades en 6 países.</span> Desde Salta y El Calafate hasta Roma, Cusco y Río de Janeiro.
+                <span class="text-accent font-semibold">...y otras 77 ciudades de Argentina.</span> Desde Salta y El Calafate hasta Ushuaia y Mendoza.
             </p>
         </div>
     </section>
@@ -956,11 +1009,11 @@
                     <div class="h-px w-12 bg-accent/50"></div>
                 </div>
                 <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6 text-gray-300" data-i18n="expansion_title">
-                    Ya estamos en <span class="gradient-text">6 países</span>
+                    Argentina hoy, <span class="gradient-text">6 países</span> en el mapa
                 </h2>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-i18n="expansion_desc">
-                    Nuestra misión no tiene fronteras: ya llevamos historias a tu oído en Sudamérica y Europa, y
-                    sumamos ciudades cada semana.
+                    Empezamos por Argentina, con 608 sitios en 89 ciudades. Nuestra misión no tiene fronteras: en 2026
+                    sumamos nuevos países a la app.
                 </p>
             </div>
 
@@ -975,35 +1028,35 @@
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors">
                     <span class="text-4xl mb-3">🇨🇱</span>
-                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><span class="text-accent text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_active">Activo</span></div>
+                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span><span class="text-gray-400 text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_soon">Próximamente</span></div>
                     <h3 class="font-semibold text-white" data-i18n="prox_chile">Chile</h3>
                     <span class="text-xs text-gray-400" data-i18n="prox_chile_cities">Valparaíso, Santiago</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors">
                     <span class="text-4xl mb-3">🇺🇾</span>
-                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><span class="text-accent text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_active">Activo</span></div>
+                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span><span class="text-gray-400 text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_soon">Próximamente</span></div>
                     <h3 class="font-semibold text-white" data-i18n="prox_uruguay">Uruguay</h3>
                     <span class="text-xs text-gray-400" data-i18n="prox_uruguay_cities">Montevideo, Colonia</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors">
                     <span class="text-4xl mb-3">🇧🇷</span>
-                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><span class="text-accent text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_active">Activo</span></div>
+                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span><span class="text-gray-400 text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_soon">Próximamente</span></div>
                     <h3 class="font-semibold text-white" data-i18n="prox_brasil">Brasil</h3>
                     <span class="text-xs text-gray-400" data-i18n="prox_brasil_cities">Río, São Paulo</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors">
                     <span class="text-4xl mb-3">🇵🇪</span>
-                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><span class="text-accent text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_active">Activo</span></div>
+                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span><span class="text-gray-400 text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_soon">Próximamente</span></div>
                     <h3 class="font-semibold text-white" data-i18n="prox_peru">Perú</h3>
                     <span class="text-xs text-gray-400" data-i18n="prox_peru_cities">Lima, Cusco</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors">
                     <span class="text-4xl mb-3">🇮🇹</span>
-                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><span class="text-accent text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_active">Activo</span></div>
+                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span><span class="text-gray-400 text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_soon">Próximamente</span></div>
                     <h3 class="font-semibold text-white" data-i18n="prox_italia">Italia</h3>
                     <span class="text-xs text-gray-400" data-i18n="prox_italia_cities">Roma, Florencia</span>
                 </div>
@@ -1299,7 +1352,7 @@
                 </div>
             </div>
 
-            <p class="text-center text-gray-500 text-sm mt-10 reveal" data-i18n="inst_warning">
+            <p class="text-center text-gray-400 text-sm mt-10 reveal" data-i18n="inst_warning">
                 ⚠️ Disponible solo para Android. La beta no se encuentra en Google Play Store; se instala como APK
                 directo.
             </p>
@@ -1399,14 +1452,14 @@
                 nav_faq: "FAQ",
                 nav_contacto: "Contacto",
                 nav_download: "Descargar Beta",
-                hero_badge: "Beta Abierta — 6 Países",
+                hero_badge: "Beta Abierta — Argentina",
                 hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>La historia en tus oídos</span>",
                 hero_subtitle: "¿Y si las ciudades pudieran hablarte al oído? 🎧✨<br /> Caminá. Escuchá. Descubrí. <span class='text-white font-semibold'>Sin tocar tu celular.</span>",
                 hero_download_btn: "DESCARGAR APK GRATIS (BETA)",
                 hero_learn_more: "Conocer más",
                 hero_android_only: "*Por el momento, disponible únicamente para dispositivos Android.",
-                hero_testers: "Testers activos explorando 6 países",
-                hero_differentiator: "🌎 La única app de audioguías automáticas en Argentina, Chile, Uruguay, Brasil, Perú e Italia.",
+                hero_testers: "Testers activos explorando toda Argentina",
+                hero_differentiator: "🌎 La app de audioguías automáticas con más cobertura en Argentina: 608 sitios en 89 ciudades.",
                 propuesta_label: "Nuestra Propuesta",
                 propuesta_title: "No es otra app de mapas.<br /> Es tu <span class='gradient-text'>nuevo sentido</span> para explorar.",
                 propuesta_card1_text: "YouGuide no es otra app de mapas; es tu nuevo sentido para explorar el mundo. Olvidate de caminar mirando una pantalla o de leer carteles aburridos bajo el sol. Nuestra <span class='text-white font-semibold'>tecnología de audio automático por proximidad</span> detecta dónde estás y te narra la historia secreta, el dato curioso o la leyenda oculta del lugar justo cuando estás frente a él.",
@@ -1425,8 +1478,8 @@
                 step3_title: "3. Escuchá",
                 step3_desc: "Vas a escuchar un \"ding!\" apenas camines cerca del sitio y la historia curada comenzará automáticamente.",
                 ciudades_label: "Cobertura Actual",
-                ciudades_title: "🏙️ Uníte a la <span class='gradient-text'>Revolución del Turismo</span><br /> en 6 Países",
-                ciudades_desc: "Ya estamos operativos con <span class='text-white font-semibold'>1.045 sitios y 256 ciudades</span> en <span class='text-white font-semibold'>Argentina, Chile, Uruguay, Brasil, Perú e Italia</span>, incluyendo los puntos más icónicos de:",
+                ciudades_title: "🏙️ Uníte a la <span class='gradient-text'>Revolución del Turismo</span><br /> en Argentina",
+                ciudades_desc: "Ya estamos operativos con <span class='text-white font-semibold'>608 sitios y 89 ciudades</span> en <span class='text-white font-semibold'>toda Argentina</span>, incluyendo los puntos más icónicos de:",
                 city_active: "Activa",
                 city_tandil_sub: "Dejá que la Piedra Movediza te cuente su secreto.",
                 city_azul_sub: "Descubrí la potencia del Art Déco de Salamone.",
@@ -1443,11 +1496,12 @@
                 city_sierra_sub: "Explorá los huecos de la historia en las sierras más antiguas.",
                 city_malvinas: "Islas Malvinas",
                 city_malvinas_sub: "Memoria, soberanía y paisajes que emocionan en el Atlántico Sur.",
-                ciudades_footer: "<span class='text-accent font-semibold'>...y otras 242 ciudades en 6 países.</span> Desde Salta y El Calafate hasta Roma, Cusco y Río de Janeiro.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...y otras 77 ciudades de Argentina.</span> Desde Salta y El Calafate hasta Ushuaia y Mendoza.",
                 expansion_label: "Novedad 2026",
-                expansion_title: "Ya estamos en <span class='gradient-text'>6 países</span>",
-                expansion_desc: "Nuestra misión no tiene fronteras: ya llevamos historias a tu oído en Sudamérica y Europa, y sumamos ciudades cada semana.",
+                expansion_title: "Argentina hoy, <span class='gradient-text'>6 países</span> en el mapa",
+                expansion_desc: "Empezamos por Argentina, con 608 sitios en 89 ciudades. Nuestra misión no tiene fronteras: en 2026 sumamos nuevos países a la app.",
                 country_active: "Activo",
+                country_soon: "Próximamente",
                 prox_argentina: "Argentina",
                 prox_argentina_cities: "Buenos Aires, Bariloche",
                 prox_italia: "Italia",
@@ -1499,7 +1553,7 @@
                 contacto_title: "Hablemos de <span class='gradient-text'>Turismo, Historia e IA</span>",
                 contacto_desc: "¿Tenés dudas, alianzas turísticas sugerencias o querés que YouGuide desembarque en tu ciudad? ¡Hablemos!",
                 contacto_email_btn: "Mandar Email",
-                footer_copy: "© 2026 YouGuide. Tu guía turística premium en 6 países.",
+                footer_copy: "© 2026 YouGuide. Tu guía turística premium de Argentina.",
                 footer_warning: "YouGuide es una aplicación en fase Beta. El APK se distribuye directamente y no está disponible en Google Play Store. <br />Todas las marcas y nombres mencionados pertenecen a sus respectivos dueños.",
                 btn_ver_todas: "Ver todas las ciudades",
                 btn_ver_menos: "Ver menos"
@@ -1511,14 +1565,14 @@
                 nav_faq: "FAQ",
                 nav_contacto: "Contact",
                 nav_download: "Download Beta",
-                hero_badge: "Open Beta — 6 Countries",
+                hero_badge: "Open Beta — Argentina",
                 hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>The history in your ears</span>",
                 hero_subtitle: "What if cities could whisper in your ear? 🎧✨<br /> Walk. Listen. Discover. <span class='text-white font-semibold'>Without touching your phone.</span>",
                 hero_download_btn: "DOWNLOAD FREE APK (BETA)",
                 hero_learn_more: "Learn more",
                 hero_android_only: "*Currently only available for Android devices.",
-                hero_testers: "Active testers exploring 6 countries",
-                hero_differentiator: "🌎 The only app with automatic audio guides across Argentina, Chile, Uruguay, Brazil, Peru, and Italy.",
+                hero_testers: "Active testers exploring all of Argentina",
+                hero_differentiator: "🌎 The audio guide app with the widest coverage in Argentina: 608 sites across 89 cities.",
                 propuesta_label: "Our Proposal",
                 propuesta_title: "Not just another map app.<br /> It's your <span class='gradient-text'>new sense</span> for exploration.",
                 propuesta_card1_text: "YouGuide is not just another map app; it's your new sense for exploring the world. Forget about walking while looking at a screen or reading boring signs under the sun. Our <span class='text-white font-semibold'>proximity-based automatic audio technology</span> detects where you are and narrates the secret history, the curious fact, or the hidden legend of the place exactly when you are in front of it.",
@@ -1537,8 +1591,8 @@
                 step3_title: "3. Listen",
                 step3_desc: "You will hear a \"ding!\" as soon as you walk near the site, and the curated story will start automatically.",
                 ciudades_label: "Current Coverage",
-                ciudades_title: "🏙️ Join the <span class='gradient-text'>Tourism Revolution</span><br /> in 6 Countries",
-                ciudades_desc: "We're already live with <span class='text-white font-semibold'>1,045 sites and 256 cities</span> across <span class='text-white font-semibold'>Argentina, Chile, Uruguay, Brazil, Peru, and Italy</span>, including the most iconic spots in:",
+                ciudades_title: "🏙️ Join the <span class='gradient-text'>Tourism Revolution</span><br /> in Argentina",
+                ciudades_desc: "We're already live with <span class='text-white font-semibold'>608 sites and 89 cities</span> across <span class='text-white font-semibold'>Argentina</span>, including the most iconic spots in:",
                 city_active: "Active",
                 city_tandil_sub: "Let the Moving Stone tell you its secret.",
                 city_azul_sub: "Discover the power of Salamone's Art Deco.",
@@ -1555,11 +1609,12 @@
                 city_sierra_sub: "Explore the gaps in history in the oldest mountains.",
                 city_malvinas: "Malvinas Islands",
                 city_malvinas_sub: "Memory, sovereignty, and breathtaking landscapes in the South Atlantic.",
-                ciudades_footer: "<span class='text-accent font-semibold'>...and 242 more cities across 6 countries.</span> From Salta and El Calafate to Rome, Cusco, and Rio de Janeiro.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...and 77 more cities across Argentina.</span> From Salta and El Calafate to Ushuaia and Mendoza.",
                 expansion_label: "2026 News",
-                expansion_title: "We're now live in <span class='gradient-text'>6 countries</span>",
-                expansion_desc: "Our mission has no borders: we're already bringing stories to your ears across South America and Europe, adding new cities every week.",
+                expansion_title: "Argentina today, <span class='gradient-text'>6 countries</span> on the map",
+                expansion_desc: "We're starting with Argentina, with 608 sites across 89 cities. Our mission has no borders: in 2026 we're adding new countries to the app.",
                 country_active: "Live",
+                country_soon: "Coming soon",
                 prox_argentina: "Argentina",
                 prox_argentina_cities: "Buenos Aires, Bariloche",
                 prox_italia: "Italy",
@@ -1611,7 +1666,7 @@
                 contacto_title: "Let's talk about <span class='gradient-text'>Tourism, History, and AI</span>",
                 contacto_desc: "Have questions, tourism partnerships, suggestions, or want YouGuide to land in your city? Let's talk!",
                 contacto_email_btn: "Send Email",
-                footer_copy: "© 2026 YouGuide. Your premium travel guide across 6 countries.",
+                footer_copy: "© 2026 YouGuide. Your premium travel guide to Argentina.",
                 footer_warning: "YouGuide is a Beta phase application. The APK is distributed directly and is not available on the Google Play Store. <br />All mentioned brands and names belong to their respective owners.",
                 btn_ver_todas: "View all cities",
                 btn_ver_menos: "Show less"
@@ -1623,14 +1678,14 @@
                 nav_faq: "FAQ",
                 nav_contacto: "Contato",
                 nav_download: "Baixar Beta",
-                hero_badge: "Beta Aberto — 6 Países",
+                hero_badge: "Beta Aberto — Argentina",
                 hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>A história em seus ouvidos</span>",
                 hero_subtitle: "E se as cidades pudessem falar ao seu ouvido? 🎧✨<br /> Caminhe. Ouça. Descubra. <span class='text-white font-semibold'>Sem tocar no seu celular.</span>",
                 hero_download_btn: "BAIXAR APK GRATUITO (BETA)",
                 hero_learn_more: "Saiba mais",
                 hero_android_only: "*No momento, disponível apenas para dispositivos Android.",
-                hero_testers: "Testers ativos explorando 6 países",
-                hero_differentiator: "🌎 O único app de audioguias automáticas na Argentina, Chile, Uruguai, Brasil, Peru e Itália.",
+                hero_testers: "Testers ativos explorando toda a Argentina",
+                hero_differentiator: "🌎 O app de audioguias automáticas com maior cobertura na Argentina: 608 sítios em 89 cidades.",
                 propuesta_label: "Nossa Proposta",
                 propuesta_title: "Não é apenas mais um app de mapas.<br /> É o seu <span class='gradient-text'>novo sentido</span> para explorar.",
                 propuesta_card1_text: "YouGuide não é apenas mais um app de mapas; é o seu novo sentido para explorar o mundo. Esqueça caminhar olhando para uma tela ou ler cartazes chatos sob o sol. Nossa <span class='text-white font-semibold'>tecnologia de áudio automático por proximidade</span> detecta onde você está e narra a história secreta, o fato curioso ou a lenda oculta do lugar exatamente quando você está diante dele.",
@@ -1649,8 +1704,8 @@
                 step3_title: "3. Ouça",
                 step3_desc: "Você ouvirá um \"ding!\" assim que caminhar perto do local e a história curada começará automaticamente.",
                 ciudades_label: "Cobertura Atual",
-                ciudades_title: "🏙️ Junte-se à <span class='gradient-text'>Revolução do Turismo</span><br /> em 6 Países",
-                ciudades_desc: "Já estamos operacionais com <span class='text-white font-semibold'>1.045 sítios e 256 cidades</span> em <span class='text-white font-semibold'>Argentina, Chile, Uruguai, Brasil, Peru e Itália</span>, incluindo os pontos mais icônicos de:",
+                ciudades_title: "🏙️ Junte-se à <span class='gradient-text'>Revolução do Turismo</span><br /> em Argentina",
+                ciudades_desc: "Já estamos operacionais com <span class='text-white font-semibold'>608 sítios e 89 cidades</span> em <span class='text-white font-semibold'>toda a Argentina</span>, incluindo os pontos mais icônicos de:",
                 city_active: "Ativa",
                 city_tandil_sub: "Deixe a Pedra Movediza contar seu segredo.",
                 city_azul_sub: "Descubra a potência do Art Déco de Salamone.",
@@ -1667,11 +1722,12 @@
                 city_sierra_sub: "Explore os vãos da história nas serras mais antigas.",
                 city_malvinas: "Ilhas Malvinas",
                 city_malvinas_sub: "Memória, soberania e paisagens emocionantes no Atlântico Sul.",
-                ciudades_footer: "<span class='text-accent font-semibold'>...e outras 242 cidades em 6 países.</span> De Salta e El Calafate a Roma, Cusco e Rio de Janeiro.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...e outras 77 cidades da Argentina.</span> De Salta e El Calafate a Ushuaia e Mendoza.",
                 expansion_label: "Novidade 2026",
-                expansion_title: "Já estamos em <span class='gradient-text'>6 países</span>",
-                expansion_desc: "Nossa missão não tem fronteiras: já levamos histórias ao seu ouvido pela América do Sul e Europa, somando novas cidades toda semana.",
+                expansion_title: "Argentina hoje, <span class='gradient-text'>6 países</span> no mapa",
+                expansion_desc: "Começamos pela Argentina, com 608 sítios em 89 cidades. Nossa missão não tem fronteiras: em 2026 somamos novos países ao app.",
                 country_active: "Ativo",
+                country_soon: "Em breve",
                 prox_argentina: "Argentina",
                 prox_argentina_cities: "Buenos Aires, Bariloche",
                 prox_italia: "Itália",
@@ -1723,7 +1779,7 @@
                 contacto_title: "Falemos de <span class='gradient-text'>Turismo, História e IA</span>",
                 contacto_desc: "Tem dúvidas, parcerias turísticas, sugestões ou quer que a YouGuide chegue à sua cidade? Falemos!",
                 contacto_email_btn: "Enviar Email",
-                footer_copy: "© 2026 YouGuide. Seu guia turístico premium em 6 países.",
+                footer_copy: "© 2026 YouGuide. Seu guia turístico premium da Argentina.",
                 footer_warning: "YouGuide é um aplicativo em fase Beta. O APK é distribuído diretamente e não está disponível na Google Play Store. <br />Todas as marcas e nomes mencionados pertencentem aos seus respectivos donos.",
                 btn_ver_todas: "Ver todas as cidades",
                 btn_ver_menos: "Ver menos"
@@ -1735,14 +1791,14 @@
                 nav_faq: "FAQ",
                 nav_contacto: "Contact",
                 nav_download: "Télécharger Beta",
-                hero_badge: "Bêta Ouverte — 6 Pays",
+                hero_badge: "Bêta Ouverte — Argentine",
                 hero_title: "YouGuide : <br class='sm:hidden' /> <span class='gradient-text'>L'histoire dans vos oreilles</span>",
                 hero_subtitle: "Et si les villes pouvaient vous chuchoter à l'oreille ? 🎧✨<br /> Marchez. Écoutez. Découvrez. <span class='text-white font-semibold'>Sans toucher votre téléphone.</span>",
                 hero_download_btn: "TÉLÉCHARGER L'APK GRATUIT (BETA)",
                 hero_learn_more: "En savoir plus",
                 hero_android_only: "*Pour le moment, disponible uniquement pour les appareils Android.",
-                hero_testers: "Testeurs actifs explorant 6 pays",
-                hero_differentiator: "🌎 La seule appli d'audioguides automatiques en Argentine, au Chili, en Uruguay, au Brésil, au Pérou et en Italie.",
+                hero_testers: "Testeurs actifs explorant toute l'Argentine",
+                hero_differentiator: "🌎 L'appli d'audioguides automatiques avec la plus large couverture en Argentine : 608 sites dans 89 villes.",
                 propuesta_label: "Notre Proposition",
                 propuesta_title: "Ce n'est pas une autre application de cartes.<br /> C'est votre <span class='gradient-text'>nouveau sens</span> pour explorer.",
                 propuesta_card1_text: "YouGuide n'est pas une autre application de cartes ; c'est votre nouveau sens pour explorer le monde. Oubliez de marcher en regardant un écran ou de lire des panneaux ennuyeux sous le soleil. Notre <span class='text-white font-semibold'>technologie audio automatique de proximité</span> détecte où vous êtes et vous raconte l'histoire secrète, le fait curieux ou la légende cachée du lieu juste au moment où vous êtes devant lui.",
@@ -1761,8 +1817,8 @@
                 step3_title: "3. Écoutez",
                 step3_desc: "Vous entendrez un \"ding !\" dès que vous marcherez près du site et l'histoire sélectionnée commencera automatiquement.",
                 ciudades_label: "Couverture Actuelle",
-                ciudades_title: "🏙️ Rejoignez la <span class='gradient-text'>Révolution du Tourisme</span><br /> dans 6 Pays",
-                ciudades_desc: "Nous sommes déjà opérationnels avec <span class='text-white font-semibold'>1 045 sites et 256 villes</span> en <span class='text-white font-semibold'>Argentine, au Chili, en Uruguay, au Brésil, au Pérou et en Italie</span>, y compris les points les plus emblématiques de :",
+                ciudades_title: "🏙️ Rejoignez la <span class='gradient-text'>Révolution du Tourisme</span><br /> en Argentine",
+                ciudades_desc: "Nous sommes déjà opérationnels avec <span class='text-white font-semibold'>608 sites et 89 villes</span> en <span class='text-white font-semibold'>Argentine</span>, y compris les points les plus emblématiques de :",
                 city_active: "Active",
                 city_tandil_sub: "Laissez la Pierre Mouvante vous raconter son secret.",
                 city_azul_sub: "Découvrez la puissance de l'Art Déco de Salamone.",
@@ -1779,11 +1835,12 @@
                 city_sierra_sub: "Explorez les lacunes de l'histoire dans les montagnes les plus anciennes.",
                 city_malvinas: "Îles Malouines",
                 city_malvinas_sub: "Mémoire, souveraineté et paysages époustouflants dans l'Atlantique Sud.",
-                ciudades_footer: "<span class='text-accent font-semibold'>...et 242 autres villes dans 6 pays.</span> De Salta et El Calafate à Rome, Cusco et Rio de Janeiro.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...et 77 autres villes en Argentine.</span> De Salta et El Calafate à Ushuaia et Mendoza.",
                 expansion_label: "Nouveauté 2026",
-                expansion_title: "Nous sommes maintenant présents dans <span class='gradient-text'>6 pays</span>",
-                expansion_desc: "Notre mission n'a pas de frontières : nous racontons déjà des histoires en Amérique du Sud et en Europe, avec de nouvelles villes chaque semaine.",
+                expansion_title: "L'Argentine aujourd'hui, <span class='gradient-text'>6 pays</span> en vue",
+                expansion_desc: "Nous commençons par l'Argentine, avec 608 sites dans 89 villes. Notre mission n'a pas de frontières : en 2026 nous ajoutons de nouveaux pays à l'appli.",
                 country_active: "Actif",
+                country_soon: "Bientôt disponible",
                 prox_argentina: "Argentine",
                 prox_argentina_cities: "Buenos Aires, Bariloche",
                 prox_italia: "Italie",
@@ -1833,7 +1890,7 @@
                 contacto_title: "Parlons de <span class='gradient-text'>Tourisme, d'Histoire et d'IA</span>",
                 contacto_desc: "Vous avez des questions, des partenariats touristiques, des suggestions ou vous voulez que YouGuide débarque dans votre ville ? Parlons-en !",
                 contacto_email_btn: "Envoyer un Email",
-                footer_copy: "© 2026 YouGuide. Votre guide touristique premium dans 6 pays.",
+                footer_copy: "© 2026 YouGuide. Votre guide touristique premium en Argentine.",
                 footer_warning: "YouGuide est une application en phase Bêta. L'APK est distribué directement et n'est pas disponible sur le Google Play Store. <br />Toutes les marques et noms mentionnés appartiennent à leurs propriétaires respectifs.",
                 btn_ver_todas: "Voir toutes les villes",
                 btn_ver_menos: "Voir moins"
@@ -1845,14 +1902,14 @@
                 nav_faq: "FAQ",
                 nav_contacto: "Kontakt",
                 nav_download: "Beta herunterladen",
-                hero_badge: "Offene Beta — 6 Länder",
+                hero_badge: "Offene Beta — Argentinien",
                 hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>Die Geschichte in deinen Ohren</span>",
                 hero_subtitle: "Was wäre, wenn Städte dir ins Ohr flüstern könnten? 🎧✨<br /> Gehen. Hören. Entdecken. <span class='text-white font-semibold'>Ohne dein Handy zu berühren.</span>",
                 hero_download_btn: "KOSTENLOSE APK HERUNTERLADEN (BETA)",
                 hero_learn_more: "Mehr erfahren",
                 hero_android_only: "*Derzeit nur für Android-Geräte verfügbar.",
-                hero_testers: "Aktive Tester erkunden 6 Länder",
-                hero_differentiator: "🌎 Die einzige App für automatische Audioguides in Argentinien, Chile, Uruguay, Brasilien, Peru und Italien.",
+                hero_testers: "Aktive Tester erkunden ganz Argentinien",
+                hero_differentiator: "🌎 Die App für automatische Audioguides mit der größten Abdeckung in Argentinien: 608 Standorte in 89 Städten.",
                 propuesta_label: "Unser Vorschlag",
                 propuesta_title: "Nicht nur eine weitere Karten-App.<br /> Es ist dein <span class='gradient-text'>neuer Sinn</span> zum Erkunden.",
                 propuesta_card1_text: "YouGuide ist nicht nur eine weitere Karten-App; es ist dein neuer Sinn für die Erkundung der Welt. Vergiss das Gehen, während du auf einen Bildschirm starrst oder langweilige Schilder in der Sonne liest. Unsere <span class='text-white font-semibold'>proximitätsbasierte automatische Audiotechnologie</span> erkennt, wo du bist, und erzählt dir die geheime Geschichte, die kuriose Tatsache oder die verborgene Legende des Ortes genau dann, wenn du davor stehst.",
@@ -1871,8 +1928,8 @@
                 step3_title: "3. Hören",
                 step3_desc: "Du hörst ein \"Ding!\", sobald du in der Nähe des Ortes gehst, und die kuratierte Geschichte beginnt automatisch.",
                 ciudades_label: "Aktuelle Abdeckung",
-                ciudades_title: "🏙️ Tritt der <span class='gradient-text'>Tourismus-Revolution</span><br /> in 6 Ländern bei",
-                ciudades_desc: "Wir sind bereits mit <span class='text-white font-semibold'>1.045 Standorten und 256 Städten</span> in <span class='text-white font-semibold'>Argentinien, Chile, Uruguay, Brasilien, Peru und Italien</span> tätig, einschließlich der ikonischsten Punkte in:",
+                ciudades_title: "🏙️ Tritt der <span class='gradient-text'>Tourismus-Revolution</span><br /> in Argentinien bei",
+                ciudades_desc: "Wir sind bereits mit <span class='text-white font-semibold'>608 Standorten und 89 Städten</span> in <span class='text-white font-semibold'>ganz Argentinien</span> tätig, einschließlich der ikonischsten Punkte in:",
                 city_active: "Aktiv",
                 city_tandil_sub: "Lass den Beweglichen Stein dir sein Geheimnis erzählen.",
                 city_azul_sub: "Entdecke die Kraft des Art Déco von Salamone.",
@@ -1889,11 +1946,12 @@
                 city_sierra_sub: "Erkunde die Lücken der Geschichte in den ältesten Bergen.",
                 city_malvinas: "Malvinas-Inseln",
                 city_malvinas_sub: "Erinnerung, Souveränität und atemberaubende Landschaften im Südatlantik.",
-                ciudades_footer: "<span class='text-accent font-semibold'>...und 242 weitere Städte in 6 Ländern.</span> Von Salta und El Calafate bis Rom, Cusco und Rio de Janeiro.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...und 77 weitere Städte in Argentinien.</span> Von Salta und El Calafate bis Ushuaia und Mendoza.",
                 expansion_label: "Neuigkeit 2026",
-                expansion_title: "Wir sind jetzt in <span class='gradient-text'>6 Ländern</span> aktiv",
-                expansion_desc: "Unsere Mission kennt keine Grenzen: Wir bringen bereits Geschichten in Südamerika und Europa an deine Ohren und fügen jede Woche neue Städte hinzu.",
+                expansion_title: "Argentinien heute, <span class='gradient-text'>6 Länder</span> im Visier",
+                expansion_desc: "Wir starten mit Argentinien, mit 608 Standorten in 89 Städten. Unsere Mission kennt keine Grenzen: 2026 fügen wir der App neue Länder hinzu.",
                 country_active: "Aktiv",
+                country_soon: "Bald verfügbar",
                 prox_argentina: "Argentinien",
                 prox_argentina_cities: "Buenos Aires, Bariloche",
                 prox_italia: "Italien",
@@ -1943,7 +2001,7 @@
                 contacto_title: "Lass uns über <span class='gradient-text'>Tourismus, Geschichte und KI</span> sprechen",
                 contacto_desc: "Hast du Fragen, Tourismus-Partnerschaften, Vorschläge oder möchtest du, dass YouGuide in deiner Stadt landet? Lass uns reden!",
                 contacto_email_btn: "E-Mail senden",
-                footer_copy: "© 2026 YouGuide. Dein Premium-Reiseführer für 6 Länder.",
+                footer_copy: "© 2026 YouGuide. Dein Premium-Reiseführer für Argentinien.",
                 footer_warning: "YouGuide ist eine Anwendung in der Beta-Phase. Die APK wird direkt verteilt und ist nicht im Google Play Store verfügbar. <br />Alle genannten Marken und Namen gehören ihren jeweiligen Eigentümern.",
                 btn_ver_todas: "Alle Städte anzeigen",
                 btn_ver_menos: "Weniger anzeigen"

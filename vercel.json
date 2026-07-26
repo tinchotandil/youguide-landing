@@ -1,6 +1,19 @@
 {
   "framework": null,
   "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/destinos/:ciudad/",
+      "destination": "/destinos/:ciudad",
+      "permanent": true
+    },
+    {
+      "source": "/ruta/:id/",
+      "destination": "/ruta/:id",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/ruta/:id",

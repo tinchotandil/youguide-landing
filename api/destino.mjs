@@ -29,7 +29,7 @@ export default function handler(req, res) {
   const title = `Qué hacer en ${nombre} | Audioguía YouGuide`;
   const description = `Descubrí ${cantidad_sitios} puntos turísticos en ${nombre}, como ${sitio1} y ${sitio2}. Descargá la app y escuchá la historia mientras caminás.`;
   const url = `https://youguide.vercel.app/destinos/${ciudad}`;
-  const logoUrl = "https://youguide.vercel.app/img/logo.png";
+  const logoUrl = "https://youguide.vercel.app/logo.png";
 
   const schemaMarkup = {
     "@context": "https://schema.org",
@@ -61,7 +61,9 @@ export default function handler(req, res) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>${title}</title>
       <meta name="description" content="${description}">
-      
+      <meta name="robots" content="index, follow">
+      <link rel="canonical" href="${url}">
+
       <!-- Open Graph / WhatsApp Meta Tags -->
       <meta property="og:title" content="${title}">
       <meta property="og:description" content="${description}">
@@ -195,7 +197,7 @@ export default function handler(req, res) {
         <div class="cta-section">
           <h2>Explorá ${nombre} a tu propio ritmo</h2>
           <p style="color: #cbd5e1; margin-bottom: 24px;">Descargá la aplicación gratuita y dejá que YouGuide te cuente las historias de estos lugares mágicos de manera automática.</p>
-          <a href="https://github.com/tinchotandil/youguide-landing/releases/download/v1.7.6/YouGuide.1.7.7.apk" class="btn">Descargar YouGuide Beta</a>
+          <a href="https://github.com/tinchotandil/youguide-landing/releases/download/v1.7.8/YouGuide.1.7.8.apk" class="btn">Descargar YouGuide Beta</a>
         </div>
       </main>
 
