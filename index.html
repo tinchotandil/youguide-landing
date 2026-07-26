@@ -22,11 +22,11 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YouGuide | Audioguía Turística GPS en Argentina – App Gratis</title>
+    <title>YouGuide | Audioguía Turística GPS en 6 Países – App Gratis</title>
     <meta name="description"
-        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +600 sitios en 89 ciudades de toda Argentina." />
+        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +1000 sitios en 269 ciudades de 6 países." />
     <meta name="keywords"
-        content="audioguía turística, app de audioguías, guía turística argentina, turismo gps, rutas turísticas, guía de viaje app, turismo cultural, audioguía gratis, qué hacer en Buenos Aires, qué hacer en Bariloche" />
+        content="audioguía turística, app de audioguías, guía turística argentina, guía turística chile, guía turística uruguay, guía turística brasil, guía turística perú, guía turística italia, turismo gps, rutas turísticas, guía de viaje app, turismo cultural, audioguía gratis, audioguía accesible, app accesible no videntes" />
     <meta name="author" content="YouGuide Team" />
     <meta name="robots" content="index, follow" />
     <meta name="google-site-verification" content="I-uPJYZ8ZynE570TSe_pM4YSJK9VxhqobDb24QQtnXA" />
@@ -37,17 +37,17 @@
     <!-- Open Graph / Meta / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://youguide.vercel.app/" />
-    <meta property="og:title" content="YouGuide | Audioguía Turística GPS en Argentina – App Gratis" />
+    <meta property="og:title" content="YouGuide | Audioguía Turística GPS en 6 Países – App Gratis" />
     <meta property="og:description"
-        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +600 sitios en 89 ciudades de toda Argentina." />
+        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +1000 sitios en 269 ciudades de 6 países." />
     <meta property="og:image" content="https://youguide.vercel.app/logo.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://youguide.vercel.app/" />
-    <meta property="twitter:title" content="YouGuide | Audioguía Turística GPS en Argentina – App Gratis" />
+    <meta property="twitter:title" content="YouGuide | Audioguía Turística GPS en 6 Países – App Gratis" />
     <meta property="twitter:description"
-        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +600 sitios en 89 ciudades de toda Argentina." />
+        content="Descargá YouGuide gratis: audioguías turísticas con GPS que narran la historia de cada lugar. +1000 sitios en 269 ciudades de 6 países." />
     <meta property="twitter:image" content="https://youguide.vercel.app/logo.png" />
 
     <!-- Canonical URL -->
@@ -322,9 +322,13 @@
             "price": "0",
             "priceCurrency": "ARS"
           },
-          "description": "Audioguías geolocalizadas y rutas culturales para descubrir Argentina: más de 600 sitios turísticos en 89 ciudades.",
-          "areaServed": ["AR"],
-          "featureList": ["600 sitios turísticos", "89 ciudades", "Cobertura en toda Argentina", "Audio automático por geolocalización", "Modo offline"],
+          "description": "Audioguías geolocalizadas y rutas culturales, diseñadas accessibility-first, para descubrir Argentina, Brasil, Chile, Italia, Perú y Uruguay: más de 1000 sitios turísticos en 269 ciudades.",
+          "areaServed": ["AR", "BR", "CL", "IT", "PE", "UY"],
+          "featureList": ["1000+ sitios turísticos", "269 ciudades", "6 países", "Diseño accessibility-first", "Audio automático por geolocalización", "Modo offline"],
+          "accessibilityFeature": ["audioDescription"],
+          "accessMode": ["auditory"],
+          "accessModeSufficient": ["auditory"],
+          "accessibilityHazard": "none",
           "url": "https://youguide.vercel.app/",
           "publisher": { "@id": "https://youguide.vercel.app/#organization" }
         },
@@ -370,6 +374,14 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Quienes instalan y participan de la Beta tienen los relatos gratuitos. El único \"costo\" es tu opinión: luego de que visites sitios usando la app, te pediremos que respondas una breve encuesta para entender qué te gustó y qué debemos mejorar."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿YouGuide es accesible para personas no videntes o con baja visión?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí: YouGuide está diseñada accessibility-first. La narración automática por geolocalización funciona 100% por audio, sin necesidad de mirar la pantalla ni tocar el celular, por lo que personas no videntes o con baja visión pueden recorrer una ciudad y recibir la misma información que cualquier otro usuario."
               }
             }
           ]
@@ -520,7 +532,7 @@
             <div
                 class="animate-fade-up inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 mb-8">
                 <span class="w-2 h-2 bg-accent rounded-full animate-pulse-slow"></span>
-                <span class="text-accent text-xs font-medium tracking-wider uppercase" data-i18n="hero_badge">Beta Abierta — Argentina</span>
+                <span class="text-accent text-xs font-medium tracking-wider uppercase" data-i18n="hero_badge">Beta Abierta — 6 Países</span>
             </div>
 
             <h1 class="animate-fade-up font-display text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-6" data-i18n="hero_title">
@@ -535,7 +547,7 @@
             </p>
 
             <p class="animate-fade-up-delay text-sm sm:text-base text-accent font-semibold max-w-2xl mx-auto mb-10 opacity-0" data-i18n="hero_differentiator">
-                🌎 La app de audioguías automáticas con más cobertura en Argentina: 608 sitios en 89 ciudades.
+                🎧 Diseñada accessibility-first para personas no videntes y con baja visión — con más de 1000 sitios en 269 ciudades de 6 países.
             </p>
 
             <div
@@ -580,7 +592,7 @@
                         class="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-rose-500 ring-2 ring-deep-900 flex items-center justify-center text-xs font-bold text-white">
                         +</div>
                 </div>
-                <span data-i18n="hero_testers">Testers activos explorando toda Argentina</span>
+                <span data-i18n="hero_testers">Testers activos explorando 6 países</span>
             </div>
         </div>
 
@@ -735,10 +747,10 @@
                 </div>
 
                 <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-6" data-i18n="ciudades_title">
-                    🏙️ Uníte a la <span class="gradient-text">Revolución del Turismo</span><br /> en Argentina
+                    🏙️ Uníte a la <span class="gradient-text">Revolución del Turismo</span><br /> en 6 Países
                 </h2>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-i18n="ciudades_desc">
-                    Ya estamos operativos con <span class="text-white font-semibold">608 sitios y 89 ciudades</span> en <span class="text-white font-semibold">toda Argentina</span>, incluyendo los puntos más icónicos de:
+                    Ya estamos operativos con <span class="text-white font-semibold">1000+ sitios y 269 ciudades</span> en <span class="text-white font-semibold">Argentina, Brasil, Chile, Italia, Perú y Uruguay</span>, incluyendo los puntos más icónicos de:
                 </p>
             </div>
 
@@ -992,7 +1004,7 @@
             </div>
 
             <p class="text-center text-gray-400 text-base mt-8 reveal" data-i18n="ciudades_footer">
-                <span class="text-accent font-semibold">...y otras 77 ciudades de Argentina.</span> Desde Salta y El Calafate hasta Ushuaia y Mendoza.
+                <span class="text-accent font-semibold">...y otras 263 ciudades en 6 países.</span> Desde Salta y El Calafate hasta Roma, Cusco y Río de Janeiro.
             </p>
         </div>
     </section>
@@ -1009,11 +1021,11 @@
                     <div class="h-px w-12 bg-accent/50"></div>
                 </div>
                 <h2 class="font-display text-3xl sm:text-4xl font-bold mb-6 text-gray-300" data-i18n="expansion_title">
-                    Argentina hoy, <span class="gradient-text">6 países</span> en el mapa
+                    Ya estamos en <span class="gradient-text">6 países</span>
                 </h2>
                 <p class="text-gray-400 text-lg max-w-2xl mx-auto" data-i18n="expansion_desc">
-                    Empezamos por Argentina, con 608 sitios en 89 ciudades. Nuestra misión no tiene fronteras: en 2026
-                    sumamos nuevos países a la app.
+                    Nuestra misión no tiene fronteras: ya llevamos historias a tu oído en Sudamérica y Europa, y
+                    sumamos ciudades cada semana.
                 </p>
             </div>
 
@@ -1028,37 +1040,37 @@
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors">
                     <span class="text-4xl mb-3">🇨🇱</span>
-                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span><span class="text-gray-400 text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_soon">Próximamente</span></div>
+                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><span class="text-accent text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_active">Activo</span></div>
                     <h3 class="font-semibold text-white" data-i18n="prox_chile">Chile</h3>
                     <span class="text-xs text-gray-400" data-i18n="prox_chile_cities">Valparaíso, Santiago</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors">
                     <span class="text-4xl mb-3">🇺🇾</span>
-                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span><span class="text-gray-400 text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_soon">Próximamente</span></div>
+                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><span class="text-accent text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_active">Activo</span></div>
                     <h3 class="font-semibold text-white" data-i18n="prox_uruguay">Uruguay</h3>
                     <span class="text-xs text-gray-400" data-i18n="prox_uruguay_cities">Montevideo, Colonia</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors">
                     <span class="text-4xl mb-3">🇧🇷</span>
-                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span><span class="text-gray-400 text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_soon">Próximamente</span></div>
+                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><span class="text-accent text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_active">Activo</span></div>
                     <h3 class="font-semibold text-white" data-i18n="prox_brasil">Brasil</h3>
                     <span class="text-xs text-gray-400" data-i18n="prox_brasil_cities">Río, São Paulo</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors">
                     <span class="text-4xl mb-3">🇵🇪</span>
-                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span><span class="text-gray-400 text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_soon">Próximamente</span></div>
+                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><span class="text-accent text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_active">Activo</span></div>
                     <h3 class="font-semibold text-white" data-i18n="prox_peru">Perú</h3>
                     <span class="text-xs text-gray-400" data-i18n="prox_peru_cities">Lima, Cusco</span>
                 </div>
                 <div
                     class="glass-light rounded-2xl p-6 text-center w-40 flex flex-col items-center hover:bg-white/5 transition-colors">
                     <span class="text-4xl mb-3">🇮🇹</span>
-                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-gray-500 rounded-full"></span><span class="text-gray-400 text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_soon">Próximamente</span></div>
+                    <div class="flex items-center gap-1.5 mb-0.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><span class="text-accent text-[10px] font-semibold tracking-widest uppercase" data-i18n="country_active">Activo</span></div>
                     <h3 class="font-semibold text-white" data-i18n="prox_italia">Italia</h3>
-                    <span class="text-xs text-gray-400" data-i18n="prox_italia_cities">Roma, Florencia</span>
+                    <span class="text-xs text-gray-400" data-i18n="prox_italia_cities">Roma, Nápoles</span>
                 </div>
             </div>
 
@@ -1227,6 +1239,17 @@
                     <p class="text-gray-400 leading-relaxed text-lg" data-i18n="faq4_a">Quienes instalan y participan de la Beta tienen los
                         relatos gratuitos. El único "costo" es tu opinión: luego de que visites sitios usando la app, te
                         pediremos que respondas una breve encuesta para entender qué te gustó y qué debemos mejorar.</p>
+                </div>
+
+                <div class="reveal glass rounded-2xl p-8 hover:bg-white/5 transition-colors group">
+                    <h3
+                        class="font-bold text-xl text-white mb-3 text-accent transition-colors flex items-center justify-between" data-i18n="faq5_q">
+                        ¿YouGuide es accesible para personas no videntes o con baja visión?
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed text-lg" data-i18n="faq5_a">Sí: YouGuide está diseñada accessibility-first. La narración
+                        automática por geolocalización funciona 100% por audio, sin necesidad de mirar la pantalla ni tocar el
+                        celular, por lo que personas no videntes o con baja visión pueden recorrer una ciudad y recibir la
+                        misma información que cualquier otro usuario.</p>
                 </div>
             </div>
         </div>
@@ -1452,14 +1475,14 @@
                 nav_faq: "FAQ",
                 nav_contacto: "Contacto",
                 nav_download: "Descargar Beta",
-                hero_badge: "Beta Abierta — Argentina",
+                hero_badge: "Beta Abierta — 6 Países",
                 hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>La historia en tus oídos</span>",
                 hero_subtitle: "¿Y si las ciudades pudieran hablarte al oído? 🎧✨<br /> Caminá. Escuchá. Descubrí. <span class='text-white font-semibold'>Sin tocar tu celular.</span>",
                 hero_download_btn: "DESCARGAR APK GRATIS (BETA)",
                 hero_learn_more: "Conocer más",
                 hero_android_only: "*Por el momento, disponible únicamente para dispositivos Android.",
-                hero_testers: "Testers activos explorando toda Argentina",
-                hero_differentiator: "🌎 La app de audioguías automáticas con más cobertura en Argentina: 608 sitios en 89 ciudades.",
+                hero_testers: "Testers activos explorando 6 países",
+                hero_differentiator: "🎧 Diseñada accessibility-first para personas no videntes y con baja visión — con más de 1000 sitios en 269 ciudades de 6 países.",
                 propuesta_label: "Nuestra Propuesta",
                 propuesta_title: "No es otra app de mapas.<br /> Es tu <span class='gradient-text'>nuevo sentido</span> para explorar.",
                 propuesta_card1_text: "YouGuide no es otra app de mapas; es tu nuevo sentido para explorar el mundo. Olvidate de caminar mirando una pantalla o de leer carteles aburridos bajo el sol. Nuestra <span class='text-white font-semibold'>tecnología de audio automático por proximidad</span> detecta dónde estás y te narra la historia secreta, el dato curioso o la leyenda oculta del lugar justo cuando estás frente a él.",
@@ -1478,8 +1501,8 @@
                 step3_title: "3. Escuchá",
                 step3_desc: "Vas a escuchar un \"ding!\" apenas camines cerca del sitio y la historia curada comenzará automáticamente.",
                 ciudades_label: "Cobertura Actual",
-                ciudades_title: "🏙️ Uníte a la <span class='gradient-text'>Revolución del Turismo</span><br /> en Argentina",
-                ciudades_desc: "Ya estamos operativos con <span class='text-white font-semibold'>608 sitios y 89 ciudades</span> en <span class='text-white font-semibold'>toda Argentina</span>, incluyendo los puntos más icónicos de:",
+                ciudades_title: "🏙️ Uníte a la <span class='gradient-text'>Revolución del Turismo</span><br /> en 6 Países",
+                ciudades_desc: "Ya estamos operativos con <span class='text-white font-semibold'>1000+ sitios y 269 ciudades</span> en <span class='text-white font-semibold'>Argentina, Brasil, Chile, Italia, Perú y Uruguay</span>, incluyendo los puntos más icónicos de:",
                 city_active: "Activa",
                 city_tandil_sub: "Dejá que la Piedra Movediza te cuente su secreto.",
                 city_azul_sub: "Descubrí la potencia del Art Déco de Salamone.",
@@ -1496,16 +1519,15 @@
                 city_sierra_sub: "Explorá los huecos de la historia en las sierras más antiguas.",
                 city_malvinas: "Islas Malvinas",
                 city_malvinas_sub: "Memoria, soberanía y paisajes que emocionan en el Atlántico Sur.",
-                ciudades_footer: "<span class='text-accent font-semibold'>...y otras 77 ciudades de Argentina.</span> Desde Salta y El Calafate hasta Ushuaia y Mendoza.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...y otras 263 ciudades en 6 países.</span> Desde Salta y El Calafate hasta Roma, Cusco y Río de Janeiro.",
                 expansion_label: "Novedad 2026",
-                expansion_title: "Argentina hoy, <span class='gradient-text'>6 países</span> en el mapa",
-                expansion_desc: "Empezamos por Argentina, con 608 sitios en 89 ciudades. Nuestra misión no tiene fronteras: en 2026 sumamos nuevos países a la app.",
+                expansion_title: "Ya estamos en <span class='gradient-text'>6 países</span>",
+                expansion_desc: "Nuestra misión no tiene fronteras: ya llevamos historias a tu oído en Sudamérica y Europa, y sumamos ciudades cada semana.",
                 country_active: "Activo",
-                country_soon: "Próximamente",
                 prox_argentina: "Argentina",
                 prox_argentina_cities: "Buenos Aires, Bariloche",
                 prox_italia: "Italia",
-                prox_italia_cities: "Roma, Florencia",
+                prox_italia_cities: "Roma, Nápoles",
                 evolucion_label: "Evolución",
                 evolucion_title: "Lo que se viene... ¿Qué más te imaginás?",
                 cultural_agenda_title: "Menú Cultural con Agenda",
@@ -1534,6 +1556,8 @@
                 faq3_a: "No es obligatorio (la app puede sonar por el altavoz de tu teléfono si estás caminando por el campo), pero te recomendamos enfáticamente usarlos. El efecto de \"susurro al oído\" en medio de la ciudad genera esa inmersión histórica que nos hace únicos.",
                 faq4_q: "¿Tiene costo usar la App?",
                 faq4_a: "Quienes instalan y participan de la Beta tienen los relatos gratuitos. El único \"costo\" es tu opinión: luego de que visites sitios usando la app, te pediremos que respondas una breve encuesta para entender qué te gustó y qué debemos mejorar.",
+                faq5_q: "¿YouGuide es accesible para personas no videntes o con baja visión?",
+                faq5_a: "Sí: YouGuide está diseñada accessibility-first. La narración automática por geolocalización funciona 100% por audio, sin necesidad de mirar la pantalla ni tocar el celular, por lo que personas no videntes o con baja visión pueden recorrer una ciudad y recibir la misma información que cualquier otro usuario.",
                 circulo_title: "Formá parte del <span class='gradient-text'>Círculo Íntimo</span><br /> de YouGuide",
                 circulo_desc: "Queremos que seas de los primeros <span class='text-white font-semibold'>1.000 usuarios en Argentina</span> en probar esta tecnología antes del lanzamiento global.",
                 circulo_magia: "¿Cómo funciona la magia?",
@@ -1553,7 +1577,7 @@
                 contacto_title: "Hablemos de <span class='gradient-text'>Turismo, Historia e IA</span>",
                 contacto_desc: "¿Tenés dudas, alianzas turísticas sugerencias o querés que YouGuide desembarque en tu ciudad? ¡Hablemos!",
                 contacto_email_btn: "Mandar Email",
-                footer_copy: "© 2026 YouGuide. Tu guía turística premium de Argentina.",
+                footer_copy: "© 2026 YouGuide. Tu guía turística premium en 6 países.",
                 footer_warning: "YouGuide es una aplicación en fase Beta. El APK se distribuye directamente y no está disponible en Google Play Store. <br />Todas las marcas y nombres mencionados pertenecen a sus respectivos dueños.",
                 btn_ver_todas: "Ver todas las ciudades",
                 btn_ver_menos: "Ver menos"
@@ -1565,14 +1589,14 @@
                 nav_faq: "FAQ",
                 nav_contacto: "Contact",
                 nav_download: "Download Beta",
-                hero_badge: "Open Beta — Argentina",
+                hero_badge: "Open Beta — 6 Countries",
                 hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>The history in your ears</span>",
                 hero_subtitle: "What if cities could whisper in your ear? 🎧✨<br /> Walk. Listen. Discover. <span class='text-white font-semibold'>Without touching your phone.</span>",
                 hero_download_btn: "DOWNLOAD FREE APK (BETA)",
                 hero_learn_more: "Learn more",
                 hero_android_only: "*Currently only available for Android devices.",
-                hero_testers: "Active testers exploring all of Argentina",
-                hero_differentiator: "🌎 The audio guide app with the widest coverage in Argentina: 608 sites across 89 cities.",
+                hero_testers: "Active testers exploring 6 countries",
+                hero_differentiator: "🎧 Designed accessibility-first for blind and low-vision travelers — with over 1,000 sites across 269 cities in 6 countries.",
                 propuesta_label: "Our Proposal",
                 propuesta_title: "Not just another map app.<br /> It's your <span class='gradient-text'>new sense</span> for exploration.",
                 propuesta_card1_text: "YouGuide is not just another map app; it's your new sense for exploring the world. Forget about walking while looking at a screen or reading boring signs under the sun. Our <span class='text-white font-semibold'>proximity-based automatic audio technology</span> detects where you are and narrates the secret history, the curious fact, or the hidden legend of the place exactly when you are in front of it.",
@@ -1591,8 +1615,8 @@
                 step3_title: "3. Listen",
                 step3_desc: "You will hear a \"ding!\" as soon as you walk near the site, and the curated story will start automatically.",
                 ciudades_label: "Current Coverage",
-                ciudades_title: "🏙️ Join the <span class='gradient-text'>Tourism Revolution</span><br /> in Argentina",
-                ciudades_desc: "We're already live with <span class='text-white font-semibold'>608 sites and 89 cities</span> across <span class='text-white font-semibold'>Argentina</span>, including the most iconic spots in:",
+                ciudades_title: "🏙️ Join the <span class='gradient-text'>Tourism Revolution</span><br /> in 6 Countries",
+                ciudades_desc: "We're already live with <span class='text-white font-semibold'>1,000+ sites and 269 cities</span> across <span class='text-white font-semibold'>Argentina, Brazil, Chile, Italy, Peru, and Uruguay</span>, including the most iconic spots in:",
                 city_active: "Active",
                 city_tandil_sub: "Let the Moving Stone tell you its secret.",
                 city_azul_sub: "Discover the power of Salamone's Art Deco.",
@@ -1609,16 +1633,15 @@
                 city_sierra_sub: "Explore the gaps in history in the oldest mountains.",
                 city_malvinas: "Malvinas Islands",
                 city_malvinas_sub: "Memory, sovereignty, and breathtaking landscapes in the South Atlantic.",
-                ciudades_footer: "<span class='text-accent font-semibold'>...and 77 more cities across Argentina.</span> From Salta and El Calafate to Ushuaia and Mendoza.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...and 263 more cities across 6 countries.</span> From Salta and El Calafate to Rome, Cusco, and Rio de Janeiro.",
                 expansion_label: "2026 News",
-                expansion_title: "Argentina today, <span class='gradient-text'>6 countries</span> on the map",
-                expansion_desc: "We're starting with Argentina, with 608 sites across 89 cities. Our mission has no borders: in 2026 we're adding new countries to the app.",
+                expansion_title: "We're now live in <span class='gradient-text'>6 countries</span>",
+                expansion_desc: "Our mission has no borders: we're already bringing stories to your ears across South America and Europe, adding new cities every week.",
                 country_active: "Live",
-                country_soon: "Coming soon",
                 prox_argentina: "Argentina",
                 prox_argentina_cities: "Buenos Aires, Bariloche",
                 prox_italia: "Italy",
-                prox_italia_cities: "Rome, Florence",
+                prox_italia_cities: "Rome, Naples",
                 evolucion_label: "Evolution",
                 evolucion_title: "What's coming next... What else do you imagine?",
                 cultural_agenda_title: "Cultural Menu with Events Calendar",
@@ -1647,6 +1670,8 @@
                 faq3_a: "It's not mandatory (the app can sound through your phone's speaker if you're walking in the countryside), but we strongly recommend using them. The \"whisper in the ear\" effect in the middle of the city creates that historical immersion that makes us unique.",
                 faq4_q: "Is there a cost to use the App?",
                 faq4_a: "Those who install and participate in the Beta get the stories for free. The only \"cost\" is your opinion: after you visit sites using the app, we'll ask you to answer a brief survey to understand what you liked and what we should improve.",
+                faq5_q: "Is YouGuide accessible for blind or low-vision users?",
+                faq5_a: "Yes: YouGuide is designed accessibility-first. Automatic geolocation-triggered narration works entirely through audio, with no need to look at the screen or touch the phone, so blind or low-vision travelers can explore a city and get the same information as any other user.",
                 circulo_title: "Be part of the YouGuide <span class='gradient-text'>Inner Circle</span>",
                 circulo_desc: "We want you to be among the first <span class='text-white font-semibold'>1,000 users in Argentina</span> to test this technology before the global launch.",
                 circulo_magia: "How does the magic work?",
@@ -1666,7 +1691,7 @@
                 contacto_title: "Let's talk about <span class='gradient-text'>Tourism, History, and AI</span>",
                 contacto_desc: "Have questions, tourism partnerships, suggestions, or want YouGuide to land in your city? Let's talk!",
                 contacto_email_btn: "Send Email",
-                footer_copy: "© 2026 YouGuide. Your premium travel guide to Argentina.",
+                footer_copy: "© 2026 YouGuide. Your premium travel guide across 6 countries.",
                 footer_warning: "YouGuide is a Beta phase application. The APK is distributed directly and is not available on the Google Play Store. <br />All mentioned brands and names belong to their respective owners.",
                 btn_ver_todas: "View all cities",
                 btn_ver_menos: "Show less"
@@ -1678,14 +1703,14 @@
                 nav_faq: "FAQ",
                 nav_contacto: "Contato",
                 nav_download: "Baixar Beta",
-                hero_badge: "Beta Aberto — Argentina",
+                hero_badge: "Beta Aberto — 6 Países",
                 hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>A história em seus ouvidos</span>",
                 hero_subtitle: "E se as cidades pudessem falar ao seu ouvido? 🎧✨<br /> Caminhe. Ouça. Descubra. <span class='text-white font-semibold'>Sem tocar no seu celular.</span>",
                 hero_download_btn: "BAIXAR APK GRATUITO (BETA)",
                 hero_learn_more: "Saiba mais",
                 hero_android_only: "*No momento, disponível apenas para dispositivos Android.",
-                hero_testers: "Testers ativos explorando toda a Argentina",
-                hero_differentiator: "🌎 O app de audioguias automáticas com maior cobertura na Argentina: 608 sítios em 89 cidades.",
+                hero_testers: "Testers ativos explorando 6 países",
+                hero_differentiator: "🎧 Projetado accessibility-first para pessoas cegas e com baixa visão — com mais de 1000 sítios em 269 cidades de 6 países.",
                 propuesta_label: "Nossa Proposta",
                 propuesta_title: "Não é apenas mais um app de mapas.<br /> É o seu <span class='gradient-text'>novo sentido</span> para explorar.",
                 propuesta_card1_text: "YouGuide não é apenas mais um app de mapas; é o seu novo sentido para explorar o mundo. Esqueça caminhar olhando para uma tela ou ler cartazes chatos sob o sol. Nossa <span class='text-white font-semibold'>tecnologia de áudio automático por proximidade</span> detecta onde você está e narra a história secreta, o fato curioso ou a lenda oculta do lugar exatamente quando você está diante dele.",
@@ -1704,8 +1729,8 @@
                 step3_title: "3. Ouça",
                 step3_desc: "Você ouvirá um \"ding!\" assim que caminhar perto do local e a história curada começará automaticamente.",
                 ciudades_label: "Cobertura Atual",
-                ciudades_title: "🏙️ Junte-se à <span class='gradient-text'>Revolução do Turismo</span><br /> em Argentina",
-                ciudades_desc: "Já estamos operacionais com <span class='text-white font-semibold'>608 sítios e 89 cidades</span> em <span class='text-white font-semibold'>toda a Argentina</span>, incluindo os pontos mais icônicos de:",
+                ciudades_title: "🏙️ Junte-se à <span class='gradient-text'>Revolução do Turismo</span><br /> em 6 Países",
+                ciudades_desc: "Já estamos operacionais com <span class='text-white font-semibold'>1000+ sítios e 269 cidades</span> em <span class='text-white font-semibold'>Argentina, Brasil, Chile, Itália, Peru e Uruguai</span>, incluindo os pontos mais icônicos de:",
                 city_active: "Ativa",
                 city_tandil_sub: "Deixe a Pedra Movediza contar seu segredo.",
                 city_azul_sub: "Descubra a potência do Art Déco de Salamone.",
@@ -1722,16 +1747,15 @@
                 city_sierra_sub: "Explore os vãos da história nas serras mais antigas.",
                 city_malvinas: "Ilhas Malvinas",
                 city_malvinas_sub: "Memória, soberania e paisagens emocionantes no Atlântico Sul.",
-                ciudades_footer: "<span class='text-accent font-semibold'>...e outras 77 cidades da Argentina.</span> De Salta e El Calafate a Ushuaia e Mendoza.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...e outras 263 cidades em 6 países.</span> De Salta e El Calafate a Roma, Cusco e Rio de Janeiro.",
                 expansion_label: "Novidade 2026",
-                expansion_title: "Argentina hoje, <span class='gradient-text'>6 países</span> no mapa",
-                expansion_desc: "Começamos pela Argentina, com 608 sítios em 89 cidades. Nossa missão não tem fronteiras: em 2026 somamos novos países ao app.",
+                expansion_title: "Já estamos em <span class='gradient-text'>6 países</span>",
+                expansion_desc: "Nossa missão não tem fronteiras: já levamos histórias ao seu ouvido pela América do Sul e Europa, somando novas cidades toda semana.",
                 country_active: "Ativo",
-                country_soon: "Em breve",
                 prox_argentina: "Argentina",
                 prox_argentina_cities: "Buenos Aires, Bariloche",
                 prox_italia: "Itália",
-                prox_italia_cities: "Roma, Florença",
+                prox_italia_cities: "Roma, Nápoles",
                 evolucion_label: "Evolução",
                 evolucion_title: "O que vem por aí... O que mais você imagina?",
                 cultural_agenda_title: "Menu Cultural com Agenda",
@@ -1760,6 +1784,8 @@
                 faq3_a: "Não é obrigatório (o app pode soar pelo alto-falante do telefone se estiver caminhando no campo), mas recomendamos enfaticamente usá-los. O efeito de \"sussurro ao ouvido\" no meio da cidade gera aquela imersão histórica que nos torna únicos.",
                 faq4_q: "Tem custo para usar o App?",
                 faq4_a: "Quem instala e participa do Beta tem as histórias gratuitas. O único \"custo\" é sua opinião: após visitar locais usando o app, pediremos que responda a uma breve pesquisa para entender o que gostou e o que devemos melhorar.",
+                faq5_q: "O YouGuide é acessível para pessoas cegas ou com baixa visão?",
+                faq5_a: "Sim: o YouGuide foi projetado accessibility-first. A narração automática por geolocalização funciona 100% por áudio, sem necessidade de olhar para a tela ou tocar no celular, permitindo que pessoas cegas ou com baixa visão explorem uma cidade e recebam a mesma informação que qualquer outro usuário.",
                 circulo_title: "Faça parte do <span class='gradient-text'>Círculo Íntimo</span> da YouGuide",
                 circulo_desc: "Queremos que você seja um dos primeiros <span class='text-white font-semibold'>1.000 usuários na Argentina</span> a testar esta tecnologia antes do lançamento global.",
                 circulo_magia: "Como funciona a magia?",
@@ -1779,7 +1805,7 @@
                 contacto_title: "Falemos de <span class='gradient-text'>Turismo, História e IA</span>",
                 contacto_desc: "Tem dúvidas, parcerias turísticas, sugestões ou quer que a YouGuide chegue à sua cidade? Falemos!",
                 contacto_email_btn: "Enviar Email",
-                footer_copy: "© 2026 YouGuide. Seu guia turístico premium da Argentina.",
+                footer_copy: "© 2026 YouGuide. Seu guia turístico premium em 6 países.",
                 footer_warning: "YouGuide é um aplicativo em fase Beta. O APK é distribuído diretamente e não está disponível na Google Play Store. <br />Todas as marcas e nomes mencionados pertencentem aos seus respectivos donos.",
                 btn_ver_todas: "Ver todas as cidades",
                 btn_ver_menos: "Ver menos"
@@ -1791,14 +1817,14 @@
                 nav_faq: "FAQ",
                 nav_contacto: "Contact",
                 nav_download: "Télécharger Beta",
-                hero_badge: "Bêta Ouverte — Argentine",
+                hero_badge: "Bêta Ouverte — 6 Pays",
                 hero_title: "YouGuide : <br class='sm:hidden' /> <span class='gradient-text'>L'histoire dans vos oreilles</span>",
                 hero_subtitle: "Et si les villes pouvaient vous chuchoter à l'oreille ? 🎧✨<br /> Marchez. Écoutez. Découvrez. <span class='text-white font-semibold'>Sans toucher votre téléphone.</span>",
                 hero_download_btn: "TÉLÉCHARGER L'APK GRATUIT (BETA)",
                 hero_learn_more: "En savoir plus",
                 hero_android_only: "*Pour le moment, disponible uniquement pour les appareils Android.",
-                hero_testers: "Testeurs actifs explorant toute l'Argentine",
-                hero_differentiator: "🌎 L'appli d'audioguides automatiques avec la plus large couverture en Argentine : 608 sites dans 89 villes.",
+                hero_testers: "Testeurs actifs explorant 6 pays",
+                hero_differentiator: "🎧 Conçue accessibility-first pour les personnes aveugles et malvoyantes — avec plus de 1000 sites dans 269 villes de 6 pays.",
                 propuesta_label: "Notre Proposition",
                 propuesta_title: "Ce n'est pas une autre application de cartes.<br /> C'est votre <span class='gradient-text'>nouveau sens</span> pour explorer.",
                 propuesta_card1_text: "YouGuide n'est pas une autre application de cartes ; c'est votre nouveau sens pour explorer le monde. Oubliez de marcher en regardant un écran ou de lire des panneaux ennuyeux sous le soleil. Notre <span class='text-white font-semibold'>technologie audio automatique de proximité</span> détecte où vous êtes et vous raconte l'histoire secrète, le fait curieux ou la légende cachée du lieu juste au moment où vous êtes devant lui.",
@@ -1817,8 +1843,8 @@
                 step3_title: "3. Écoutez",
                 step3_desc: "Vous entendrez un \"ding !\" dès que vous marcherez près du site et l'histoire sélectionnée commencera automatiquement.",
                 ciudades_label: "Couverture Actuelle",
-                ciudades_title: "🏙️ Rejoignez la <span class='gradient-text'>Révolution du Tourisme</span><br /> en Argentine",
-                ciudades_desc: "Nous sommes déjà opérationnels avec <span class='text-white font-semibold'>608 sites et 89 villes</span> en <span class='text-white font-semibold'>Argentine</span>, y compris les points les plus emblématiques de :",
+                ciudades_title: "🏙️ Rejoignez la <span class='gradient-text'>Révolution du Tourisme</span><br /> dans 6 Pays",
+                ciudades_desc: "Nous sommes déjà opérationnels avec <span class='text-white font-semibold'>plus de 1000 sites et 269 villes</span> en <span class='text-white font-semibold'>Argentine, au Brésil, au Chili, en Italie, au Pérou et en Uruguay</span>, y compris les points les plus emblématiques de :",
                 city_active: "Active",
                 city_tandil_sub: "Laissez la Pierre Mouvante vous raconter son secret.",
                 city_azul_sub: "Découvrez la puissance de l'Art Déco de Salamone.",
@@ -1835,16 +1861,15 @@
                 city_sierra_sub: "Explorez les lacunes de l'histoire dans les montagnes les plus anciennes.",
                 city_malvinas: "Îles Malouines",
                 city_malvinas_sub: "Mémoire, souveraineté et paysages époustouflants dans l'Atlantique Sud.",
-                ciudades_footer: "<span class='text-accent font-semibold'>...et 77 autres villes en Argentine.</span> De Salta et El Calafate à Ushuaia et Mendoza.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...et 263 autres villes dans 6 pays.</span> De Salta et El Calafate à Rome, Cusco et Rio de Janeiro.",
                 expansion_label: "Nouveauté 2026",
-                expansion_title: "L'Argentine aujourd'hui, <span class='gradient-text'>6 pays</span> en vue",
-                expansion_desc: "Nous commençons par l'Argentine, avec 608 sites dans 89 villes. Notre mission n'a pas de frontières : en 2026 nous ajoutons de nouveaux pays à l'appli.",
+                expansion_title: "Nous sommes maintenant présents dans <span class='gradient-text'>6 pays</span>",
+                expansion_desc: "Notre mission n'a pas de frontières : nous racontons déjà des histoires en Amérique du Sud et en Europe, avec de nouvelles villes chaque semaine.",
                 country_active: "Actif",
-                country_soon: "Bientôt disponible",
                 prox_argentina: "Argentine",
                 prox_argentina_cities: "Buenos Aires, Bariloche",
                 prox_italia: "Italie",
-                prox_italia_cities: "Rome, Florence",
+                prox_italia_cities: "Rome, Naples",
                 evolucion_label: "Évolution",
                 evolucion_title: "Ce qui arrive... Qu'imaginez-vous d'autre ?",
                 cultural_agenda_title: "Menu Culturel avec Agenda",
@@ -1873,6 +1898,8 @@
                 faq3_a: "Ce n'est pas obligatoire (l'appli peut sonner par le haut-parleur de votre téléphone si vous marchez à la campagne), mais nous vous recommandons vivement de les utiliser. L'effet de \"chuchotement à l'oreille\" en pleine ville crée cette immersion historique qui nous rend uniques.",
                 faq4_q: "L'utilisation de l'appli est-elle payante ?",
                 faq4_a: "Ceux qui installent et participent à la Bêta ont accès aux récits gratuitement. Le seul \"coût\" est votre avis : après avoir visité des sites avec l'appli, nous vous demanderons de répondre à un court sondage pour comprendre ce qui vous a plu et ce que nous devons améliorer.",
+                faq5_q: "YouGuide est-elle accessible aux personnes aveugles ou malvoyantes ?",
+                faq5_a: "Oui : YouGuide est conçue accessibility-first. La narration automatique déclenchée par géolocalisation fonctionne entièrement par audio, sans besoin de regarder l'écran ni de toucher le téléphone, ce qui permet aux personnes aveugles ou malvoyantes d'explorer une ville et de recevoir les mêmes informations que n'importe quel autre utilisateur.",
                 circulo_title: "Faites partie du <span class='gradient-text'>Cercle Intime</span> de YouGuide",
                 circulo_desc: "Nous voulons que vous soyez parmi les <span class='text-white font-semibold'>1 000 premiers utilisateurs en Argentine</span> à tester cette technologie avant le lancement mondial.",
                 circulo_magia: "Comment fonctionne la magie ?",
@@ -1890,7 +1917,7 @@
                 contacto_title: "Parlons de <span class='gradient-text'>Tourisme, d'Histoire et d'IA</span>",
                 contacto_desc: "Vous avez des questions, des partenariats touristiques, des suggestions ou vous voulez que YouGuide débarque dans votre ville ? Parlons-en !",
                 contacto_email_btn: "Envoyer un Email",
-                footer_copy: "© 2026 YouGuide. Votre guide touristique premium en Argentine.",
+                footer_copy: "© 2026 YouGuide. Votre guide touristique premium dans 6 pays.",
                 footer_warning: "YouGuide est une application en phase Bêta. L'APK est distribué directement et n'est pas disponible sur le Google Play Store. <br />Toutes les marques et noms mentionnés appartiennent à leurs propriétaires respectifs.",
                 btn_ver_todas: "Voir toutes les villes",
                 btn_ver_menos: "Voir moins"
@@ -1902,14 +1929,14 @@
                 nav_faq: "FAQ",
                 nav_contacto: "Kontakt",
                 nav_download: "Beta herunterladen",
-                hero_badge: "Offene Beta — Argentinien",
+                hero_badge: "Offene Beta — 6 Länder",
                 hero_title: "YouGuide: <br class='sm:hidden' /> <span class='gradient-text'>Die Geschichte in deinen Ohren</span>",
                 hero_subtitle: "Was wäre, wenn Städte dir ins Ohr flüstern könnten? 🎧✨<br /> Gehen. Hören. Entdecken. <span class='text-white font-semibold'>Ohne dein Handy zu berühren.</span>",
                 hero_download_btn: "KOSTENLOSE APK HERUNTERLADEN (BETA)",
                 hero_learn_more: "Mehr erfahren",
                 hero_android_only: "*Derzeit nur für Android-Geräte verfügbar.",
-                hero_testers: "Aktive Tester erkunden ganz Argentinien",
-                hero_differentiator: "🌎 Die App für automatische Audioguides mit der größten Abdeckung in Argentinien: 608 Standorte in 89 Städten.",
+                hero_testers: "Aktive Tester erkunden 6 Länder",
+                hero_differentiator: "🎧 Accessibility-first konzipiert für blinde und sehbehinderte Reisende — mit über 1000 Standorten in 269 Städten in 6 Ländern.",
                 propuesta_label: "Unser Vorschlag",
                 propuesta_title: "Nicht nur eine weitere Karten-App.<br /> Es ist dein <span class='gradient-text'>neuer Sinn</span> zum Erkunden.",
                 propuesta_card1_text: "YouGuide ist nicht nur eine weitere Karten-App; es ist dein neuer Sinn für die Erkundung der Welt. Vergiss das Gehen, während du auf einen Bildschirm starrst oder langweilige Schilder in der Sonne liest. Unsere <span class='text-white font-semibold'>proximitätsbasierte automatische Audiotechnologie</span> erkennt, wo du bist, und erzählt dir die geheime Geschichte, die kuriose Tatsache oder die verborgene Legende des Ortes genau dann, wenn du davor stehst.",
@@ -1928,8 +1955,8 @@
                 step3_title: "3. Hören",
                 step3_desc: "Du hörst ein \"Ding!\", sobald du in der Nähe des Ortes gehst, und die kuratierte Geschichte beginnt automatisch.",
                 ciudades_label: "Aktuelle Abdeckung",
-                ciudades_title: "🏙️ Tritt der <span class='gradient-text'>Tourismus-Revolution</span><br /> in Argentinien bei",
-                ciudades_desc: "Wir sind bereits mit <span class='text-white font-semibold'>608 Standorten und 89 Städten</span> in <span class='text-white font-semibold'>ganz Argentinien</span> tätig, einschließlich der ikonischsten Punkte in:",
+                ciudades_title: "🏙️ Tritt der <span class='gradient-text'>Tourismus-Revolution</span><br /> in 6 Ländern bei",
+                ciudades_desc: "Wir sind bereits mit <span class='text-white font-semibold'>über 1000 Standorten und 269 Städten</span> in <span class='text-white font-semibold'>Argentinien, Brasilien, Chile, Italien, Peru und Uruguay</span> tätig, einschließlich der ikonischsten Punkte in:",
                 city_active: "Aktiv",
                 city_tandil_sub: "Lass den Beweglichen Stein dir sein Geheimnis erzählen.",
                 city_azul_sub: "Entdecke die Kraft des Art Déco von Salamone.",
@@ -1946,16 +1973,15 @@
                 city_sierra_sub: "Erkunde die Lücken der Geschichte in den ältesten Bergen.",
                 city_malvinas: "Malvinas-Inseln",
                 city_malvinas_sub: "Erinnerung, Souveränität und atemberaubende Landschaften im Südatlantik.",
-                ciudades_footer: "<span class='text-accent font-semibold'>...und 77 weitere Städte in Argentinien.</span> Von Salta und El Calafate bis Ushuaia und Mendoza.",
+                ciudades_footer: "<span class='text-accent font-semibold'>...und 263 weitere Städte in 6 Ländern.</span> Von Salta und El Calafate bis Rom, Cusco und Rio de Janeiro.",
                 expansion_label: "Neuigkeit 2026",
-                expansion_title: "Argentinien heute, <span class='gradient-text'>6 Länder</span> im Visier",
-                expansion_desc: "Wir starten mit Argentinien, mit 608 Standorten in 89 Städten. Unsere Mission kennt keine Grenzen: 2026 fügen wir der App neue Länder hinzu.",
+                expansion_title: "Wir sind jetzt in <span class='gradient-text'>6 Ländern</span> aktiv",
+                expansion_desc: "Unsere Mission kennt keine Grenzen: Wir bringen bereits Geschichten in Südamerika und Europa an deine Ohren und fügen jede Woche neue Städte hinzu.",
                 country_active: "Aktiv",
-                country_soon: "Bald verfügbar",
                 prox_argentina: "Argentinien",
                 prox_argentina_cities: "Buenos Aires, Bariloche",
                 prox_italia: "Italien",
-                prox_italia_cities: "Rom, Florenz",
+                prox_italia_cities: "Rom, Neapel",
                 evolucion_label: "Entwicklung",
                 evolucion_title: "Was als nächstes kommt... Was stellst du dir noch vor?",
                 cultural_agenda_title: "Kultureller Veranstaltungskalender",
@@ -1984,6 +2010,8 @@
                 faq3_a: "Es ist nicht zwingend erforderlich (die App kann über den Lautsprecher deines Telefons klingen, wenn du auf dem Land spazieren gehst), aber wir empfehlen dringend, sie zu verwenden. Der \"Flüstern-ins-Ohr\"-Effekt mitten in der Stadt erzeugt jenes historische Eintauchen, das uns einzigartig macht.",
                 faq4_q: "Ist die Nutzung der App kostenpflichtig?",
                 faq4_a: "Diejenigen, die die Beta installieren und daran teilnehmen, erhalten die Geschichten kostenlos. Die einzigen \"Kosten\" sind deine Meinung: Nachdem du Orte mit der App besucht hast, bitten wir dich, eine kurze Umfrage zu beantworten, um zu verstehen, was dir gefallen hat und was wir verbessern sollten.",
+                faq5_q: "Ist YouGuide für blinde oder sehbehinderte Menschen zugänglich?",
+                faq5_a: "Ja: YouGuide wurde accessibility-first entwickelt. Die automatische, standortbasierte Erzählung funktioniert vollständig über Audio, ohne dass man auf den Bildschirm schauen oder das Telefon berühren muss, sodass blinde oder sehbehinderte Reisende eine Stadt erkunden und dieselben Informationen wie jeder andere Nutzer erhalten können.",
                 circulo_title: "Werde Teil des YouGuide <span class='gradient-text'>Inneren Zirkels</span>",
                 circulo_desc: "Wir möchten, dass du zu den ersten <span class='text-white font-semibold'>1.000 Nutzern in Argentinien</span> gehörst, die diese Technologie vor dem weltweiten Start testen.",
                 circulo_magia: "Wie funktioniert die Magie?",
@@ -2001,7 +2029,7 @@
                 contacto_title: "Lass uns über <span class='gradient-text'>Tourismus, Geschichte und KI</span> sprechen",
                 contacto_desc: "Hast du Fragen, Tourismus-Partnerschaften, Vorschläge oder möchtest du, dass YouGuide in deiner Stadt landet? Lass uns reden!",
                 contacto_email_btn: "E-Mail senden",
-                footer_copy: "© 2026 YouGuide. Dein Premium-Reiseführer für Argentinien.",
+                footer_copy: "© 2026 YouGuide. Dein Premium-Reiseführer für 6 Länder.",
                 footer_warning: "YouGuide ist eine Anwendung in der Beta-Phase. Die APK wird direkt verteilt und ist nicht im Google Play Store verfügbar. <br />Alle genannten Marken und Namen gehören ihren jeweiligen Eigentümern.",
                 btn_ver_todas: "Alle Städte anzeigen",
                 btn_ver_menos: "Weniger anzeigen"
