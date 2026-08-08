@@ -43,7 +43,7 @@ export default function handler(req, res) {
   const routeDescription = "Descubre esta increíble ruta guiada en YouGuide. Abre la app o descárgala para comenzar la aventura.";
   
   // URL de imagen real del proyecto para Open Graph y UI
-  const logoUrl = "https://youguide.vercel.app/logo.png";
+  const logoUrl = "https://youguide.com.ar/logo.png";
   
   // Identificador seguro para el clipboard/referrer (Lógica interna)
   const deferredPayload = `route_${id}`;

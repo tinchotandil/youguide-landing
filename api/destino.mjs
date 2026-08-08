@@ -28,8 +28,8 @@ export default function handler(req, res) {
 
   const title = `Qué hacer en ${nombre} | Audioguía YouGuide`;
   const description = `Descubrí ${cantidad_sitios} puntos turísticos en ${nombre}, como ${sitio1} y ${sitio2}. Descargá la app y escuchá la historia mientras caminás.`;
-  const url = `https://youguide.vercel.app/destinos/${ciudad}`;
-  const logoUrl = "https://youguide.vercel.app/logo.png";
+  const url = `https://youguide.com.ar/destinos/${ciudad}`;
+  const logoUrl = "https://youguide.com.ar/logo.png";
 
   const schemaMarkup = {
     "@context": "https://schema.org",

@@ -34,7 +34,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.clarity.ms https://cdn.tailwindcss.com https://us.i.posthog.com https://us-assets.i.posthog.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://tinchotandil-youguide.vercel.app https://www.clarity.ms; connect-src 'self' https://www.google-analytics.com https://*.clarity.ms https://us.i.posthog.com; frame-src 'self';"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.clarity.ms https://cdn.tailwindcss.com https://us.i.posthog.com https://us-assets.i.posthog.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.clarity.ms; connect-src 'self' https://www.google-analytics.com https://*.clarity.ms https://us.i.posthog.com; frame-src 'self';"
         },
         {
           "key": "X-Frame-Options",
