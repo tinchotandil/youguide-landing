@@ -7,24 +7,9 @@
     <title>Política de Privacidad | YouGuide</title>
     <meta name="description" content="Política de Privacidad de YouGuide. Información sobre cómo protegemos tus datos y geolocalización." />
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        deep: { 900: '#0b1120', 800: '#0f172a', 700: '#1e293b', 600: '#334155' },
-                        accent: { DEFAULT: '#00D1B2', light: '#34d9c3', dark: '#00b89c' },
-                        ocean: { DEFAULT: '#2563eb', light: '#3b82f6', dark: '#1d4ed8' },
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        display: ['Outfit', 'Inter', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    </script>
+    <!-- Antes: Tailwind CDN compilando en el navegador. Ahora: CSS ya compilado (mismo archivo
+         que index.html; ver ese archivo para el detalle del cambio). -->
+    <link rel="stylesheet" href="tailwind-built.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

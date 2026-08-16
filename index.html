@@ -53,52 +53,25 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://youguide.com.ar/" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        deep: { 900: '#0b1120', 800: '#0f172a', 700: '#1e293b', 600: '#334155' },
-                        accent: { DEFAULT: '#00D1B2', light: '#34d9c3', dark: '#00b89c' },
-                        ocean: { DEFAULT: '#2563eb', light: '#3b82f6', dark: '#1d4ed8' },
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        display: ['Outfit', 'Inter', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'fade-up': 'fadeUp 0.8s ease-out forwards',
-                        'fade-up-delay': 'fadeUp 0.8s ease-out 0.2s forwards',
-                        'fade-up-delay2': 'fadeUp 0.8s ease-out 0.4s forwards',
-                        'slide-in-right': 'slideInRight 0.6s ease-out forwards',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-12px)' },
-                        },
-                        fadeUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        slideInRight: {
-                            '0%': { opacity: '0', transform: 'translateX(40px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' },
-                        },
-                    },
-                },
-            },
-        }
-    </script>
+    <!-- Antes: <script src="https://cdn.tailwindcss.com"> compilando en el navegador (124 KiB,
+         780ms, bloqueaba el render — Tailwind mismo desaconseja el CDN en producción).
+         Ahora: CSS ya compilado y purgado (24 KiB) como un <link> más. -->
+    <link rel="stylesheet" href="tailwind-built.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://us.i.posthog.com" />
+    <!-- Fuentes en carga no bloqueante (preload + swap a "all" en el onload) -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
+        rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet" />
+    </noscript>
 
     <style>
         /* Custom scrollbar */
@@ -533,7 +506,7 @@
 
     <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0">
-            <img src="img/buenosaires.png" alt="Obelisco de Buenos Aires" class="w-full h-full object-cover"
+            <img src="img/buenosaires.webp" alt="Obelisco de Buenos Aires" class="w-full h-full object-cover"
                 loading="eager" />
             <div class="hero-overlay absolute inset-0"></div>
         </div>
@@ -768,7 +741,7 @@
             <div id="cities-grid" class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 md:gap-5">
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/tandil">
-                    <img src="img/tandil.png" alt="Sierras de Tandil"
+                    <img src="img/tandil.webp" alt="Sierras de Tandil"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -785,7 +758,7 @@
                 </a>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/azul">
-                    <img src="img/azul.png" alt="Arquitectura Art Déco de Salamone en Azul"
+                    <img src="img/azul.webp" alt="Arquitectura Art Déco de Salamone en Azul"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -802,7 +775,7 @@
                 </a>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/buenos-aires">
-                    <img src="img/buenosaires.png" alt="Obelisco de Buenos Aires"
+                    <img src="img/buenosaires.webp" alt="Obelisco de Buenos Aires"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -819,7 +792,7 @@
                 </a>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/mar-del-plata">
-                    <img src="img/mardelplata.png" alt="Costa de Mar del Plata"
+                    <img src="img/mardelplata.webp" alt="Costa de Mar del Plata"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -836,7 +809,7 @@
                 </a>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/jujuy">
-                    <img src="img/jujuy.png" alt="Cerro de los Siete Colores, Jujuy"
+                    <img src="img/jujuy.webp" alt="Cerro de los Siete Colores, Jujuy"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -853,7 +826,7 @@
                 </a>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/cordoba">
-                    <img src="img/cordoba.png" alt="Sierras de Córdoba"
+                    <img src="img/cordoba.webp" alt="Sierras de Córdoba"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -870,7 +843,7 @@
                 </a>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/rosario">
-                    <img src="img/rosario.png" alt="Monumento a la Bandera, Rosario"
+                    <img src="img/rosario.webp" alt="Monumento a la Bandera, Rosario"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -887,7 +860,7 @@
                 </a>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/bariloche">
-                    <img src="img/bariloche.png" alt="Lagos y montañas de Bariloche"
+                    <img src="img/bariloche.webp" alt="Lagos y montañas de Bariloche"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -904,7 +877,7 @@
                 </a>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/catamarca">
-                    <img src="img/catamarca.png" alt="Paisajes de Catamarca"
+                    <img src="img/catamarca.webp" alt="Paisajes de Catamarca"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -921,7 +894,7 @@
                 </a>
 
                 <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
-                    <img src="img/misiones.png" alt="Cataratas del Iguazú, Misiones"
+                    <img src="img/misiones.webp" alt="Cataratas del Iguazú, Misiones"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -938,7 +911,7 @@
                 </div>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/la-rioja">
-                    <img src="img/larioja.png" alt="Talampaya, La Rioja"
+                    <img src="img/larioja.webp" alt="Talampaya, La Rioja"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -955,7 +928,7 @@
                 </a>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/ushuaia">
-                    <img src="img/ushuaia.png" alt="Faro del Fin del Mundo, Ushuaia"
+                    <img src="img/ushuaia.webp" alt="Faro del Fin del Mundo, Ushuaia"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -972,7 +945,7 @@
                 </a>
 
                 <a class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80 block" href="/destinos/sierra-de-la-ventana">
-                    <img src="img/sierraventana.png" alt="Sierra de la Ventana"
+                    <img src="img/sierraventana.webp" alt="Sierra de la Ventana"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -988,7 +961,7 @@
                     </div>
                 </a>
                 <div class="city-card reveal group rounded-2xl md:rounded-3xl overflow-hidden relative h-48 sm:h-80">
-                    <img src="img/malvinas.png" alt="Paisaje de las Islas Malvinas"
+                    <img src="img/malvinas.webp" alt="Paisaje de las Islas Malvinas"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy" />
                     <div
@@ -2239,8 +2212,16 @@
             }
         });
 
-        // Inicializar y escuchar cambios de tamaño
-        window.addEventListener('resize', updateCitiesVisibility);
+        // Inicializar y escuchar cambios de tamaño (throttled con rAF: updateCitiesVisibility
+        // lee window.innerWidth, que puede forzar un reflow síncrono si se llama en cada
+        // evento de resize sin agrupar los llamados en un mismo frame).
+        let resizeTicking = false;
+        window.addEventListener('resize', () => {
+            if (!resizeTicking) {
+                requestAnimationFrame(() => { updateCitiesVisibility(); resizeTicking = false; });
+                resizeTicking = true;
+            }
+        }, { passive: true });
         updateCitiesVisibility();
     </script>
 
