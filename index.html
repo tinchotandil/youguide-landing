@@ -164,12 +164,15 @@
             width: 20%;
             height: 200%;
             background: rgba(255, 255, 255, 0.15);
-            transform: rotate(25deg);
-            transition: left 0.6s ease;
+            /* Antes animaba `left` (fuerza layout/paint en cada frame — lo que
+               Lighthouse marca como "animación no compuesta"). translateX() logra
+               el mismo barrido visual pero corre en el compositor (GPU). */
+            transform: rotate(25deg) translateX(0%);
+            transition: transform 0.6s ease;
         }
 
         .btn-shine:hover::after {
-            left: 120%;
+            transform: rotate(25deg) translateX(900%);
         }
 
         /* Section reveal animation */
@@ -1422,7 +1425,7 @@
                         <span class="text-xl">🎧</span>
                         <span class="font-display font-bold text-lg">You<span class="text-accent">Guide</span></span>
                     </a>
-                    <p class="text-gray-500 text-sm" data-i18n="footer_copy">© 2026 YouGuide. Tu guía premium de Argentina.</p>
+                    <p class="text-gray-400 text-sm" data-i18n="footer_copy">© 2026 YouGuide. Tu guía premium de Argentina.</p>
                 </div>
 
                 <div class="flex items-center gap-8">
@@ -1433,8 +1436,8 @@
                 </div>
 
                 <div class="flex items-center gap-6">
-                    <a href="/privacy" class="text-gray-500 hover:text-accent text-xs transition-colors" data-i18n="nav_privacy">Política de Privacidad</a>
-                    <a href="/terms" class="text-gray-500 hover:text-accent text-xs transition-colors" data-i18n="nav_terms">Términos y Condiciones</a>
+                    <a href="/privacy" class="text-gray-400 hover:text-accent text-xs transition-colors" data-i18n="nav_privacy">Política de Privacidad</a>
+                    <a href="/terms" class="text-gray-400 hover:text-accent text-xs transition-colors" data-i18n="nav_terms">Términos y Condiciones</a>
                 </div>
 
                 <div class="flex items-center gap-4">
@@ -1450,7 +1453,7 @@
             </div>
 
             <div class="mt-10 pt-6 border-t border-white/5 text-center">
-                <p class="text-gray-600 text-xs" data-i18n="footer_warning">
+                <p class="text-gray-400 text-xs" data-i18n="footer_warning">
                     YouGuide es una aplicación en fase Beta. El APK se distribuye directamente y no está disponible en
                     Google Play Store.
                     <br />Todas las marcas y nombres mencionados pertenecen a sus respectivos dueños.
