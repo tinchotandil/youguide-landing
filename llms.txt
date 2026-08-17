@@ -24,10 +24,10 @@ YouGuide cubre actualmente 1247 sitios turísticos, 313 ciudades y 113 tours gui
 - Próxima funcionalidad: Menú Cultural con Agenda de eventos, Guías Comunitarias moderadas por IA
 
 ## Páginas
-- [Landing principal](https://youguide.com.ar/): propuesta de valor, cobertura por país/ciudad, cómo funciona, descarga del APK
-- [Páginas por ciudad](https://youguide.com.ar/destinos/): qué hacer y qué sitios recorrer en cada una de las 89 ciudades argentinas ya publicadas (ej. /destinos/tandil, /destinos/bariloche, /destinos/mendoza)
-- [Política de Privacidad](https://youguide.com.ar/privacy.html)
-- [Términos y Condiciones](https://youguide.com.ar/terms.html)
+- [Landing principal](https://www.youguide.com.ar/): propuesta de valor, cobertura por país/ciudad, cómo funciona, descarga del APK
+- [Páginas por ciudad](https://www.youguide.com.ar/destinos/): qué hacer y qué sitios recorrer en cada una de las 89 ciudades argentinas ya publicadas (ej. /destinos/tandil, /destinos/bariloche, /destinos/mendoza)
+- [Política de Privacidad](https://www.youguide.com.ar/privacy.html)
+- [Términos y Condiciones](https://www.youguide.com.ar/terms.html)
 
 ## Redes
 - Instagram: https://www.instagram.com/youguide.ar/

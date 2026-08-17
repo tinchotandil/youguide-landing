@@ -13,7 +13,7 @@ export default function handler(req, res) {
     return res.status(500).send('Error generating sitemap.');
   }
 
-  const baseUrl = 'https://youguide.com.ar';
+  const baseUrl = 'https://www.youguide.com.ar';
   const currentDate = new Date().toISOString();
 
   // Create sitemap XML

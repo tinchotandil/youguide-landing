@@ -131,8 +131,8 @@ export default function handler(req, res) {
   const description = `Descubrí ${cantidad_sitios} ${puntoTuristicoN} en ${nombre}, como ${ejemplosSitios}. Descargá la app y escuchá la historia mientras caminás.`;
   // Párrafo largo y citable para el cuerpo de la página y el schema (GEO).
   const longDescription = buildLongDescription(cityData);
-  const url = `https://youguide.com.ar/destinos/${ciudad}`;
-  const logoUrl = "https://youguide.com.ar/logo.png";
+  const url = `https://www.youguide.com.ar/destinos/${ciudad}`;
+  const logoUrl = "https://www.youguide.com.ar/logo.png";
 
   const schemaMarkup = {
     "@context": "https://schema.org",

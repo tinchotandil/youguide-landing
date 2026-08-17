@@ -26,4 +26,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://youguide.com.ar/sitemap.xml
+Sitemap: https://www.youguide.com.ar/sitemap.xml
